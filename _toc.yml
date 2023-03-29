@@ -1,0 +1,16 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: index
+options:
+  numbered: true
+chapters:
+- file: notebooks/ML_processing/1_EDA
+- file: notebooks/ML_processing/1_Imbalance_data_handling
+- file: notebooks/ML_processing/1_Statistics
+- file: notebooks/ML_processing/2_Feature_engineering
+- file: notebooks/ML_processing/3_Feature_selection_and_decomposition
+- file: notebooks/ML_processing/4_ML_Algorithms
+- file: notebooks/ML_processing/5_Evaluation_metrics
+- file: notebooks/ML_processing/6_Models_monitoring_production
