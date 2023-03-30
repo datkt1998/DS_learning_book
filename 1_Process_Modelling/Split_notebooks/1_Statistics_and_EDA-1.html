@@ -1,0 +1,910 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>2.2. Explore data analysis (EDA) &#8212; Machine Learning book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '1_Process_Modelling/Split_notebooks/1_Statistics_and_EDA-1';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2.3. Description statistic" href="1_Statistics_and_EDA-2.html" />
+    <link rel="prev" title="2.1. Read datasets" href="1_Statistics_and_EDA-0.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../_jupyter_book_files/intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../_jupyter_book_files/intro.html">
+                    Welcome to Dat’s Notebook
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Process Modelling</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="0_toc_imb.html">1. Imbalance Dataset Handling</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_Imbalance_data_handling-1.html">1.1. Order of rebalance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Imbalance_data_handling-2.html">1.2. Data-level approaches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Imbalance_data_handling-3.html">1.3. Cost sensitive approaches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Imbalance_data_handling-4.html">1.4. Ensemble approaches</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="0_toc_eda.html">2. Statistic and EDA</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-0.html">2.1. Read datasets</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.2. Explore data analysis (EDA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-2.html">2.3. Description statistic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-3.html">2.4. Inferential statistic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-4.html">2.5. Hypothesis testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-5.html">2.6. ANOVA</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="0_toc_fe.html">3. Feature Engineering</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-1.html">3.1. Feature extraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-2.html">3.2. Variable Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-3.html">3.3. Missing Imputation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-4.html">3.4. Categorical Encoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-5.html">3.5. Feature transformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-6.html">3.6. Discretisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-7.html">3.7. Outliers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-8.html">3.8. Feature scaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-9.html">3.9. Feature selection</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="0_toc_fs.html">4. Feature Selection</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_Feature_selection_and_decomposition-1.html">4.1. Filter methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Feature_selection_and_decomposition-2.html">4.2. Wrapped methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Feature_selection_and_decomposition-3.html">4.3. Embedded methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Feature_selection_and_decomposition-4.html">4.4. Hybrid methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Feature_selection_and_decomposition-5.html">4.5. Feature decomposition</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="0_toc_eva.html">5. Evaluation Metrics</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="5_Evaluation_metrics-0.html">5.1. Define scorer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Evaluation_metrics-1.html">5.2. Classification metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Evaluation_metrics-2.html">5.3. Regression metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Evaluation_metrics-3.html">5.4. Clustering metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Evaluation_metrics-4.html">5.5. Pairwise metrics</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/datkt1998/DS_learning_book" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/1_Process_Modelling/Split_notebooks/1_Statistics_and_EDA-1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Explore data analysis (EDA)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistic-report-table">2.2.1. Statistic report table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataprep-report">2.2.2. Dataprep report</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-report">2.2.2.1. create_report</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-distributions-and-statistics">2.2.2.2. plot() - distributions and statistics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-correlations-with-plot-correlation">2.2.2.3. Analyze correlations with plot_correlation()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-value">2.2.2.4. missing value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-difference-with-plot-diff">2.2.2.5. Analyze difference with plot_diff()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-sql-with-connectorx">2.2.2.6. read_sql with ConnectorX</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="explore-data-analysis-eda">
+<h1><span class="section-number">2.2. </span>Explore data analysis (EDA)<a class="headerlink" href="#explore-data-analysis-eda" title="Permalink to this heading">#</a></h1>
+<section id="statistic-report-table">
+<h2><span class="section-number">2.2.1. </span>Statistic report table<a class="headerlink" href="#statistic-report-table" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">math</span><span class="o">,</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+<span class="c1"># some settings for displaying Pandas results</span>
+<span class="c1"># pd.set_option(&#39;display.width&#39;, 2000)</span>
+<span class="c1"># pd.set_option(&#39;display.max_rows&#39;, 500)</span>
+<span class="c1"># pd.set_option(&#39;display.max_columns&#39;, 500)</span>
+<span class="c1"># pd.set_option(&#39;display.precision&#39;, 4)</span>
+<span class="c1"># pd.set_option(&#39;display.max_colwidth&#39;, -1)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">exploring_stats</span><span class="p">(</span><span class="n">pdf_input</span><span class="p">):</span>
+    <span class="c1"># check rows, cols</span>
+    <span class="n">total_records</span><span class="p">,</span> <span class="n">total_columns</span> <span class="o">=</span> <span class="n">pdf_input</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">pdf_input</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total </span><span class="si">{</span><span class="n">total_records</span><span class="si">}</span><span class="s2"> records, </span><span class="si">{</span><span class="n">total_columns</span><span class="si">}</span><span class="s2"> columns&quot;</span><span class="p">)</span>
+
+    <span class="c1"># check dtypes</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">sub_type</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">pdf_input</span><span class="o">.</span><span class="n">dtypes</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+        <span class="n">name</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="n">sub_type</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+    <span class="c1"># check distinct</span>
+    <span class="n">ls_ndist</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">cname</span> <span class="ow">in</span> <span class="n">pdf_input</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="n">ndist</span> <span class="o">=</span> <span class="n">pdf_input</span><span class="p">[</span><span class="n">cname</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+        <span class="n">pct_dist</span> <span class="o">=</span> <span class="n">ndist</span> <span class="o">*</span> <span class="mf">100.0</span> <span class="o">/</span> <span class="n">total_records</span>
+        <span class="n">ls_ndist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> (</span><span class="si">{:0.2f}</span><span class="s2">%)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ndist</span><span class="p">,</span> <span class="n">pct_dist</span><span class="p">))</span>
+
+    <span class="c1"># check missing</span>
+    <span class="n">ls_nmiss</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">cname</span> <span class="ow">in</span> <span class="n">pdf_input</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="n">nmiss</span> <span class="o">=</span> <span class="n">pdf_input</span><span class="p">[</span><span class="n">cname</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">pct_miss</span> <span class="o">=</span> <span class="n">nmiss</span> <span class="o">*</span> <span class="mf">100.0</span> <span class="o">/</span> <span class="n">total_records</span>
+        <span class="n">ls_nmiss</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> (</span><span class="si">{:0.2f}</span><span class="s2">%)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nmiss</span><span class="p">,</span> <span class="n">pct_miss</span><span class="p">))</span>
+
+    <span class="c1"># check zeros</span>
+    <span class="n">ls_zeros</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">cname</span> <span class="ow">in</span> <span class="n">pdf_input</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">nzeros</span> <span class="o">=</span> <span class="p">(</span><span class="n">pdf_input</span><span class="p">[</span><span class="n">cname</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+            <span class="n">pct_zeros</span> <span class="o">=</span> <span class="n">nzeros</span> <span class="o">*</span> <span class="mf">100.0</span> <span class="o">/</span> <span class="n">total_records</span>
+            <span class="n">ls_zeros</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> (</span><span class="si">{:0.2f}</span><span class="s2">%)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nzeros</span><span class="p">,</span> <span class="n">pct_zeros</span><span class="p">))</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">ls_zeros</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> (</span><span class="si">{:0.2f}</span><span class="s2">%)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+            <span class="k">continue</span>
+
+    <span class="c1"># check negative</span>
+    <span class="n">ls_neg</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">cname</span> <span class="ow">in</span> <span class="n">pdf_input</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">nneg</span> <span class="o">=</span> <span class="p">(</span><span class="n">pdf_input</span><span class="p">[</span><span class="n">cname</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float&quot;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+            <span class="n">pct_neg</span> <span class="o">=</span> <span class="n">nneg</span> <span class="o">*</span> <span class="mf">100.0</span> <span class="o">/</span> <span class="n">total_records</span>
+            <span class="n">ls_neg</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> (</span><span class="si">{:0.2f}</span><span class="s2">%)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nneg</span><span class="p">,</span> <span class="n">pct_neg</span><span class="p">))</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">ls_neg</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> (</span><span class="si">{:0.2f}</span><span class="s2">%)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+            <span class="k">continue</span>
+
+    <span class="c1"># prepare output</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+        <span class="s2">&quot;sub_type&quot;</span><span class="p">:</span> <span class="n">sub_type</span><span class="p">,</span>
+        <span class="s2">&quot;n_distinct&quot;</span><span class="p">:</span> <span class="n">ls_ndist</span><span class="p">,</span>
+        <span class="s2">&quot;n_miss&quot;</span><span class="p">:</span> <span class="n">ls_nmiss</span><span class="p">,</span>
+        <span class="s2">&quot;n_zeros&quot;</span><span class="p">:</span> <span class="n">ls_zeros</span><span class="p">,</span>
+        <span class="s2">&quot;n_negative&quot;</span><span class="p">:</span> <span class="n">ls_neg</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="c1"># check stats</span>
+    <span class="n">pdf_stats</span> <span class="o">=</span> <span class="n">pdf_input</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+    <span class="n">ls_stats</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">stat</span> <span class="ow">in</span> <span class="n">pdf_stats</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="n">data</span><span class="p">[</span><span class="n">stat</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">cname</span> <span class="ow">in</span> <span class="n">pdf_input</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">data</span><span class="p">[</span><span class="n">stat</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pdf_stats</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cname</span><span class="p">,</span> <span class="n">stat</span><span class="p">])</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="n">data</span><span class="p">[</span><span class="n">stat</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+
+    <span class="c1"># take samples</span>
+    <span class="n">nsample</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">pdf_sample</span> <span class="o">=</span> <span class="n">pdf_input</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">nsample</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+    <span class="n">pdf_sample</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;sample_</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nsample</span><span class="p">)]</span>
+
+    <span class="c1"># output</span>
+    <span class="n">col_ordered</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;sub_type&quot;</span><span class="p">,</span> <span class="s2">&quot;n_distinct&quot;</span><span class="p">,</span> <span class="s2">&quot;n_miss&quot;</span><span class="p">,</span> <span class="s2">&quot;n_negative&quot;</span><span class="p">,</span> <span class="s2">&quot;n_zeros&quot;</span><span class="p">,</span>
+                   <span class="s2">&quot;25%&quot;</span><span class="p">,</span> <span class="s2">&quot;50%&quot;</span><span class="p">,</span> <span class="s2">&quot;75%&quot;</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">,</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="s2">&quot;std&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">pdf_sample</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+    <span class="n">pdf_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>
+    <span class="n">pdf_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pdf_data</span><span class="p">,</span> <span class="n">pdf_sample</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">pdf_data</span> <span class="o">=</span> <span class="n">pdf_data</span><span class="p">[</span><span class="n">col_ordered</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">pdf_data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">export_rp_wb</span><span class="p">(</span><span class="n">li_dfs</span><span class="p">,</span> <span class="n">li_names</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">output_dir</span> <span class="o">=</span> <span class="s1">&#39;Outputs/data_statistic_report.xlsx&#39;</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">pd</span><span class="o">.</span><span class="n">ExcelWriter</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span> <span class="k">as</span> <span class="n">writer</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">df</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">li_dfs</span><span class="p">,</span> <span class="n">li_names</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot;: &quot;</span><span class="p">)</span>
+            <span class="n">rp</span> <span class="o">=</span> <span class="n">exploring_stats</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+            <span class="n">rp</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>    
+
+<span class="k">def</span> <span class="nf">export_rp_wb</span><span class="p">(</span><span class="n">input_dfs_dir</span><span class="p">,</span> <span class="n">output_dir</span> <span class="o">=</span> <span class="s1">&#39;Outputs/data_statistic_report.xlsx&#39;</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">pd</span><span class="o">.</span><span class="n">ExcelWriter</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span> <span class="k">as</span> <span class="n">writer</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">input_dfs_dir</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot;: &quot;</span><span class="p">)</span>
+            <span class="n">rp</span> <span class="o">=</span> <span class="n">exploring_stats</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+            <span class="n">rp</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="dataprep-report">
+<h2><span class="section-number">2.2.2. </span>Dataprep report<a class="headerlink" href="#dataprep-report" title="Permalink to this heading">#</a></h2>
+<section id="create-report">
+<h3><span class="section-number">2.2.2.1. </span>create_report<a class="headerlink" href="#create-report" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataprep.eda</span> <span class="kn">import</span> <span class="n">create_report</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataprep.eda</span> <span class="kn">import</span> <span class="n">create_report</span>
+<span class="c1"># create_report(df.convert_dtypes())</span>
+<span class="c1"># xem report</span>
+<span class="n">create_report</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">convert_dtypes</span><span class="p">())</span><span class="o">.</span><span class="n">show_browser</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dask with large data</span>
+<span class="kn">from</span> <span class="nn">dataprep.eda</span> <span class="kn">import</span> <span class="n">create_report</span>
+<span class="n">create_report</span><span class="p">(</span><span class="n">df_dask</span><span class="p">)</span><span class="o">.</span><span class="n">show_browser</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_meta</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="n">c</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> 
+                        <span class="p">[(</span><span class="s1">&#39;report_date&#39;</span><span class="p">,</span><span class="nb">int</span><span class="p">),(</span><span class="s1">&#39;brandname&#39;</span><span class="p">,</span><span class="nb">str</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;month&#39;</span><span class="p">,</span><span class="nb">str</span><span class="p">)</span> <span class="p">,(</span><span class="s1">&#39;template_id&#39;</span><span class="p">,</span><span class="nb">str</span><span class="p">)</span> <span class="p">,(</span><span class="s1">&#39;tenkh&#39;</span><span class="p">,</span><span class="nb">str</span><span class="p">)</span> <span class="p">,</span>
+                         <span class="p">(</span><span class="s1">&#39;makh&#39;</span><span class="p">,</span><span class="nb">str</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;kythongbao&#39;</span><span class="p">,</span><span class="nb">str</span><span class="p">)</span> <span class="p">,(</span><span class="s1">&#39;som3&#39;</span><span class="p">,</span> <span class="nb">float</span><span class="p">),(</span><span class="s1">&#39;sotien&#39;</span><span class="p">,</span> <span class="nb">float</span><span class="p">),(</span><span class="s1">&#39;diachi&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">),]})</span>
+
+<span class="n">conn_Str</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;oracle+cx_oracle://score:Vmg102021@192.168.18.32:1521/?service_name=score&#39;</span>
+
+<span class="n">df_oracle</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s1">&#39;BRANDNAME_WATER_BILL_OVERDUE&#39;</span><span class="p">,</span> <span class="n">conn_Str</span> <span class="p">,</span><span class="n">index_col</span><span class="o">=</span> <span class="s1">&#39;user_id&#39;</span><span class="p">,</span> <span class="n">meta</span> <span class="o">=</span> <span class="n">df_meta</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_oracle</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">create_report</span><span class="p">(</span><span class="n">df_oracle</span><span class="p">)</span><span class="o">.</span><span class="n">show_browser</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sqlalchemy</span> <span class="k">as</span> <span class="nn">sa</span>
+<span class="n">sqluri</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;oracle+cx_oracle://score:Vmg102021@192.168.18.32:1521/?service_name=score&#39;</span>
+<span class="n">engine</span> <span class="o">=</span> <span class="n">sa</span><span class="o">.</span><span class="n">create_engine</span><span class="p">(</span><span class="n">sqluri</span><span class="p">)</span>
+<span class="n">df_meta</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="n">c</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="p">[(</span><span class="s1">&#39;month&#39;</span><span class="p">,</span><span class="nb">str</span><span class="p">)</span> <span class="p">,</span> <span class="p">(</span><span class="s1">&#39;makh&#39;</span><span class="p">,</span><span class="nb">str</span><span class="p">),(</span><span class="s1">&#39;sotien&#39;</span><span class="p">,</span> <span class="nb">float</span><span class="p">)]})</span>
+<span class="n">sa_meta</span> <span class="o">=</span> <span class="n">sa</span><span class="o">.</span><span class="n">MetaData</span><span class="p">()</span>
+<span class="n">sa_table</span> <span class="o">=</span> <span class="n">sa</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="s2">&quot;BRANDNAME_WATER_BILL_OVERDUE&quot;</span><span class="p">,</span> <span class="n">sa_meta</span><span class="p">,</span> <span class="n">autoload</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">autoload_with</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
+<span class="n">sa_query</span> <span class="o">=</span> <span class="n">sa</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="n">sa_table</span><span class="p">])</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">sa_table</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="s2">&quot;202008&quot;</span><span class="p">)</span>
+<span class="n">sa_columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">sa_table</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="n">sa_table</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">makh</span><span class="p">,</span> <span class="n">sa_table</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">sotien</span><span class="p">]</span>
+
+
+<span class="n">df_oracle</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">read_sql_table</span><span class="p">(</span><span class="n">sa_query</span><span class="p">,</span> <span class="n">sqluri</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s2">&quot;user_id&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">sa_columns</span><span class="p">,</span> <span class="n">meta</span> <span class="o">=</span> <span class="n">df_meta</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">create_report</span><span class="p">(</span><span class="n">df_oracle</span><span class="p">)</span><span class="o">.</span><span class="n">show_browser</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dataprep.connector</span> <span class="k">as</span> <span class="nn">cx</span>
+<span class="n">conn_str</span> <span class="o">=</span> <span class="s2">&quot;sqlite:///D:/INFO.db&quot;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">cx</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">conn_str</span><span class="p">,</span><span class="s1">&#39;select * from DTTSD_TELCO_INFO limit 1000000&#39;</span><span class="p">,</span><span class="n">return_type</span> <span class="o">=</span> <span class="s1">&#39;dask&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plot-distributions-and-statistics">
+<h3><span class="section-number">2.2.2.2. </span>plot() - distributions and statistics<a class="headerlink" href="#plot-distributions-and-statistics" title="Permalink to this heading">#</a></h3>
+<p>The function plot() explores the distributions and statistics of the dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataprep</span> <span class="kn">import</span> <span class="n">eda</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## plot(df): plots the distribution of each column</span>
+<span class="n">eda</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot(df, x): plots the distribution of column x in various ways and calculates column statistics</span>
+<span class="n">eda</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;GENDER&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ACTIVE_DATE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ACTIVE_DATE&#39;</span><span class="p">],</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">infer_datetime_format</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">eda</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;ACTIVE_DATE&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot(df, x, y): generates plots depicting the relationship between columns x and y</span>
+<span class="n">eda</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;ACTIVE_DATE&#39;</span><span class="p">,</span><span class="s1">&#39;BILL_TOTAL&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eda</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;GENDER&#39;</span><span class="p">,</span> <span class="s1">&#39;BILL_TOTAL&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="analyze-correlations-with-plot-correlation">
+<h3><span class="section-number">2.2.2.3. </span>Analyze correlations with plot_correlation()<a class="headerlink" href="#analyze-correlations-with-plot-correlation" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eda</span><span class="o">.</span><span class="n">plot_correlation</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eda</span><span class="o">.</span><span class="n">plot_correlation</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;LL_THOAI&#39;</span><span class="p">,)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eda</span><span class="o">.</span><span class="n">plot_correlation</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;BILL_TOTAL&#39;</span><span class="p">,</span> <span class="s1">&#39;LL_THOAI&#39;</span><span class="p">,</span><span class="n">config</span> <span class="o">=</span><span class="p">{</span><span class="s1">&#39;scatter.sample_size&#39;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,}</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="missing-value">
+<h3><span class="section-number">2.2.2.4. </span>missing value<a class="headerlink" href="#missing-value" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eda</span><span class="o">.</span><span class="n">plot_missing</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eda</span><span class="o">.</span><span class="n">plot_missing</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;GENDER&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eda</span><span class="o">.</span><span class="n">plot_missing</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;GENDER&#39;</span><span class="p">,</span> <span class="s1">&#39;BILL_TOTAL&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="analyze-difference-with-plot-diff">
+<h3><span class="section-number">2.2.2.5. </span>Analyze difference with plot_diff()<a class="headerlink" href="#analyze-difference-with-plot-diff" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_train</span><span class="p">,</span> <span class="n">df_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">train_size</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eda</span><span class="o">.</span><span class="n">plot_diff</span><span class="p">([</span><span class="n">df_train</span><span class="p">,</span> <span class="n">df_test</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="read-sql-with-connectorx">
+<h3><span class="section-number">2.2.2.6. </span>read_sql with ConnectorX<a class="headerlink" href="#read-sql-with-connectorx" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataprep.connector</span> <span class="kn">import</span> <span class="n">read_sql</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="n">db</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;sqlite:///E:/4. Score/LEAD.db&#39;</span>
+<span class="c1"># read_sql(db,&#39;select * from VMGLEAD_SYNC where ID_CARD = \&#39;126756472\&#39; &#39;)</span>
+<span class="n">read_sql</span><span class="p">(</span><span class="n">db</span><span class="p">,</span><span class="s1">&#39;select * from VMGLEAD_SYNC where ID_CARD = </span><span class="se">\&#39;</span><span class="s1">030087000004</span><span class="se">\&#39;</span><span class="s1"> &#39;</span><span class="p">,</span> <span class="n">partition_num</span> <span class="o">=</span> <span class="mi">8</span><span class="p">)</span>
+<span class="c1"># read_sql(db,&#39;select * from VMGLEAD_SYNC limit 10 &#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="n">db</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;sqlite:///E:/4. Score/LEAD.db&#39;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">read_sql</span><span class="p">(</span><span class="n">db</span><span class="p">,</span><span class="s1">&#39;select * from VMGLEAD_SYNC where RISK_SCORE &gt; 400 &#39;</span><span class="p">,</span> <span class="n">partition_num</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span><span class="n">partition_on</span><span class="o">=</span><span class="s2">&quot;RISK_SCORE&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="kn">import</span> <span class="nn">sqlite3</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;sqlite:///E:/4. Score/LEAD.db&#39;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s1">&#39;select * from VMGLEAD_SYNC where RISK_SCORE &gt; 400 &#39;</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataprep.eda</span> <span class="kn">import</span> <span class="n">create_db_report</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataprep.eda</span> <span class="kn">import</span> <span class="n">create_db_report</span>
+<span class="kn">from</span> <span class="nn">dataprep.datasets</span> <span class="kn">import</span> <span class="n">load_db</span>
+<span class="n">db_engine</span> <span class="o">=</span> <span class="n">load_db</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;sqlite:///E:/4. Score/LEAD.db&#39;</span><span class="p">)</span>
+<span class="n">create_db_report</span><span class="p">(</span><span class="n">db_engine</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./1_Process_Modelling/Split_notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="1_Statistics_and_EDA-0.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2.1. </span>Read datasets</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="1_Statistics_and_EDA-2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2.3. </span>Description statistic</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistic-report-table">2.2.1. Statistic report table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataprep-report">2.2.2. Dataprep report</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-report">2.2.2.1. create_report</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-distributions-and-statistics">2.2.2.2. plot() - distributions and statistics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-correlations-with-plot-correlation">2.2.2.3. Analyze correlations with plot_correlation()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-value">2.2.2.4. missing value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-difference-with-plot-diff">2.2.2.5. Analyze difference with plot_diff()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-sql-with-connectorx">2.2.2.6. read_sql with ConnectorX</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Khổng Tiến Đạt
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
