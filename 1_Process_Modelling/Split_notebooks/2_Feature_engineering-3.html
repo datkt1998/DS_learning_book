@@ -411,17 +411,26 @@ document.write(`
 </ul>
 <p><strong>3. Missing Imputation Techniques use by datatypes:</strong></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Numerical</span></code> Variables:</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Numerical</span></code> Variables:</p>
+<ul>
 <li><p>Mean/median imputation</p></li>
 <li><p>Arbitrary value imputation</p></li>
 <li><p>End of tail imputation</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Categorical</span></code> Variables:</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Categorical</span></code> Variables:</p>
+<ul>
 <li><p>Frequent category</p></li>
 <li><p>Adding new “missing” category</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Both</span></code>:</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Both</span></code>:</p>
+<ul>
 <li><p>Complete Case Analysis</p></li>
 <li><p>Adding new “missing” category</p></li>
 <li><p>Random sample imputation</p></li>
+</ul>
+</li>
 </ul>
 <p><strong>4. Missing Imputation Techniques comparation:</strong></p>
 <table class="table">
@@ -489,17 +498,29 @@ document.write(`
 <p><strong>5. When to use ?</strong></p>
 <ul class="simple">
 <li><p>Prefer using <code class="docutils literal notranslate"><span class="pre">multivariate</span> <span class="pre">imputation</span></code> than <code class="docutils literal notranslate"><span class="pre">univariate</span> <span class="pre">imputation</span></code>, using <code class="docutils literal notranslate"><span class="pre">common</span> <span class="pre">guideline</span></code> than <code class="docutils literal notranslate"><span class="pre">Exceptions</span> <span class="pre">guideline</span></code></p></li>
-<li><p>Common guideline:</p></li>
-<li><p>If missing-rate &lt; 5%:</p></li>
+<li><p>Common guideline:</p>
+<ul>
+<li><p>If missing-rate &lt; 5%:</p>
+<ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">Numeric</span></code> : use <code class="docutils literal notranslate"><span class="pre">mean</span></code>/<code class="docutils literal notranslate"><span class="pre">median</span></code> or <code class="docutils literal notranslate"><span class="pre">random</span> <span class="pre">sample</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Category</span></code>: use <code class="docutils literal notranslate"><span class="pre">most</span> <span class="pre">frequent</span> <span class="pre">category</span></code> or <code class="docutils literal notranslate"><span class="pre">random</span> <span class="pre">sample</span></code></p></li>
-<li><p>If missing-rate &gt; 5%:</p></li>
+</ul>
+</li>
+<li><p>If missing-rate &gt; 5%:</p>
+<ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">Numeric</span></code> : use <code class="docutils literal notranslate"><span class="pre">mean</span></code>/<code class="docutils literal notranslate"><span class="pre">median</span></code> + <code class="docutils literal notranslate"><span class="pre">missing</span> <span class="pre">indicator</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Category</span></code>: use <code class="docutils literal notranslate"><span class="pre">missing</span> <span class="pre">category</span></code> label</p></li>
+</ul>
+</li>
 <li><p>Check the missing-value has a value of prediction (có tác dụng dự đoán), if they has, add ‘missing indicator’, if not, replacing thêm with the most frequent values</p></li>
-<li><p>Exceptions to the guideline: If data is not MAR and dont want to attribute the most common occurrence to the missing values. Or dont want to increase the feature space:</p></li>
+</ul>
+</li>
+<li><p>Exceptions to the guideline: If data is not MAR and dont want to attribute the most common occurrence to the missing values. Or dont want to increase the feature space:</p>
+<ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">Numeric</span></code> : use <code class="docutils literal notranslate"><span class="pre">arbitrary</span></code> or <code class="docutils literal notranslate"><span class="pre">endtail</span> <span class="pre">distribution</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Category</span></code>: use <code class="docutils literal notranslate"><span class="pre">arbitrary</span></code> or <code class="docutils literal notranslate"><span class="pre">missing</span> <span class="pre">category</span></code> label</p></li>
+</ul>
+</li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2819,9 +2840,12 @@ dtype: int64
 <section id="arbitrary-value-imputation">
 <h2><span class="section-number">3.3.3. </span>Arbitrary value imputation<a class="headerlink" href="#arbitrary-value-imputation" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Replacing all missing values with specific value (arbitrary value):</p></li>
+<li><p>Replacing all missing values with specific value (arbitrary value):</p>
+<ul>
 <li><p>For numeric: 0, 999, -999 or -1 (if distribution is positive)</p></li>
 <li><p>For category: New label ‘missing’</p></li>
+</ul>
+</li>
 <li><p>Assumptions: Data is not MAR - missing at random, prefer Arbitrary instead of mean/median imputation</p></li>
 </ul>
 <p><strong>1. Advantages</strong></p>
@@ -3038,13 +3062,19 @@ dtype: int64
 <ul class="simple">
 <li><p>Flagging the NA value with a missing indicator (new binaty feature) that indicates whether the data was missing (1) or not (0), use for bot <code class="docutils literal notranslate"><span class="pre">category</span></code> and <code class="docutils literal notranslate"><span class="pre">numeric</span></code></p></li>
 <li><p>If data was missing is MAR, fillna imputation will captured and if it’s wasn’t, this would be capture by missing indicator</p></li>
-<li><p>Missing indicator is never used along, it is always used together with another imputation technique. Commonly used together:</p></li>
+<li><p>Missing indicator is never used along, it is always used together with another imputation technique. Commonly used together:</p>
+<ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">Mean/median</span> <span class="pre">imputation</span></code> + <code class="docutils literal notranslate"><span class="pre">missing</span> <span class="pre">indicator</span></code> (Numerical variables)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Frequent</span> <span class="pre">category</span> <span class="pre">imputation</span></code> + <code class="docutils literal notranslate"><span class="pre">missing</span> <span class="pre">indicator</span></code> (categorical variables)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Random</span> <span class="pre">sample</span> <span class="pre">imputation</span></code> + <code class="docutils literal notranslate"><span class="pre">missing</span> <span class="pre">indicator</span></code> (numerical and categorical)</p></li>
-<li><p>Assumptions:</p></li>
+</ul>
+</li>
+<li><p>Assumptions:</p>
+<ul>
 <li><p>Data is not MAR</p></li>
 <li><p>Missing data is predictive</p></li>
+</ul>
+</li>
 </ul>
 <p><strong>1. Advantages</strong></p>
 <ul class="simple">
@@ -3316,9 +3346,12 @@ dtype: int64
 </ul>
 <p><strong>1. Challenge</strong></p>
 <ul class="simple">
-<li><p>Find the optimal K parameter, that are apply to all variables that use KNN imputation</p></li>
+<li><p>Find the optimal K parameter, that are apply to all variables that use KNN imputation</p>
+<ul>
 <li><p>Spend time to tunning K</p></li>
 <li><p>Same K will be used to impute all variables</p></li>
+</ul>
+</li>
 <li><p>If we want to predict more accurately as possible the values of the missing data, then, we would use the KNN imputer, we would build individual KNN algorithms to predict 1 variable from the remaining ones</p></li>
 <li><p>KNN imputation can be sensitive to outliers, as it relies on the values of the nearest neighbors</p></li>
 <li><p>KNN imputation can be biased towards the majority class in the dataset, as it uses the values of the majority class to fill in the missing values.</p></li>
