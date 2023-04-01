@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>2.4. Inferential statistic &#8212; Machine Learning book</title>
+    <title>2.4. Description statistic &#8212; Machine Learning book</title>
   
   
   
@@ -61,13 +61,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '1_Process_Modelling/Split_notebooks/1_Statistics_and_EDA-3';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="2.5. Hypothesis testing" href="1_Statistics_and_EDA-4.html" />
-    <link rel="prev" title="2.3. Description statistic" href="1_Statistics_and_EDA-2.html" />
+    <link rel="next" title="2.5. Inferential statistic" href="1_Statistics_and_EDA-4.html" />
+    <link rel="prev" title="2.3. Explore data analysis (EDA)" href="1_Statistics_and_EDA-2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -168,12 +166,12 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="0_toc_eda.html">2. Statistic and EDA</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-0.html">2.1. Read datasets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-1.html">2.2. Explore data analysis (EDA)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-2.html">2.3. Description statistic</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.4. Inferential statistic</a></li>
-<li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-4.html">2.5. Hypothesis testing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-5.html">2.6. ANOVA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-0.html">2.1. Data Analyst Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-1.html">2.2. Read datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-2.html">2.3. Explore data analysis (EDA)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.4. Description statistic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-4.html">2.5. Inferential statistic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-5.html">2.6. Kiểm định giả thuyết (Hypothesis testing)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="0_toc_fe.html">3. Feature Engineering</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -342,9 +340,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -355,20 +351,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Inferential statistic</h1>
+    <h1>Description statistic</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sai-so-chuan-standard-error">2.4.1. Sai số chuẩn (Standard error)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cach-tinh-khoang-tin-cay">2.4.2. Cách tính khoảng tin cậy</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -378,116 +365,415 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="inferential-statistic">
-<h1><span class="section-number">2.4. </span>Inferential statistic<a class="headerlink" href="#inferential-statistic" title="Permalink to this heading">#</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import libraries</span>
-<span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">scipy.stats</span>
+  <section class="tex2jax_ignore mathjax_ignore" id="description-statistic">
+<h1><span class="section-number">2.4. </span>Description statistic<a class="headerlink" href="#description-statistic" title="Permalink to this heading">#</a></h1>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- Nomial : categorical without order
+- Numbers
+- Odinal: categorical with order
+- Ratio
 </pre></div>
 </div>
-</div>
-</div>
-<section id="sai-so-chuan-standard-error">
-<h2><span class="section-number">2.4.1. </span>Sai số chuẩn (Standard error)<a class="headerlink" href="#sai-so-chuan-standard-error" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Ước lượng sai số dựa vào tỉ lệ (for proportion), thể hiện mức độ variance của sample với population
-$<span class="math notranslate nohighlight">\(\sigma_{\hat{p}} = \sqrt{\frac{p(1-p)}{n}}\)</span>$</p></li>
-</ul>
-</section>
-<section id="cach-tinh-khoang-tin-cay">
-<h2><span class="section-number">2.4.2. </span>Cách tính khoảng tin cậy<a class="headerlink" href="#cach-tinh-khoang-tin-cay" title="Permalink to this heading">#</a></h2>
-<div class="math notranslate nohighlight">
-\[proportionCI = \hat{p} \pm Zscore_{\alpha/2} * \frac{\sigma}{\sqrt{n}}\]</div>
-<div class="math notranslate nohighlight">
-\[meanCI = \bar{x} \pm Zscore_{\alpha/2} * \frac{\sigma}{\sqrt{n}}\]</div>
-<div class="math notranslate nohighlight">
-\[uperLimit = sampleParam + Zscore_{\alpha/2} * standardError\]</div>
-<div class="math notranslate nohighlight">
-\[lowerLimit = sampleParam - Zscore_{\alpha/2} * standardError\]</div>
-<p><strong>Bài toán: dự đoán khả năng trúng cử của ứng viên A so với ứng viên B với độ tin cậy là 95%</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># lấy mẫu 100 người</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
-
-<span class="c1"># ủng hộ ứng viên A là 55%</span>
-<span class="n">candidate_A_prop</span> <span class="o">=</span> <span class="mf">0.55</span>
-
-<span class="c1"># ủng hộ ứng viên B là 45%</span>
-<span class="n">candidate_B_prop</span> <span class="o">=</span> <span class="mf">0.45</span>
-
-<span class="c1"># tính Zscore cho ứng viên A với độ tin cậy là 95%</span>
-<span class="n">qnorm</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.975</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Z-score:&quot;</span><span class="p">,</span> <span class="n">qnorm</span><span class="p">)</span>
-
-<span class="c1"># calculate p hat</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">candidate_A_prop</span>
-<span class="n">std_err_prop</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Độ lỗi chuẩn cho tỉ lệ ủng hộ ứng viên A:&quot;</span><span class="p">,</span> <span class="n">std_err_prop</span><span class="p">)</span>
-
-<span class="c1"># calculate standard error of mean</span>
-<span class="n">std_of_means</span> <span class="o">=</span> <span class="n">std_err_prop</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Độ lỗi chuẩn cho tỉ lệ thu thập được:&quot;</span><span class="p">,</span> <span class="n">std_of_means</span><span class="p">)</span>
-
-<span class="c1"># calculate interval</span>
-<span class="n">upper_limit</span> <span class="o">=</span> <span class="n">candidate_A_prop</span> <span class="o">+</span> <span class="n">qnorm</span> <span class="o">*</span> <span class="n">std_of_means</span>
-<span class="n">lower_limit</span> <span class="o">=</span> <span class="n">candidate_A_prop</span> <span class="o">-</span> <span class="n">qnorm</span> <span class="o">*</span> <span class="n">std_of_means</span>
-<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Tỉ lệ ủng hộ chặn trên:&quot;</span><span class="p">,</span> <span class="n">upper_limit</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tỉ lệ ủng hộ chặn dưới:&quot;</span><span class="p">,</span> <span class="n">lower_limit</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nomial</span>
+<span class="n">df_nomial</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s2">&quot;Style&quot;</span><span class="p">,</span> <span class="s2">&quot;NeckLine&quot;</span><span class="p">,</span> <span class="s2">&quot;Material&quot;</span><span class="p">,</span> <span class="s2">&quot;Pattern Type&quot;</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_nomial</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+<span class="n">df_nomial</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Z-score: 1.959963984540054
-Độ lỗi chuẩn cho tỉ lệ ủng hộ ứng viên A: 0.049749371855330994
-Độ lỗi chuẩn cho tỉ lệ thu thập được: 0.0049749371855331
-Tỉ lệ ủng hộ chặn trên: 0.559750697708994
-Tỉ lệ ủng hộ chặn dưới: 0.5402493022910061
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         Style NeckLine Material Pattern Type
+count      500      497      372          391
+unique      13       16       23           14
+top     Casual   o-neck   cotton        solid
+freq       232      271      152          203
 </pre></div>
 </div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Style</th>
+      <th>NeckLine</th>
+      <th>Material</th>
+      <th>Pattern Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Sexy</td>
+      <td>o-neck</td>
+      <td>NaN</td>
+      <td>animal</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Casual</td>
+      <td>o-neck</td>
+      <td>microfiber</td>
+      <td>animal</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>vintage</td>
+      <td>o-neck</td>
+      <td>polyster</td>
+      <td>print</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Brief</td>
+      <td>o-neck</td>
+      <td>silk</td>
+      <td>print</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>cute</td>
+      <td>o-neck</td>
+      <td>chiffonfabric</td>
+      <td>dot</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
-</div>
-<p><strong>Bài toán: ước lượng thời gian trung bình (phút) một người chạy trong vòng 1km với độ tin cậy là 95%</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># thống kê thời gian các lượt chạy</span>
-<span class="n">list_run_time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="mf">11.3</span><span class="p">,</span> <span class="mf">10.3</span><span class="p">,</span> <span class="mf">9.6</span><span class="p">,</span> <span class="mf">9.1</span><span class="p">,</span> <span class="mf">8.9</span><span class="p">,</span> <span class="mf">8.9</span><span class="p">,</span> <span class="mf">8.1</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">,</span> <span class="mf">6.9</span><span class="p">])</span>
-<span class="n">sample_size</span> <span class="o">=</span> <span class="n">list_run_time</span><span class="o">.</span><span class="n">size</span>
-<span class="n">sample_mean</span> <span class="o">=</span> <span class="n">list_run_time</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">sample_std</span> <span class="o">=</span> <span class="n">list_run_time</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
-<span class="n">standard_err</span> <span class="o">=</span> <span class="n">sample_std</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sample_size</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Total runners:&quot;</span><span class="p">,</span> <span class="n">sample_size</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Sample mean:&quot;</span><span class="p">,</span> <span class="n">sample_mean</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Sample standard deviation:&quot;</span><span class="p">,</span> <span class="n">sample_std</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Standard/Sampling error:&quot;</span><span class="p">,</span> <span class="n">standard_err</span><span class="p">)</span>
-
-<span class="c1"># calculate interval</span>
-<span class="n">qnorm</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.975</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Z-score:&quot;</span><span class="p">,</span> <span class="n">qnorm</span><span class="p">)</span>
-<span class="n">upper_limit</span> <span class="o">=</span> <span class="n">sample_mean</span> <span class="o">+</span> <span class="n">qnorm</span> <span class="o">*</span> <span class="n">standard_err</span>
-<span class="n">lower_limit</span> <span class="o">=</span> <span class="n">sample_mean</span> <span class="o">-</span> <span class="n">qnorm</span> <span class="o">*</span> <span class="n">standard_err</span>
-<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Thời gian trung bình chặn trên:&quot;</span><span class="p">,</span> <span class="n">upper_limit</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Thời gian trung bình chặn dưới:&quot;</span><span class="p">,</span> <span class="n">lower_limit</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_spark</span><span class="p">[[</span><span class="s2">&quot;Style&quot;</span><span class="p">,</span> <span class="s2">&quot;NeckLine&quot;</span><span class="p">,</span> <span class="s2">&quot;Material&quot;</span><span class="p">,</span> <span class="s2">&quot;Pattern Type&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total runners: 9
-Sample mean: 8.955555555555556
-Sample standard deviation: 1.28332130826497
-Standard/Sampling error: 0.4277737694216566
-Z-score: 1.959963984540054
-Thời gian trung bình chặn trên: 9.793976737152944
-Thời gian trung bình chặn dưới: 8.117134373958168
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Stage 2:&gt;                                                          (0 + 1) / 1]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+-------+-----+--------+--------+------------+
+|summary|Style|NeckLine|Material|Pattern Type|
++-------+-----+--------+--------+------------+
+|  count|  500|     497|     372|         391|
+|   mean| null|    null|    null|        null|
+| stddev| null|    null|    null|        null|
+|    min|Brief|   Scoop| acrylic|      animal|
+|    max| work|  v-neck|    wool|     striped|
++-------+-----+--------+--------+------------+
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                                                
 </pre></div>
 </div>
 </div>
 </div>
-</section>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Numbers</span>
+<span class="n">df_numbers</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s2">&quot;Dress_ID&quot;</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_numbers</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+<span class="n">df_numbers</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>           Dress_ID
+count  5.000000e+02
+mean   9.055417e+08
+std    1.736190e+08
+min    4.442820e+08
+25%    7.673164e+08
+50%    9.083296e+08
+75%    1.039534e+09
+max    1.253973e+09
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Dress_ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1006032852</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1212192089</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1190380701</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>966005983</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>876339541</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ordinal</span>
+<span class="n">df_ordinal</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s2">&quot;Size&quot;</span><span class="p">,</span><span class="s1">&#39;Price&#39;</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_ordinal</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+<span class="n">df_ordinal</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       Size    Price
+count   500      498
+unique    7        7
+top       M  Average
+freq    177      252
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Size</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>M</td>
+      <td>Low</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>L</td>
+      <td>Low</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>L</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>L</td>
+      <td>Average</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>M</td>
+      <td>Low</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ratio</span>
+<span class="n">df_ratio</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s2">&quot;Rating&quot;</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_ratio</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+<span class="n">df_ratio</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>           Rating
+count  500.000000
+mean     3.528600
+std      2.005364
+min      0.000000
+25%      3.700000
+50%      4.600000
+75%      4.800000
+max      5.000000
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>4.6</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.6</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4.5</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_rating</span> <span class="o">=</span> <span class="n">df_ratio</span><span class="p">[</span><span class="s2">&quot;Rating&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">median_rating</span> <span class="o">=</span> <span class="n">df_ratio</span><span class="p">[</span><span class="s2">&quot;Rating&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="n">mode_rating</span> <span class="o">=</span> <span class="n">df_ratio</span><span class="p">[</span><span class="s2">&quot;Rating&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mode</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean rating:&quot;</span><span class="p">,</span> <span class="n">mean_rating</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Median rating:&quot;</span><span class="p">,</span> <span class="n">median_rating</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mode rating:&quot;</span><span class="p">,</span> <span class="n">mode_rating</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean rating: 3.5286
+Median rating: 4.6
+Mode rating: 0.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mean</span>
+<span class="n">mean_rating</span> <span class="o">=</span> <span class="n">df_spark</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">df_spark</span><span class="o">.</span><span class="n">Rating</span><span class="p">))</span><span class="o">.</span><span class="n">first</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># median</span>
+<span class="n">df_spark</span><span class="o">.</span><span class="n">createOrReplaceTempView</span><span class="p">(</span><span class="s2">&quot;df_spark&quot;</span><span class="p">)</span>
+<span class="n">median_rating</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    SELECT percentile(Rating, 0.5) AS median_rating </span>
+<span class="s2">    FROM df_spark</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()[</span><span class="s2">&quot;median_rating&quot;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Mean rating:&quot;</span><span class="p">,</span> <span class="n">mean_rating</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Median rating:&quot;</span><span class="p">,</span> <span class="n">median_rating</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean rating: 3.5285999937057495
+Median rating: 4.599999904632568
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># range of rating</span>
+<span class="n">min_rating</span> <span class="o">=</span> <span class="n">df_ratio</span><span class="p">[</span><span class="s2">&quot;Rating&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="n">max_rating</span> <span class="o">=</span> <span class="n">df_ratio</span><span class="p">[</span><span class="s2">&quot;Rating&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">range_rating</span> <span class="o">=</span> <span class="n">max_rating</span> <span class="o">-</span> <span class="n">min_rating</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Min rating:&quot;</span><span class="p">,</span> <span class="n">min_rating</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Max rating:&quot;</span><span class="p">,</span> <span class="n">max_rating</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Rating range:&quot;</span><span class="p">,</span> <span class="n">range_rating</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Min rating: 0.0
+Max rating: 5.0
+Rating range: 5.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># variance of rating</span>
+<span class="n">var_rating</span> <span class="o">=</span> <span class="n">df_ratio</span><span class="p">[</span><span class="s2">&quot;Rating&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">var</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Rating variance:&quot;</span><span class="p">,</span> <span class="n">var_rating</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rating variance: 4.02148501002004
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># standard deviation of rating</span>
+<span class="n">std_rating</span> <span class="o">=</span> <span class="n">df_ratio</span><span class="p">[</span><span class="s2">&quot;Rating&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Rating standard deviation:&quot;</span><span class="p">,</span> <span class="n">std_rating</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rating standard deviation: 2.0053640592221753
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -524,7 +810,7 @@ Thời gian trung bình chặn dưới: 8.117134373958168
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2.3. </span>Description statistic</p>
+        <p class="prev-next-title"><span class="section-number">2.3. </span>Explore data analysis (EDA)</p>
       </div>
     </a>
     <a class="right-next"
@@ -532,7 +818,7 @@ Thời gian trung bình chặn dưới: 8.117134373958168
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2.5. </span>Hypothesis testing</p>
+        <p class="prev-next-title"><span class="section-number">2.5. </span>Inferential statistic</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -542,21 +828,6 @@ Thời gian trung bình chặn dưới: 8.117134373958168
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sai-so-chuan-standard-error">2.4.1. Sai số chuẩn (Standard error)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cach-tinh-khoang-tin-cay">2.4.2. Cách tính khoảng tin cậy</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

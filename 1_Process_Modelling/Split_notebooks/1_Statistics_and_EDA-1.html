@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>2.2. Explore data analysis (EDA) &#8212; Machine Learning book</title>
+    <title>2.2. Read datasets &#8212; Machine Learning book</title>
   
   
   
@@ -64,8 +64,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = '1_Process_Modelling/Split_notebooks/1_Statistics_and_EDA-1';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="2.3. Description statistic" href="1_Statistics_and_EDA-2.html" />
-    <link rel="prev" title="2.1. Read datasets" href="1_Statistics_and_EDA-0.html" />
+    <link rel="next" title="2.3. Explore data analysis (EDA)" href="1_Statistics_and_EDA-2.html" />
+    <link rel="prev" title="2.1. Data Analyst Process" href="1_Statistics_and_EDA-0.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -166,12 +166,12 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="0_toc_eda.html">2. Statistic and EDA</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-0.html">2.1. Read datasets</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.2. Explore data analysis (EDA)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-2.html">2.3. Description statistic</a></li>
-<li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-3.html">2.4. Inferential statistic</a></li>
-<li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-4.html">2.5. Hypothesis testing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-5.html">2.6. ANOVA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-0.html">2.1. Data Analyst Process</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.2. Read datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-2.html">2.3. Explore data analysis (EDA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-3.html">2.4. Description statistic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-4.html">2.5. Inferential statistic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-5.html">2.6. Kiểm định giả thuyết (Hypothesis testing)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="0_toc_fe.html">3. Feature Engineering</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -340,9 +340,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -353,28 +351,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Explore data analysis (EDA)</h1>
+    <h1>Read datasets</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistic-report-table">2.2.1. Statistic report table</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataprep-report">2.2.2. Dataprep report</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-report">2.2.2.1. create_report</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-distributions-and-statistics">2.2.2.2. plot() - distributions and statistics</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-correlations-with-plot-correlation">2.2.2.3. Analyze correlations with plot_correlation()</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-value">2.2.2.4. missing value</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-difference-with-plot-diff">2.2.2.5. Analyze difference with plot_diff()</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-sql-with-connectorx">2.2.2.6. read_sql with ConnectorX</a></li>
-</ul>
-</li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -384,374 +365,212 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="explore-data-analysis-eda">
-<h1><span class="section-number">2.2. </span>Explore data analysis (EDA)<a class="headerlink" href="#explore-data-analysis-eda" title="Permalink to this heading">#</a></h1>
-<section id="statistic-report-table">
-<h2><span class="section-number">2.2.1. </span>Statistic report table<a class="headerlink" href="#statistic-report-table" title="Permalink to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="read-datasets">
+<h1><span class="section-number">2.2. </span>Read datasets<a class="headerlink" href="#read-datasets" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">math</span><span class="o">,</span> <span class="nn">subprocess</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import all necessary library</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
 
-<span class="c1"># some settings for displaying Pandas results</span>
-<span class="c1"># pd.set_option(&#39;display.width&#39;, 2000)</span>
-<span class="c1"># pd.set_option(&#39;display.max_rows&#39;, 500)</span>
-<span class="c1"># pd.set_option(&#39;display.max_columns&#39;, 500)</span>
-<span class="c1"># pd.set_option(&#39;display.precision&#39;, 4)</span>
-<span class="c1"># pd.set_option(&#39;display.max_colwidth&#39;, -1)</span>
+<span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="kn">import</span> <span class="n">SparkSession</span>
+<span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="kn">import</span> <span class="n">functions</span> <span class="k">as</span> <span class="n">F</span>
+<span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="kn">import</span> <span class="n">SQLContext</span>
+<span class="kn">from</span> <span class="nn">pyspark.sql.types</span> <span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ExplorerDF</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># reading dataset to dataframe</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Dataset/Dresses_Attribute_Sales/Attribute DataSet.xlsx&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,):</span>
-        <span class="k">pass</span>
-    
-    <span class="k">def</span> <span class="nf">exploring</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">nsample</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">targetY</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
-        <span class="c1"># check rows, cols</span>
-        <span class="n">total_records</span><span class="p">,</span> <span class="n">total_columns</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total </span><span class="si">{</span><span class="n">total_records</span><span class="si">}</span><span class="s2"> records, </span><span class="si">{</span><span class="n">total_columns</span><span class="si">}</span><span class="s2"> columns&quot;</span><span class="p">)</span>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-        <span class="c1"># check dtypes</span>
-        <span class="n">dty</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">dtypes</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;sub_type&quot;</span><span class="p">)</span>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Dress_ID</th>
+      <th>Style</th>
+      <th>Price</th>
+      <th>Rating</th>
+      <th>Size</th>
+      <th>Season</th>
+      <th>NeckLine</th>
+      <th>SleeveLength</th>
+      <th>waiseline</th>
+      <th>Material</th>
+      <th>FabricType</th>
+      <th>Decoration</th>
+      <th>Pattern Type</th>
+      <th>Recommendation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1006032852</td>
+      <td>Sexy</td>
+      <td>Low</td>
+      <td>4.6</td>
+      <td>M</td>
+      <td>Summer</td>
+      <td>o-neck</td>
+      <td>sleevless</td>
+      <td>empire</td>
+      <td>NaN</td>
+      <td>chiffon</td>
+      <td>ruffles</td>
+      <td>animal</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1212192089</td>
+      <td>Casual</td>
+      <td>Low</td>
+      <td>0.0</td>
+      <td>L</td>
+      <td>Summer</td>
+      <td>o-neck</td>
+      <td>Petal</td>
+      <td>natural</td>
+      <td>microfiber</td>
+      <td>NaN</td>
+      <td>ruffles</td>
+      <td>animal</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1190380701</td>
+      <td>vintage</td>
+      <td>High</td>
+      <td>0.0</td>
+      <td>L</td>
+      <td>Automn</td>
+      <td>o-neck</td>
+      <td>full</td>
+      <td>natural</td>
+      <td>polyster</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>print</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>966005983</td>
+      <td>Brief</td>
+      <td>Average</td>
+      <td>4.6</td>
+      <td>L</td>
+      <td>Spring</td>
+      <td>o-neck</td>
+      <td>full</td>
+      <td>natural</td>
+      <td>silk</td>
+      <td>chiffon</td>
+      <td>embroidary</td>
+      <td>print</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>876339541</td>
+      <td>cute</td>
+      <td>Low</td>
+      <td>4.5</td>
+      <td>M</td>
+      <td>Summer</td>
+      <td>o-neck</td>
+      <td>butterfly</td>
+      <td>natural</td>
+      <td>chiffonfabric</td>
+      <td>chiffon</td>
+      <td>bow</td>
+      <td>dot</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Dataset/Dresses_Attribute_Sales/Attribute DataSet.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read by spark</span>
 
-        <span class="c1"># check distinct</span>
-        <span class="n">n_dist</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;n_distinct&quot;</span><span class="p">)</span>
-        <span class="n">pct_dist</span> <span class="o">=</span> <span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">n_dist</span><span class="o">/</span><span class="n">total_records</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;pct_distinct&quot;</span><span class="p">)</span>
+<span class="c1"># initialize Spark</span>
+<span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">master</span><span class="p">(</span><span class="s2">&quot;local&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">appName</span><span class="p">(</span><span class="s2">&quot;Data description Spark&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span>
 
-        <span class="c1"># check missing</span>
-        <span class="n">n_miss</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;n_miss&quot;</span><span class="p">)</span>
-        <span class="n">pct_miss</span> <span class="o">=</span> <span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">n_miss</span><span class="o">/</span><span class="n">total_records</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;pct_miss&quot;</span><span class="p">)</span>
-        <span class="n">pct_coverage</span> <span class="o">=</span> <span class="p">(</span><span class="mi">100</span> <span class="o">-</span> <span class="n">pct_miss</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;pct_coverage&quot;</span><span class="p">)</span>
+<span class="c1"># reading dataset to dataframe</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="n">StructType</span><span class="p">([</span>
+    <span class="n">StructField</span><span class="p">(</span><span class="s2">&quot;Dress_ID&quot;</span><span class="p">,</span> <span class="n">StringType</span><span class="p">(),</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">StructField</span><span class="p">(</span><span class="s2">&quot;Style&quot;</span><span class="p">,</span> <span class="n">StringType</span><span class="p">(),</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">StructField</span><span class="p">(</span><span class="s2">&quot;Price&quot;</span><span class="p">,</span> <span class="n">StringType</span><span class="p">(),</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">StructField</span><span class="p">(</span><span class="s2">&quot;Rating&quot;</span><span class="p">,</span> <span class="n">FloatType</span><span class="p">(),</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">StructField</span><span class="p">(</span><span class="s2">&quot;Size&quot;</span><span class="p">,</span> <span class="n">StringType</span><span class="p">(),</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">StructField</span><span class="p">(</span><span class="s2">&quot;Season&quot;</span><span class="p">,</span> <span class="n">StringType</span><span class="p">(),</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">StructField</span><span class="p">(</span><span class="s2">&quot;NeckLine&quot;</span><span class="p">,</span> <span class="n">StringType</span><span class="p">(),</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">StructField</span><span class="p">(</span><span class="s2">&quot;SleeveLength&quot;</span><span class="p">,</span> <span class="n">StringType</span><span class="p">(),</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">StructField</span><span class="p">(</span><span class="s2">&quot;waiseline&quot;</span><span class="p">,</span> <span class="n">StringType</span><span class="p">(),</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">StructField</span><span class="p">(</span><span class="s2">&quot;Material&quot;</span><span class="p">,</span> <span class="n">StringType</span><span class="p">(),</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">StructField</span><span class="p">(</span><span class="s2">&quot;FabricType&quot;</span><span class="p">,</span> <span class="n">StringType</span><span class="p">(),</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">StructField</span><span class="p">(</span><span class="s2">&quot;Decoration&quot;</span><span class="p">,</span> <span class="n">StringType</span><span class="p">(),</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">StructField</span><span class="p">(</span><span class="s2">&quot;Pattern Type&quot;</span><span class="p">,</span> <span class="n">StringType</span><span class="p">(),</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">StructField</span><span class="p">(</span><span class="s2">&quot;Recommendation&quot;</span><span class="p">,</span> <span class="n">IntegerType</span><span class="p">(),</span> <span class="kc">True</span><span class="p">)])</span>
 
-        <span class="c1"># check negative</span>
-        <span class="n">n_neg</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">float</span><span class="p">))</span>
-                                    <span class="k">else</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;n_negative&quot;</span><span class="p">)</span>
-        <span class="n">pct_neg</span> <span class="o">=</span> <span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">n_neg</span><span class="o">/</span><span class="n">total_records</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;pct_negative&quot;</span><span class="p">)</span>
+<span class="n">df_spark</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span> \
+        <span class="o">.</span><span class="n">schema</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span> \
+        <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;com.databricks.spark.csv&quot;</span><span class="p">)</span> \
+        <span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;header&quot;</span><span class="p">,</span> <span class="s2">&quot;true&quot;</span><span class="p">)</span> \
+        <span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Dataset/Dresses_Attribute_Sales/Attribute DataSet.csv&quot;</span><span class="p">)</span>
 
-        <span class="c1"># check zero</span>
-        <span class="n">n_zero</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">float</span><span class="p">))</span>
-                                    <span class="k">else</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;n_zero&quot;</span><span class="p">)</span>
-        <span class="n">pct_zero</span> <span class="o">=</span> <span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">n_zero</span><span class="o">/</span><span class="n">total_records</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;pct_zero&quot;</span><span class="p">)</span>
-
-        <span class="c1"># check correlation with targetY</span>
-        <span class="k">if</span> <span class="n">targetY</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">assert</span> <span class="n">total_records</span> <span class="o">==</span> <span class="n">targetY</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-            <span class="n">corr_Y</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">corrwith</span><span class="p">(</span><span class="n">targetY</span><span class="p">,</span> <span class="n">numeric_only</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>\
-                <span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">dataframe</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;corr_Y&#39;</span><span class="p">)</span>
-            <span class="n">pct_zero</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pct_zero</span><span class="p">,</span> <span class="n">corr_Y</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-        <span class="c1"># check description</span>
-        <span class="n">des_stat</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">dataframe</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-
-        <span class="c1"># take samples</span>
-        <span class="n">pdf_sample</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">nsample</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
-        <span class="n">pdf_sample</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;sample_</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nsample</span><span class="p">)]</span>
-
-        <span class="c1"># output</span>
-        <span class="n">pdf_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">dty</span><span class="p">,</span> <span class="n">n_dist</span><span class="p">,</span> <span class="n">pct_dist</span><span class="p">,</span> <span class="n">n_miss</span><span class="p">,</span> 
-                            <span class="n">pct_miss</span><span class="p">,</span> <span class="n">pct_coverage</span><span class="p">,</span> <span class="n">n_neg</span><span class="p">,</span> <span class="n">pct_neg</span><span class="p">,</span> <span class="n">n_zero</span><span class="p">,</span> 
-                            <span class="n">pct_zero</span><span class="p">,</span> <span class="n">des_stat</span><span class="p">,</span> <span class="n">pdf_sample</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-        <span class="k">return</span> <span class="n">pdf_data</span>
-    
-    <span class="k">def</span> <span class="nf">export_statistic_report</span><span class="p">(</span><span class="n">list_data</span><span class="p">,</span> <span class="n">output_folder</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        list_data: list of dataframes/path_csv_files that want to be explore </span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">output_dir</span> <span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_folder</span><span class="p">,</span> <span class="s1">&#39;data_statistic_report.xlsx&#39;</span><span class="p">)</span> \
-            <span class="k">if</span> <span class="n">output_folder</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="s1">&#39;data_statistic_report.xlsx&#39;</span>
-        <span class="k">with</span> <span class="n">pd</span><span class="o">.</span><span class="n">ExcelWriter</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span> <span class="k">as</span> <span class="n">writer</span><span class="p">:</span>
-            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ele</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">list_data</span><span class="p">)</span> <span class="p">:</span>
-                <span class="k">if</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">ele</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">)</span> <span class="p">:</span>
-                    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">ele</span><span class="p">)</span> <span class="p">:</span>
-                        <span class="n">name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">ele</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
-                        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">ele</span><span class="p">)</span>
-                <span class="k">elif</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">ele</span><span class="p">)</span> <span class="o">==</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
-                    <span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;DataFrame_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span>
-                    <span class="n">df</span> <span class="o">=</span> <span class="n">ele</span>
-                <span class="k">else</span> <span class="p">:</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error type of element&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
-                    <span class="k">continue</span>
-                <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot;: &quot;</span><span class="p">)</span>
-                <span class="n">rp</span> <span class="o">=</span> <span class="n">ExplorerDF</span><span class="o">.</span><span class="n">exploring_stats</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-                <span class="n">rp</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>  
+<span class="n">df_spark</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+----------+-------+-------+------+----+------+--------+------------+---------+-------------+----------+----------+------------+--------------+
+|  Dress_ID|  Style|  Price|Rating|Size|Season|NeckLine|SleeveLength|waiseline|     Material|FabricType|Decoration|Pattern Type|Recommendation|
++----------+-------+-------+------+----+------+--------+------------+---------+-------------+----------+----------+------------+--------------+
+|1006032852|   Sexy|    Low|   4.6|   M|Summer|  o-neck|   sleevless|   empire|         null|   chiffon|   ruffles|      animal|             1|
+|1212192089| Casual|    Low|   0.0|   L|Summer|  o-neck|       Petal|  natural|   microfiber|      null|   ruffles|      animal|             0|
+|1190380701|vintage|   High|   0.0|   L|Automn|  o-neck|        full|  natural|     polyster|      null|      null|       print|             0|
+| 966005983|  Brief|Average|   4.6|   L|Spring|  o-neck|        full|  natural|         silk|   chiffon|embroidary|       print|             1|
+| 876339541|   cute|    Low|   4.5|   M|Summer|  o-neck|   butterfly|  natural|chiffonfabric|   chiffon|       bow|         dot|             0|
++----------+-------+-------+------+----+------+--------+------------+---------+-------------+----------+----------+------------+--------------+
+only showing top 5 rows
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="dataprep-report">
-<h2><span class="section-number">2.2.2. </span>Dataprep report<a class="headerlink" href="#dataprep-report" title="Permalink to this heading">#</a></h2>
-<section id="create-report">
-<h3><span class="section-number">2.2.2.1. </span>create_report<a class="headerlink" href="#create-report" title="Permalink to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataprep.eda</span> <span class="kn">import</span> <span class="n">create_report</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataprep.eda</span> <span class="kn">import</span> <span class="n">create_report</span>
-<span class="c1"># create_report(df.convert_dtypes())</span>
-<span class="c1"># xem report</span>
-<span class="n">create_report</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">convert_dtypes</span><span class="p">())</span><span class="o">.</span><span class="n">show_browser</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dask with large data</span>
-<span class="kn">from</span> <span class="nn">dataprep.eda</span> <span class="kn">import</span> <span class="n">create_report</span>
-<span class="n">create_report</span><span class="p">(</span><span class="n">df_dask</span><span class="p">)</span><span class="o">.</span><span class="n">show_browser</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_meta</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="n">c</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> 
-                        <span class="p">[(</span><span class="s1">&#39;report_date&#39;</span><span class="p">,</span><span class="nb">int</span><span class="p">),(</span><span class="s1">&#39;brandname&#39;</span><span class="p">,</span><span class="nb">str</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;month&#39;</span><span class="p">,</span><span class="nb">str</span><span class="p">)</span> <span class="p">,(</span><span class="s1">&#39;template_id&#39;</span><span class="p">,</span><span class="nb">str</span><span class="p">)</span> <span class="p">,(</span><span class="s1">&#39;tenkh&#39;</span><span class="p">,</span><span class="nb">str</span><span class="p">)</span> <span class="p">,</span>
-                         <span class="p">(</span><span class="s1">&#39;makh&#39;</span><span class="p">,</span><span class="nb">str</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;kythongbao&#39;</span><span class="p">,</span><span class="nb">str</span><span class="p">)</span> <span class="p">,(</span><span class="s1">&#39;som3&#39;</span><span class="p">,</span> <span class="nb">float</span><span class="p">),(</span><span class="s1">&#39;sotien&#39;</span><span class="p">,</span> <span class="nb">float</span><span class="p">),(</span><span class="s1">&#39;diachi&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">),]})</span>
-
-<span class="n">conn_Str</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;oracle+cx_oracle://score:Vmg102021@192.168.18.32:1521/?service_name=score&#39;</span>
-
-<span class="n">df_oracle</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s1">&#39;BRANDNAME_WATER_BILL_OVERDUE&#39;</span><span class="p">,</span> <span class="n">conn_Str</span> <span class="p">,</span><span class="n">index_col</span><span class="o">=</span> <span class="s1">&#39;user_id&#39;</span><span class="p">,</span> <span class="n">meta</span> <span class="o">=</span> <span class="n">df_meta</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_oracle</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">create_report</span><span class="p">(</span><span class="n">df_oracle</span><span class="p">)</span><span class="o">.</span><span class="n">show_browser</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sqlalchemy</span> <span class="k">as</span> <span class="nn">sa</span>
-<span class="n">sqluri</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;oracle+cx_oracle://score:Vmg102021@192.168.18.32:1521/?service_name=score&#39;</span>
-<span class="n">engine</span> <span class="o">=</span> <span class="n">sa</span><span class="o">.</span><span class="n">create_engine</span><span class="p">(</span><span class="n">sqluri</span><span class="p">)</span>
-<span class="n">df_meta</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="n">c</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="p">[(</span><span class="s1">&#39;month&#39;</span><span class="p">,</span><span class="nb">str</span><span class="p">)</span> <span class="p">,</span> <span class="p">(</span><span class="s1">&#39;makh&#39;</span><span class="p">,</span><span class="nb">str</span><span class="p">),(</span><span class="s1">&#39;sotien&#39;</span><span class="p">,</span> <span class="nb">float</span><span class="p">)]})</span>
-<span class="n">sa_meta</span> <span class="o">=</span> <span class="n">sa</span><span class="o">.</span><span class="n">MetaData</span><span class="p">()</span>
-<span class="n">sa_table</span> <span class="o">=</span> <span class="n">sa</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="s2">&quot;BRANDNAME_WATER_BILL_OVERDUE&quot;</span><span class="p">,</span> <span class="n">sa_meta</span><span class="p">,</span> <span class="n">autoload</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">autoload_with</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
-<span class="n">sa_query</span> <span class="o">=</span> <span class="n">sa</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="n">sa_table</span><span class="p">])</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">sa_table</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="s2">&quot;202008&quot;</span><span class="p">)</span>
-<span class="n">sa_columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">sa_table</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="n">sa_table</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">makh</span><span class="p">,</span> <span class="n">sa_table</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">sotien</span><span class="p">]</span>
-
-
-<span class="n">df_oracle</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">read_sql_table</span><span class="p">(</span><span class="n">sa_query</span><span class="p">,</span> <span class="n">sqluri</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s2">&quot;user_id&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">sa_columns</span><span class="p">,</span> <span class="n">meta</span> <span class="o">=</span> <span class="n">df_meta</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="n">create_report</span><span class="p">(</span><span class="n">df_oracle</span><span class="p">)</span><span class="o">.</span><span class="n">show_browser</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dataprep.connector</span> <span class="k">as</span> <span class="nn">cx</span>
-<span class="n">conn_str</span> <span class="o">=</span> <span class="s2">&quot;sqlite:///D:/INFO.db&quot;</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">cx</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">conn_str</span><span class="p">,</span><span class="s1">&#39;select * from DTTSD_TELCO_INFO limit 1000000&#39;</span><span class="p">,</span><span class="n">return_type</span> <span class="o">=</span> <span class="s1">&#39;dask&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="plot-distributions-and-statistics">
-<h3><span class="section-number">2.2.2.2. </span>plot() - distributions and statistics<a class="headerlink" href="#plot-distributions-and-statistics" title="Permalink to this heading">#</a></h3>
-<p>The function plot() explores the distributions and statistics of the dataset.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataprep</span> <span class="kn">import</span> <span class="n">eda</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## plot(df): plots the distribution of each column</span>
-<span class="n">eda</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot(df, x): plots the distribution of column x in various ways and calculates column statistics</span>
-<span class="n">eda</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;GENDER&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ACTIVE_DATE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ACTIVE_DATE&#39;</span><span class="p">],</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">infer_datetime_format</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">eda</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;ACTIVE_DATE&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot(df, x, y): generates plots depicting the relationship between columns x and y</span>
-<span class="n">eda</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;ACTIVE_DATE&#39;</span><span class="p">,</span><span class="s1">&#39;BILL_TOTAL&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eda</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;GENDER&#39;</span><span class="p">,</span> <span class="s1">&#39;BILL_TOTAL&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="analyze-correlations-with-plot-correlation">
-<h3><span class="section-number">2.2.2.3. </span>Analyze correlations with plot_correlation()<a class="headerlink" href="#analyze-correlations-with-plot-correlation" title="Permalink to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eda</span><span class="o">.</span><span class="n">plot_correlation</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eda</span><span class="o">.</span><span class="n">plot_correlation</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;LL_THOAI&#39;</span><span class="p">,)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eda</span><span class="o">.</span><span class="n">plot_correlation</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;BILL_TOTAL&#39;</span><span class="p">,</span> <span class="s1">&#39;LL_THOAI&#39;</span><span class="p">,</span><span class="n">config</span> <span class="o">=</span><span class="p">{</span><span class="s1">&#39;scatter.sample_size&#39;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,}</span> <span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="missing-value">
-<h3><span class="section-number">2.2.2.4. </span>missing value<a class="headerlink" href="#missing-value" title="Permalink to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eda</span><span class="o">.</span><span class="n">plot_missing</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eda</span><span class="o">.</span><span class="n">plot_missing</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;GENDER&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eda</span><span class="o">.</span><span class="n">plot_missing</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;GENDER&#39;</span><span class="p">,</span> <span class="s1">&#39;BILL_TOTAL&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="analyze-difference-with-plot-diff">
-<h3><span class="section-number">2.2.2.5. </span>Analyze difference with plot_diff()<a class="headerlink" href="#analyze-difference-with-plot-diff" title="Permalink to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_train</span><span class="p">,</span> <span class="n">df_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">train_size</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eda</span><span class="o">.</span><span class="n">plot_diff</span><span class="p">([</span><span class="n">df_train</span><span class="p">,</span> <span class="n">df_test</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="read-sql-with-connectorx">
-<h3><span class="section-number">2.2.2.6. </span>read_sql with ConnectorX<a class="headerlink" href="#read-sql-with-connectorx" title="Permalink to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataprep.connector</span> <span class="kn">import</span> <span class="n">read_sql</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
-<span class="n">db</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;sqlite:///E:/4. Score/LEAD.db&#39;</span>
-<span class="c1"># read_sql(db,&#39;select * from VMGLEAD_SYNC where ID_CARD = \&#39;126756472\&#39; &#39;)</span>
-<span class="n">read_sql</span><span class="p">(</span><span class="n">db</span><span class="p">,</span><span class="s1">&#39;select * from VMGLEAD_SYNC where ID_CARD = </span><span class="se">\&#39;</span><span class="s1">030087000004</span><span class="se">\&#39;</span><span class="s1"> &#39;</span><span class="p">,</span> <span class="n">partition_num</span> <span class="o">=</span> <span class="mi">8</span><span class="p">)</span>
-<span class="c1"># read_sql(db,&#39;select * from VMGLEAD_SYNC limit 10 &#39;)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
-<span class="n">db</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;sqlite:///E:/4. Score/LEAD.db&#39;</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">read_sql</span><span class="p">(</span><span class="n">db</span><span class="p">,</span><span class="s1">&#39;select * from VMGLEAD_SYNC where RISK_SCORE &gt; 400 &#39;</span><span class="p">,</span> <span class="n">partition_num</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span><span class="n">partition_on</span><span class="o">=</span><span class="s2">&quot;RISK_SCORE&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
-<span class="kn">import</span> <span class="nn">sqlite3</span>
-<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;sqlite:///E:/4. Score/LEAD.db&#39;</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s1">&#39;select * from VMGLEAD_SYNC where RISK_SCORE &gt; 400 &#39;</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataprep.eda</span> <span class="kn">import</span> <span class="n">create_db_report</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataprep.eda</span> <span class="kn">import</span> <span class="n">create_db_report</span>
-<span class="kn">from</span> <span class="nn">dataprep.datasets</span> <span class="kn">import</span> <span class="n">load_db</span>
-<span class="n">db_engine</span> <span class="o">=</span> <span class="n">load_db</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;sqlite:///E:/4. Score/LEAD.db&#39;</span><span class="p">)</span>
-<span class="n">create_db_report</span><span class="p">(</span><span class="n">db_engine</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -788,7 +607,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2.1. </span>Read datasets</p>
+        <p class="prev-next-title"><span class="section-number">2.1. </span>Data Analyst Process</p>
       </div>
     </a>
     <a class="right-next"
@@ -796,7 +615,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2.3. </span>Description statistic</p>
+        <p class="prev-next-title"><span class="section-number">2.3. </span>Explore data analysis (EDA)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -806,29 +625,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistic-report-table">2.2.1. Statistic report table</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataprep-report">2.2.2. Dataprep report</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-report">2.2.2.1. create_report</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-distributions-and-statistics">2.2.2.2. plot() - distributions and statistics</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-correlations-with-plot-correlation">2.2.2.3. Analyze correlations with plot_correlation()</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-value">2.2.2.4. missing value</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-difference-with-plot-diff">2.2.2.5. Analyze difference with plot_diff()</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-sql-with-connectorx">2.2.2.6. read_sql with ConnectorX</a></li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
