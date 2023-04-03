@@ -29,6 +29,7 @@ parts:
     - file: 1_Process_Modelling/Split_notebooks/1_Statistics_and_EDA-3
     - file: 1_Process_Modelling/Split_notebooks/1_Statistics_and_EDA-4
     - file: 1_Process_Modelling/Split_notebooks/1_Statistics_and_EDA-5
+    - file: 1_Process_Modelling/Split_notebooks/1_Statistics_and_EDA-6
 
   - file: 1_Process_Modelling/Split_notebooks/0_toc_fe
     title: 'Feature Engineering'
@@ -42,7 +43,8 @@ parts:
     - file: 1_Process_Modelling/Split_notebooks/2_Feature_engineering-7
     - file: 1_Process_Modelling/Split_notebooks/2_Feature_engineering-8
     - file: 1_Process_Modelling/Split_notebooks/2_Feature_engineering-9
-
+    - file: 1_Process_Modelling/Split_notebooks/2_Feature_engineering-10
+    
   - file: 1_Process_Modelling/Split_notebooks/0_toc_fs
     title: 'Feature Selection'
     sections:

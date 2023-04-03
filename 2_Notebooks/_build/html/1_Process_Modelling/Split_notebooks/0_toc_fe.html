@@ -64,8 +64,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = '1_Process_Modelling/Split_notebooks/0_toc_fe';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="3.1. Feature extraction" href="2_Feature_engineering-1.html" />
-    <link rel="prev" title="2.6. Kiểm định giả thuyết (Hypothesis testing)" href="1_Statistics_and_EDA-5.html" />
+    <link rel="next" title="3.1. Custom Transforms Function" href="2_Feature_engineering-1.html" />
+    <link rel="prev" title="2.7. ANOVA" href="1_Statistics_and_EDA-6.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -172,18 +172,20 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-3.html">2.4. Description statistic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-4.html">2.5. Inferential statistic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-5.html">2.6. Kiểm định giả thuyết (Hypothesis testing)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-6.html">2.7. ANOVA</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">3. Feature Engineering</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-1.html">3.1. Feature extraction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-2.html">3.2. Variable Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-3.html">3.3. Missing Imputation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-4.html">3.4. Categorical Encoding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-5.html">3.5. Feature transformation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-6.html">3.6. Discretisation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-7.html">3.7. Outliers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-8.html">3.8. Feature scaling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-9.html">3.9. Feature selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-1.html">3.1. Custom Transforms Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-2.html">3.2. Feature extraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-3.html">3.3. Variable Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-4.html">3.4. Missing Imputation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-5.html">3.5. Categorical Encoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-6.html">3.6. Feature transformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-7.html">3.7. Discretisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-8.html">3.8. Outliers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-9.html">3.9. Feature scaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-10.html">3.10. Feature selection</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="0_toc_fs.html">4. Feature Selection</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -381,15 +383,16 @@ document.write(`
 <p>Check out the content pages.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="2_Feature_engineering-1.html">3.1. Feature extraction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_Feature_engineering-2.html">3.2. Variable Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_Feature_engineering-3.html">3.3. Missing Imputation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_Feature_engineering-4.html">3.4. Categorical Encoding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_Feature_engineering-5.html">3.5. Feature transformation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_Feature_engineering-6.html">3.6. Discretisation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_Feature_engineering-7.html">3.7. Outliers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_Feature_engineering-8.html">3.8. Feature scaling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_Feature_engineering-9.html">3.9. Feature selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Feature_engineering-1.html">3.1. Custom Transforms Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Feature_engineering-2.html">3.2. Feature extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Feature_engineering-3.html">3.3. Variable Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Feature_engineering-4.html">3.4. Missing Imputation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Feature_engineering-5.html">3.5. Categorical Encoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Feature_engineering-6.html">3.6. Feature transformation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Feature_engineering-7.html">3.7. Discretisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Feature_engineering-8.html">3.8. Outliers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Feature_engineering-9.html">3.9. Feature scaling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Feature_engineering-10.html">3.10. Feature selection</a></li>
 </ul>
 </div>
 </section>
@@ -423,12 +426,12 @@ document.write(`
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="1_Statistics_and_EDA-5.html"
+       href="1_Statistics_and_EDA-6.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2.6. </span>Kiểm định giả thuyết (Hypothesis testing)</p>
+        <p class="prev-next-title"><span class="section-number">2.7. </span>ANOVA</p>
       </div>
     </a>
     <a class="right-next"
@@ -436,7 +439,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3.1. </span>Feature extraction</p>
+        <p class="prev-next-title"><span class="section-number">3.1. </span>Custom Transforms Function</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
