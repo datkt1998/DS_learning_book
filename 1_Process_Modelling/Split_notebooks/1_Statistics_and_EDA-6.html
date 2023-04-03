@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>1. Imbalance Datasets Handling &#8212; Machine Learning book</title>
+    <title>2.7. ANOVA &#8212; Machine Learning book</title>
   
   
   
@@ -61,11 +61,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '1_Process_Modelling/Split_notebooks/0_toc_imb';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '1_Process_Modelling/Split_notebooks/1_Statistics_and_EDA-6';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="1.1. Order of rebalance" href="1_Imbalance_data_handling-1.html" />
-    <link rel="prev" title="Welcome to Dat’s Notebook" href="../../_jupyter_book_files/intro.html" />
+    <link rel="next" title="3. Feature engineering pipeline" href="0_toc_fe.html" />
+    <link rel="prev" title="2.6. Kiểm định giả thuyết (Hypothesis testing)" href="1_Statistics_and_EDA-5.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -158,21 +160,21 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Process Modelling</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">1. Imbalance Dataset Handling</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="0_toc_imb.html">1. Imbalance Dataset Handling</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="1_Imbalance_data_handling-1.html">1.1. Order of rebalance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Imbalance_data_handling-2.html">1.2. Data-level approaches</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Imbalance_data_handling-3.html">1.3. Cost sensitive approaches</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Imbalance_data_handling-4.html">1.4. Ensemble approaches</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="0_toc_eda.html">2. Statistic and EDA</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="0_toc_eda.html">2. Statistic and EDA</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-0.html">2.1. Data Analyst Process</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-1.html">2.2. Read datasets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-2.html">2.3. Explore data analysis (EDA)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-3.html">2.4. Description statistic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-4.html">2.5. Inferential statistic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-5.html">2.6. Kiểm định giả thuyết (Hypothesis testing)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-6.html">2.7. ANOVA</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.7. ANOVA</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="0_toc_fe.html">3. Feature Engineering</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -273,7 +275,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/1_Process_Modelling/Split_notebooks/0_toc_imb.md" target="_blank"
+      <li><a href="../../_sources/1_Process_Modelling/Split_notebooks/1_Statistics_and_EDA-6.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -283,7 +285,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -353,7 +355,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Imbalance Datasets Handling</h1>
+    <h1>ANOVA</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -367,16 +369,121 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="imbalance-datasets-handling">
-<h1><span class="section-number">1. </span>Imbalance Datasets Handling<a class="headerlink" href="#imbalance-datasets-handling" title="Permalink to this heading">#</a></h1>
-<p>Check out the content pages.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="1_Imbalance_data_handling-1.html">1.1. Order of rebalance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_Imbalance_data_handling-2.html">1.2. Data-level approaches</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_Imbalance_data_handling-3.html">1.3. Cost sensitive approaches</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_Imbalance_data_handling-4.html">1.4. Ensemble approaches</a></li>
+  <section class="tex2jax_ignore mathjax_ignore" id="anova">
+<h1><span class="section-number">2.7. </span>ANOVA<a class="headerlink" href="#anova" title="Permalink to this heading">#</a></h1>
+<p>Giả định của ANOVA</p>
+<ul class="simple">
+<li><p>Normal distribution</p></li>
+<li><p>Independent observations</p></li>
+<li><p>Equivalent variance</p></li>
 </ul>
+<p>SST: Total sum of squares
+$<span class="math notranslate nohighlight">\(SST = \sum_{i=1}^n (y_i - \bar{y})^2\)</span>$</p>
+<p>SSW: Sum of squares within
+$<span class="math notranslate nohighlight">\(SSW = \sum_{i=1}^k \sum_{j=1}^{n_i} (x_{ij} - \bar{x}_i)^2\)</span>$</p>
+<p>SSB: Sum of squares between
+$<span class="math notranslate nohighlight">\(SSB = n \sum_{i=1}^k \sum_{j=1}^n (\bar{x}_i - \bar{x})^2\)</span>$</p>
+<p>f-statistics
+$<span class="math notranslate nohighlight">\(SST = SSW + SSB\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(F-stat = \frac{\frac{SSB}{m - 1}}{\frac{SSW}{n_t - m}}\)</span>$</p>
+<p><strong>Đánh giá các bộ phim có giống nhau?</strong></p>
+<ul class="simple">
+<li><p>H0: đánh giá các bộ phim là như nhau</p></li>
+<li><p>Ha: đánh giá các bộ phim là khác nhau</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">film_A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">film_B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">film_C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+<span class="n">film_D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+
+<span class="c1"># SST: Total sum of squares</span>
+<span class="n">mean_A</span> <span class="o">=</span> <span class="n">film_A</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">mean_B</span> <span class="o">=</span> <span class="n">film_B</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">mean_C</span> <span class="o">=</span> <span class="n">film_C</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">mean_D</span> <span class="o">=</span> <span class="n">film_D</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="n">mean_collect</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">mean_A</span><span class="p">,</span> <span class="n">mean_B</span><span class="p">,</span> <span class="n">mean_C</span><span class="p">,</span> <span class="n">mean_D</span><span class="p">])</span>
+<span class="n">grand_mean</span> <span class="o">=</span> <span class="n">mean_collect</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Grand mean:&quot;</span><span class="p">,</span> <span class="n">grand_mean</span><span class="p">)</span>
+
+<span class="n">ss_A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inner</span><span class="p">(</span><span class="n">film_A</span> <span class="o">-</span> <span class="n">grand_mean</span><span class="p">,</span> <span class="n">film_A</span> <span class="o">-</span> <span class="n">grand_mean</span><span class="p">)</span>
+<span class="n">ss_B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inner</span><span class="p">(</span><span class="n">film_B</span> <span class="o">-</span> <span class="n">grand_mean</span><span class="p">,</span> <span class="n">film_B</span> <span class="o">-</span> <span class="n">grand_mean</span><span class="p">)</span>
+<span class="n">ss_C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inner</span><span class="p">(</span><span class="n">film_C</span> <span class="o">-</span> <span class="n">grand_mean</span><span class="p">,</span> <span class="n">film_C</span> <span class="o">-</span> <span class="n">grand_mean</span><span class="p">)</span>
+<span class="n">ss_D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inner</span><span class="p">(</span><span class="n">film_D</span> <span class="o">-</span> <span class="n">grand_mean</span><span class="p">,</span> <span class="n">film_D</span> <span class="o">-</span> <span class="n">grand_mean</span><span class="p">)</span>
+<span class="n">SST</span> <span class="o">=</span> <span class="n">ss_A</span> <span class="o">+</span> <span class="n">ss_B</span> <span class="o">+</span> <span class="n">ss_C</span> <span class="o">+</span> <span class="n">ss_D</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Total sum of squares:&quot;</span><span class="p">,</span> <span class="n">SST</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Grand mean: 5.0
+Total sum of squares: 52.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SSW: Sum of squares within</span>
+<span class="n">sw_A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inner</span><span class="p">(</span><span class="n">film_A</span> <span class="o">-</span> <span class="n">mean_A</span><span class="p">,</span> <span class="n">film_A</span> <span class="o">-</span> <span class="n">mean_A</span><span class="p">)</span>
+<span class="n">sw_B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inner</span><span class="p">(</span><span class="n">film_B</span> <span class="o">-</span> <span class="n">mean_B</span><span class="p">,</span> <span class="n">film_B</span> <span class="o">-</span> <span class="n">mean_B</span><span class="p">)</span>
+<span class="n">sw_C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inner</span><span class="p">(</span><span class="n">film_C</span> <span class="o">-</span> <span class="n">mean_C</span><span class="p">,</span> <span class="n">film_C</span> <span class="o">-</span> <span class="n">mean_C</span><span class="p">)</span>
+<span class="n">sw_D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inner</span><span class="p">(</span><span class="n">film_D</span> <span class="o">-</span> <span class="n">mean_D</span><span class="p">,</span> <span class="n">film_D</span> <span class="o">-</span> <span class="n">mean_D</span><span class="p">)</span>
+<span class="n">SSW</span> <span class="o">=</span> <span class="n">sw_A</span> <span class="o">+</span> <span class="n">sw_B</span> <span class="o">+</span> <span class="n">sw_C</span> <span class="o">+</span> <span class="n">sw_D</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Sum of squares within:&quot;</span><span class="p">,</span> <span class="n">SSW</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sum of squares within: 44.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SSB: Sum of squares between</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">film_A</span><span class="o">.</span><span class="n">size</span>
+<span class="n">SSB</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">inner</span><span class="p">(</span><span class="n">mean_collect</span> <span class="o">-</span> <span class="n">grand_mean</span><span class="p">,</span> <span class="n">mean_collect</span> <span class="o">-</span> <span class="n">grand_mean</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Sum of squares between:&quot;</span><span class="p">,</span> <span class="n">SSB</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sum of squares between: 8.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="n">film_A</span><span class="o">.</span><span class="n">size</span> <span class="o">+</span> <span class="n">film_B</span><span class="o">.</span><span class="n">size</span> <span class="o">+</span> <span class="n">film_C</span><span class="o">.</span><span class="n">size</span> <span class="o">+</span> <span class="n">film_D</span><span class="o">.</span><span class="n">size</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">mean_collect</span><span class="o">.</span><span class="n">size</span>
+<span class="n">f_stat</span> <span class="o">=</span> <span class="p">(</span><span class="n">SSB</span> <span class="o">/</span> <span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">SSW</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">m</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;F statistics:&quot;</span><span class="p">,</span> <span class="n">f_stat</span><span class="p">)</span>
+
+<span class="c1"># get critical value</span>
+<span class="n">dfn</span> <span class="o">=</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="n">dfd</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="n">m</span>
+<span class="n">critical_value</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">f</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">dfn</span><span class="p">,</span> <span class="n">dfd</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Critical value:&quot;</span><span class="p">,</span> <span class="n">critical_value</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">f_stat</span> <span class="o">&gt;</span> <span class="n">critical_value</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reject H0 =&gt; đánh giá các bộ phim là khác nhau&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reject Ha =&gt; đánh giá các bộ phim là như nhau&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>F statistics: 0.7272727272727273
+Critical value: 3.490294819497605
+Reject Ha =&gt; đánh giá các bộ phim là như nhau
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 
@@ -409,20 +516,20 @@ document.write(`
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../../_jupyter_book_files/intro.html"
+       href="1_Statistics_and_EDA-5.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Welcome to Dat’s Notebook</p>
+        <p class="prev-next-title"><span class="section-number">2.6. </span>Kiểm định giả thuyết (Hypothesis testing)</p>
       </div>
     </a>
     <a class="right-next"
-       href="1_Imbalance_data_handling-1.html"
+       href="0_toc_fe.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1.1. </span>Order of rebalance</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Feature engineering pipeline</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

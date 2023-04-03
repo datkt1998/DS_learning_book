@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>3.7. Outliers &#8212; Machine Learning book</title>
+    <title>3.7. Discretisation &#8212; Machine Learning book</title>
   
   
   
@@ -61,13 +61,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '1_Process_Modelling/Split_notebooks/2_Feature_engineering-7';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="3.8. Feature scaling" href="2_Feature_engineering-8.html" />
-    <link rel="prev" title="3.6. Discretisation" href="2_Feature_engineering-6.html" />
+    <link rel="next" title="3.8. Outliers" href="2_Feature_engineering-8.html" />
+    <link rel="prev" title="3.6. Feature transformation" href="2_Feature_engineering-6.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -174,18 +172,20 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-3.html">2.4. Description statistic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-4.html">2.5. Inferential statistic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-5.html">2.6. Kiểm định giả thuyết (Hypothesis testing)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-6.html">2.7. ANOVA</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="0_toc_fe.html">3. Feature Engineering</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-1.html">3.1. Feature extraction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-2.html">3.2. Variable Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-3.html">3.3. Missing Imputation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-4.html">3.4. Categorical Encoding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-5.html">3.5. Feature transformation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-6.html">3.6. Discretisation</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.7. Outliers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-8.html">3.8. Feature scaling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-9.html">3.9. Feature selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-1.html">3.1. Custom Transforms Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-2.html">3.2. Feature extraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-3.html">3.3. Variable Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-4.html">3.4. Missing Imputation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-5.html">3.5. Categorical Encoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-6.html">3.6. Feature transformation</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.7. Discretisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-8.html">3.8. Outliers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-9.html">3.9. Feature scaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-10.html">3.10. Feature selection</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="0_toc_fs.html">4. Feature Selection</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -355,7 +355,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Outliers</h1>
+    <h1>Discretisation</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -365,21 +365,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outlier-detection-methods">3.7.1. Outlier detection methods</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#z-score">3.7.1.1. Z-score</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interquartile-range">3.7.1.2. Interquartile Range</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-outlier-factor-lof">3.7.1.3. Local Outlier Factor (LOF)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isolation-forest">3.7.1.4. Isolation Forest</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elliptic-envelope">3.7.1.5. Elliptic Envelope</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#one-class-svm">3.7.1.6. One-Class SVM</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outlier-handling">3.7.2. Outlier handling</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trimming">3.7.2.1. Trimming</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treat">3.7.2.2. Treat</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cap">3.7.2.3. Cap</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equal-width">3.7.1. Equal-width</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equal-frequency">3.7.2. Equal-frequency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-mean">3.7.3. K-mean</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-tree-discretesation">3.7.4. Decision Tree discretesation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#domain-knowledge-discretisation">3.7.5. Domain knowledge discretisation</a></li>
 </ul>
             </nav>
         </div>
@@ -391,82 +381,59 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="outliers">
-<h1><span class="section-number">3.7. </span>Outliers<a class="headerlink" href="#outliers" title="Permalink to this heading">#</a></h1>
-<p>So we should first divide our data set into train and tests, and remove outliers in the train set, but keep those in the test set, and measure how well our model is doing.</p>
-<p><strong>Outlier detection:</strong> The training data contains outliers which are defined as observations that are far from the others. Outlier detection estimators thus try to fit the regions where the training data is the most concentrated, ignoring the deviant observations.</p>
-<p><strong>Novelty detection:</strong> The training data is not polluted by outliers and we are interested in detecting whether a new observation is an outlier. In this context an outlier is also called a novelty.</p>
-<section id="outlier-detection-methods">
-<h2><span class="section-number">3.7.1. </span>Outlier detection methods<a class="headerlink" href="#outlier-detection-methods" title="Permalink to this heading">#</a></h2>
-<p><img alt="image.png" src="../../_images/outlier1.png" /></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="discretisation">
+<h1><span class="section-number">3.7. </span>Discretisation<a class="headerlink" href="#discretisation" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
-<li><p><strong>Z-score</strong> For normal distribution</p></li>
-<li><p><strong>Interquartile Range</strong> for skewed distribution</p></li>
-<li><p><strong>Quantile</strong>: <code class="docutils literal notranslate"><span class="pre">outliers</span></code> is out of range [5% - 95%] quantile</p></li>
-<li><p><strong>Arbitrary</strong>: <code class="docutils literal notranslate"><span class="pre">outliers</span></code> is out of specific range of values</p></li>
-<li><p><strong>Local Outlier Factor (LOF)</strong></p></li>
-<li><p><strong>Isolation Forest</strong> / <strong>Extended Isolation Forest</strong></p></li>
-<li><p><strong>Minimum Covariance Determinant</strong>.</p></li>
-<li><p><strong>One-Class SVM</strong></p></li>
+<li><p>The process of binning/Transforming <code class="docutils literal notranslate"><span class="pre">continuous</span></code> variables into  <code class="docutils literal notranslate"><span class="pre">discrete</span></code> variables by creating a set of continuous intervals/bin that span range of value</p></li>
+<li><p>Discretisation can handle the <code class="docutils literal notranslate"><span class="pre">outlier</span></code> because each outlier may be in the lowest or highest bin.</p></li>
 </ul>
+<p><strong>1. Why need to use Discretisation ?</strong></p>
+<ul class="simple">
+<li><p><strong>Reducing complexity</strong>: Discretization can simplify the feature space by reducing the number of possible values that a feature can take on. This can make it easier to build models and <code class="docutils literal notranslate"><span class="pre">reduce</span> <span class="pre">the</span> <span class="pre">risk</span> <span class="pre">of</span> <span class="pre">overfitting</span></code>.</p></li>
+<li><p><strong>Meeting model assumptions</strong>: Some models, such as <code class="docutils literal notranslate"><span class="pre">decision</span> <span class="pre">trees</span></code> and <code class="docutils literal notranslate"><span class="pre">naive</span> <span class="pre">Bayes</span> <span class="pre">classifiers</span></code>, are designed to work with categorical variables. Discretizing continuous variables can help these models perform better.</p></li>
+<li><p><strong>Dealing with sparsity</strong>: In some datasets, certain values of a continuous variable may be rare or non-existent. Discretization can help address this issue by grouping together similar values and reducing the sparsity of the data.</p></li>
+<li><p><strong>Interpretability</strong>: Discretization can make it easier to interpret the relationship between a feature and the target variable. For example, if we discretize age into categories like “young”, “middle-aged”, and “old”, we can more easily see how age affects the outcome variable.</p></li>
+</ul>
+<p>It’s worth noting that discretization is not always necessary or appropriate. In some cases, it may be better to keep continuous variables as they are or to use other techniques, such as binning or scaling, to transform them. The choice of whether to discretize or not depends on the specific problem and the characteristics of the data.</p>
+<p><strong>2. Approaches</strong></p>
+<ul class="simple">
+<li><p><em><strong>Unsupervised</strong></em></p>
+<ul>
+<li><p>Equal-width</p></li>
+<li><p>Equal-frequency</p></li>
+<li><p>K-means</p></li>
+</ul>
+</li>
+<li><p><em><strong>Supervised</strong></em> (need to inform the <code class="docutils literal notranslate"><span class="pre">target</span></code> variables)</p>
+<ul>
+<li><p>Decision Trees</p></li>
+</ul>
+</li>
+<li><p><em><strong>Others</strong></em></p>
+<ul>
+<li><p>Domain Knowledge</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Plus Encoding:</strong> If using linear model and bins may not hold a linear relationship with target, encoding the variable after discretisation may help improve model performance to treat the bins as categories and to one hot encoding, or target guided encodings like mean encoding, weight of evidence, or target guided ordinal encoding.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
-
-<span class="k">def</span> <span class="nf">multivar_boxsplot</span><span class="p">(</span><span class="n">listvar</span><span class="p">,</span> <span class="n">df_raw</span><span class="p">,</span> <span class="n">df_outliers_handled</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cols</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">renderer</span> <span class="o">=</span> <span class="s1">&#39;jpeg&#39;</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="k">def</span> <span class="nf">bin_hist</span><span class="p">(</span><span class="n">listvar</span><span class="p">,</span> <span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">cols</span> <span class="o">=</span> <span class="mi">3</span><span class="p">):</span>
+    <span class="n">listvar</span> <span class="o">=</span> <span class="p">[</span><span class="n">listvar</span><span class="p">]</span> <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">listvar</span><span class="p">)</span><span class="o">==</span><span class="nb">str</span> <span class="k">else</span> <span class="n">listvar</span>
     <span class="n">cols</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">cols</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">listvar</span><span class="p">))</span>
     <span class="n">rows</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">listvar</span><span class="p">)</span> <span class="o">//</span> <span class="n">cols</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">if</span> <span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">listvar</span><span class="p">)</span> <span class="o">%</span> <span class="n">cols</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">else</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">listvar</span><span class="p">)</span> <span class="o">//</span> <span class="n">cols</span><span class="p">)</span>
     <span class="n">fig</span> <span class="o">=</span> <span class="n">make_subplots</span><span class="p">(</span><span class="n">rows</span> <span class="o">=</span> <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span> <span class="o">=</span> <span class="n">cols</span> <span class="p">,</span> <span class="n">subplot_titles</span><span class="o">=</span><span class="n">listvar</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">var</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">listvar</span><span class="p">):</span>
-        <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">df_raw</span><span class="p">[</span><span class="n">var</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span> <span class="s1">&#39;before&#39;</span><span class="p">,</span> <span class="n">boxmean</span><span class="o">=</span><span class="s1">&#39;sd&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">var</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">listvar</span><span class="p">):</span>     
+        <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Histogram</span><span class="p">(</span> <span class="n">x</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="n">var</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="n">marker_color</span><span class="o">=</span><span class="s1">&#39;#656FF4&#39;</span><span class="p">,</span> <span class="n">bingroup</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">histnorm</span> <span class="o">=</span> <span class="s1">&#39;percent&#39;</span><span class="p">)</span><span class="c1">#, texttemplate=&quot;%{y}&quot;)</span>
                       <span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="n">i</span><span class="o">//</span><span class="n">cols</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="n">i</span><span class="o">%</span><span class="k">cols</span> + 1 )
-        <span class="k">if</span> <span class="n">df_outliers_handled</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span> 
-            <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">df_outliers_handled</span><span class="p">[</span><span class="n">var</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span> <span class="s1">&#39;after&#39;</span><span class="p">,</span> <span class="n">boxmean</span><span class="o">=</span><span class="s1">&#39;sd&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">test</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Histogram</span><span class="p">(</span> <span class="n">x</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="n">var</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="n">marker_color</span><span class="o">=</span><span class="s1">&#39;#F85341&#39;</span><span class="p">,</span> <span class="n">bingroup</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">histnorm</span> <span class="o">=</span> <span class="s1">&#39;percent&#39;</span><span class="p">)</span><span class="c1">#, texttemplate=&quot;%{y}&quot;)</span>
                           <span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="n">i</span><span class="o">//</span><span class="n">cols</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="n">i</span><span class="o">%</span><span class="k">cols</span> + 1 )
-    <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">autosize</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="n">rows</span><span class="o">*</span><span class="mi">400</span><span class="p">,</span> <span class="n">showlegend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">renderer</span><span class="o">=</span><span class="n">renderer</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">hist_boxsplot</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="n">df_raw</span><span class="p">,</span> <span class="n">df_outliers_handled</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">df_raw</span><span class="p">[[</span><span class="n">var</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;name_df&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;df_raw&#39;</span>
-    <span class="k">if</span> <span class="n">df_outliers_handled</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">df1</span> <span class="o">=</span> <span class="n">df_outliers_handled</span><span class="p">[[</span><span class="n">var</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-        <span class="n">df1</span><span class="p">[</span><span class="s1">&#39;name_df&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;df_outliers_handled&#39;</span>
-        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span><span class="n">df1</span><span class="p">])</span>
-    
-    <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">var</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;name_df&quot;</span><span class="p">,</span> <span class="n">marginal</span><span class="o">=</span><span class="s2">&quot;box&quot;</span><span class="p">,</span>  <span class="n">hover_data</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">barmode</span><span class="o">=</span><span class="s1">&#39;overlay&#39;</span><span class="p">)</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">update_traces</span><span class="p">(</span><span class="n">opacity</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="n">categoryorder</span><span class="o">=</span><span class="s1">&#39;category ascending&#39;</span><span class="p">)</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">renderer</span><span class="o">=</span><span class="s2">&quot;jpeg&quot;</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">assign_inliers</span><span class="p">(</span><span class="n">sr</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;iqr&#39;</span><span class="p">,</span> <span class="n">params</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.5</span><span class="p">),</span> <span class="n">retbin_inlier</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    method is in (&#39;std&#39;, &#39;iqr&#39;, &#39;quantile&#39;,&#39;arbitrary&#39;)</span>
-<span class="sd">    params is parameter for each method:</span>
-<span class="sd">    - for &#39;std&#39; method: params = (multiple of std for inliers)</span>
-<span class="sd">    - for &#39;iqr&#39; method: params = (multiple of iqr for inliers)</span>
-<span class="sd">    - for &#39;quantile&#39; method: params = (lower quantile for inliers , upper quantile for inliers )</span>
-<span class="sd">    - for &#39;arbitrary&#39; method: params = (lowest value for inliers , largest value for inliers )</span>
-<span class="sd">    retbin_inlier = True if return interval of inliers</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">params</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">tuple</span><span class="p">:</span>
-        <span class="n">params</span> <span class="o">=</span> <span class="p">(</span><span class="n">params</span><span class="p">,)</span>
         
-    <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;std&#39;</span><span class="p">:</span>
-        <span class="n">interval</span> <span class="o">=</span> <span class="p">(</span><span class="n">sr</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">sr</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span> <span class="n">sr</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">+</span> <span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">sr</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
-    <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;iqr&#39;</span><span class="p">:</span>
-        <span class="n">iqr</span> <span class="o">=</span> <span class="n">sr</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span> <span class="o">-</span> <span class="n">sr</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
-        <span class="n">interval</span> <span class="o">=</span> <span class="p">(</span><span class="n">sr</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span> <span class="o">-</span> <span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">iqr</span><span class="p">,</span> <span class="n">sr</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span> <span class="o">+</span> <span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">iqr</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;quantile&#39;</span><span class="p">:</span>
-        <span class="n">interval</span> <span class="o">=</span> <span class="p">(</span><span class="n">sr</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="p">,</span> <span class="n">sr</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
-    <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;arbitrary&#39;</span><span class="p">:</span>
-        <span class="n">interval</span> <span class="o">=</span> <span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">,</span> <span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="p">(</span><span class="n">sr</span> <span class="o">&gt;=</span> <span class="n">interval</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">sr</span> <span class="o">&lt;=</span> <span class="n">interval</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-    
-    <span class="k">if</span> <span class="n">retbin_inlier</span><span class="p">:</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">interval</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">res</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">autosize</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="n">rows</span><span class="o">*</span><span class="mi">400</span><span class="p">,</span> <span class="n">barmode</span><span class="o">=</span><span class="s1">&#39;group&#39;</span><span class="p">,</span> <span class="n">bargap</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">bargroupgap</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">showlegend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">yaxis_title</span><span class="o">=</span><span class="s2">&quot;percentage&quot;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="n">categoryorder</span><span class="o">=</span><span class="s1">&#39;category ascending&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fig</span><span class="c1">#.show(renderer=&quot;jpeg&quot;)</span>
 </pre></div>
 </div>
 </div>
@@ -491,382 +458,492 @@ document.write(`
 </div>
 </div>
 </div>
+<section id="equal-width">
+<h2><span class="section-number">3.7.1. </span>Equal-width<a class="headerlink" href="#equal-width" title="Permalink to this heading">#</a></h2>
+<p>Equal width discretisation divides the scope of possible values into N bins of the same width.The width is determined by the range of values in the variable and the number of bins we wish to use to divide the variable:</p>
+<p><code class="docutils literal notranslate"><span class="pre">width</span></code> = (<code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">value</span></code> - <code class="docutils literal notranslate"><span class="pre">min</span> <span class="pre">value</span></code>) / <code class="docutils literal notranslate"><span class="pre">N</span></code></p>
+<p>where <code class="docutils literal notranslate"><span class="pre">N</span></code> is the number of bins or intervals, that is something to determine experimentally.</p>
+<ul class="simple">
+<li><p>Does not improve value spread</p></li>
+<li><p>Handles outliers</p></li>
+<li><p>Creates discrete variable</p></li>
+<li><p>Good to combine with categorical encodings</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hist_boxsplot</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="n">X_train</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pandas cut (cut by specific interval)</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">X_train_copy</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">gen_intervals</span><span class="p">(</span><span class="n">sr</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+    <span class="c1"># now let&#39;s capture the lower and upper boundaries</span>
+    <span class="n">min_value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span> <span class="n">sr</span><span class="o">.</span><span class="n">min</span><span class="p">()))</span>
+    <span class="n">max_value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span> <span class="n">sr</span><span class="o">.</span><span class="n">max</span><span class="p">()))</span>
+
+    <span class="c1"># let&#39;s round the bin width</span>
+    <span class="n">inter_value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">((</span><span class="n">max_value</span> <span class="o">-</span> <span class="n">min_value</span><span class="p">)</span> <span class="o">/</span> <span class="n">N</span><span class="p">))</span>
+
+    <span class="c1"># interval list</span>
+    <span class="n">intervals</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">min_value</span><span class="p">,</span> <span class="n">max_value</span><span class="o">+</span><span class="n">inter_value</span><span class="p">,</span> <span class="n">inter_value</span><span class="p">)]</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Bin_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">intervals</span><span class="p">))]</span>
+    <span class="k">return</span> <span class="n">intervals</span><span class="p">,</span> <span class="n">labels</span>
+
+<span class="n">intervals</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">gen_intervals</span><span class="p">(</span><span class="n">X_train_copy</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">],</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">X_train_copy</span><span class="p">[</span><span class="s1">&#39;Age_disc_labels&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">X_train_copy</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">],</span><span class="n">bins</span><span class="o">=</span><span class="n">intervals</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">include_lowest</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">X_train_copy</span><span class="p">[</span><span class="s1">&#39;Age_disc&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">X_train_copy</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">intervals</span><span class="p">,</span> <span class="n">include_lowest</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># plot</span>
+<span class="n">X_train_copy</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Age_disc&#39;</span><span class="p">)[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number of observations per bin&#39;</span><span class="p">)</span>
+
+<span class="n">X_train_copy</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6a71e1796fa4120bf32825231b0299df0108fe86d3165170102b342092704d70.jpg" src="../../_images/6a71e1796fa4120bf32825231b0299df0108fe86d3165170102b342092704d70.jpg" />
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>fare</th>
+      <th>Age_disc_labels</th>
+      <th>Age_disc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>943</th>
+      <td>37.0</td>
+      <td>9.5875</td>
+      <td>Bin_4</td>
+      <td>(30.0, 40.0]</td>
+    </tr>
+    <tr>
+      <th>195</th>
+      <td>16.0</td>
+      <td>86.5000</td>
+      <td>Bin_2</td>
+      <td>(10.0, 20.0]</td>
+    </tr>
+    <tr>
+      <th>1257</th>
+      <td>9.0</td>
+      <td>15.2458</td>
+      <td>Bin_1</td>
+      <td>(-0.001, 10.0]</td>
+    </tr>
+    <tr>
+      <th>1266</th>
+      <td>36.0</td>
+      <td>24.1500</td>
+      <td>Bin_4</td>
+      <td>(30.0, 40.0]</td>
+    </tr>
+    <tr>
+      <th>440</th>
+      <td>48.0</td>
+      <td>65.0000</td>
+      <td>Bin_5</td>
+      <td>(40.0, 50.0]</td>
+    </tr>
+    <tr>
+      <th>1113</th>
+      <td>26.0</td>
+      <td>13.7750</td>
+      <td>Bin_3</td>
+      <td>(20.0, 30.0]</td>
+    </tr>
+    <tr>
+      <th>1091</th>
+      <td>20.0</td>
+      <td>8.6625</td>
+      <td>Bin_2</td>
+      <td>(10.0, 20.0]</td>
+    </tr>
+    <tr>
+      <th>907</th>
+      <td>20.0</td>
+      <td>9.8250</td>
+      <td>Bin_2</td>
+      <td>(10.0, 20.0]</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>59.0</td>
+      <td>51.4792</td>
+      <td>Bin_6</td>
+      <td>(50.0, 60.0]</td>
+    </tr>
+    <tr>
+      <th>1131</th>
+      <td>32.0</td>
+      <td>8.0500</td>
+      <td>Bin_4</td>
+      <td>(30.0, 40.0]</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><img alt="../../_images/fbd9c55016a1f78909311d66746446d3c57b251e779fcfacfb3b51c263158aca.png" src="../../_images/fbd9c55016a1f78909311d66746446d3c57b251e779fcfacfb3b51c263158aca.png" />
 </div>
 </div>
-<section id="z-score">
-<h3><span class="section-number">3.7.1.1. </span>Z-score<a class="headerlink" href="#z-score" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Outlier</span></code> = {<code class="docutils literal notranslate"><span class="pre">x</span></code> | (<code class="docutils literal notranslate"><span class="pre">x</span></code>&gt; <code class="docutils literal notranslate"><span class="pre">mean</span></code> + <code class="docutils literal notranslate"><span class="pre">3sdt</span></code>) or (<code class="docutils literal notranslate"><span class="pre">x</span></code>&lt; <code class="docutils literal notranslate"><span class="pre">mean</span></code> - <code class="docutils literal notranslate"><span class="pre">3std</span></code>) }</p></li>
-</ul>
-</section>
-<section id="interquartile-range">
-<h3><span class="section-number">3.7.1.2. </span>Interquartile Range<a class="headerlink" href="#interquartile-range" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>IQR = the 75th percentile - the 25th percentile</p></li>
-<li><p>outliers out of upper/lower boundary</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">Upper</span> <span class="pre">boundary</span></code> = <code class="docutils literal notranslate"><span class="pre">75th</span> <span class="pre">quantile</span></code> + (<code class="docutils literal notranslate"><span class="pre">IQR</span></code> * 1.5)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Lower</span> <span class="pre">boundary</span></code> = <code class="docutils literal notranslate"><span class="pre">25th</span> <span class="pre">quantile</span></code> - (<code class="docutils literal notranslate"><span class="pre">IQR</span></code> * 1.5)</p></li>
-</ul>
-</li>
-<li><p>extreme case</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">Upper</span> <span class="pre">boundary</span></code> = <code class="docutils literal notranslate"><span class="pre">75th</span> <span class="pre">quantile</span></code> + (<code class="docutils literal notranslate"><span class="pre">IQR</span></code> * 3)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Lower</span> <span class="pre">boundary</span></code> = <code class="docutils literal notranslate"><span class="pre">25th</span> <span class="pre">quantile</span></code> - (<code class="docutils literal notranslate"><span class="pre">IQR</span></code> * 3)</p></li>
-</ul>
-</li>
-</ul>
-</section>
-<section id="local-outlier-factor-lof">
-<h3><span class="section-number">3.7.1.3. </span>Local Outlier Factor (LOF)<a class="headerlink" href="#local-outlier-factor-lof" title="Permalink to this heading">#</a></h3>
-<p><strong>Terms</strong></p>
-<ul>
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">K-distance</span></code></strong> : của 1 điểm là khoảng cách từ điểm đó tới điểm thứ k gần nhất</p></li>
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">K-neighbors</span></code></strong> Nₖ(A): của 1 điểm A là tập hợp các điểm có khoảng cách nhỏ hơn hoặc bằng K-distance của A. (trong vùng K-neighbors có ít nhất K điểm). ||Nₖ(A)|| là số điểm trong K-neighbors.</p></li>
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">reachability</span> <span class="pre">density</span> <span class="pre">(RD)</span></code></strong> : khoảng cách của 1 điểm so với điểm đó, với k-distance của điểm đó</p>
-<div class="math notranslate nohighlight">
-\[RD(A,X) = max( K-distance(X), distance(A,X) )\]</div>
-</li>
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">Local</span> <span class="pre">reachability</span> <span class="pre">density</span> <span class="pre">(LRD)</span></code></strong> :</p>
-<div class="math notranslate nohighlight">
-\[LRD_{k}(A)=\frac{1}{\sum_{X_j \in N_{k}(A)}\frac{\mathrm{RD}(A,X j)}{||N_{k}(A)||}}\]</div>
-<ul class="simple">
-<li><p>thể hiện 1 điểm cách cụm gần nhất xa hay không, low LRD thể hiệm điểm đó càng cách xa cụm gần nhất.</p></li>
-</ul>
-</li>
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">outlier</span> <span class="pre">factor</span> <span class="pre">(LOF)</span></code></strong>: so sánh LRD trung bình của các điểm thuộc k-neighbors của điểm A với LRD(A)</p>
-<div class="math notranslate nohighlight">
-\[LOF_{k}(A)=\frac{\sum_{X j\,\,\in N_{k}(A)}\,LRD_{k}(X j)}{||N_{k}(A)||}\times\frac{1}{LRD_{k}(A)}\]</div>
-<ul class="simple">
-<li><p>LOF &lt;= 1 thường không phải là outlier, LOF lớn có thể là outliers.</p></li>
-</ul>
-</li>
-</ul>
-<p><strong>Advantages</strong></p>
-<ul class="simple">
-<li><p>Khá nhạy cảm với điểm nằm gần cụm có mật độ dày nhưng vẫn có thể track là outlier</p></li>
-</ul>
-<p><strong>Disadvantages</strong></p>
-<ul class="simple">
-<li><p>Không có boundary inlier, nên không có method để predict dữ liệu mới liệu có phải outlier hay không ?</p></li>
-<li><p>Không áp dụng được khi có dữ liệu mới</p></li>
-<li><p>LOF là phương pháp xác định ngoại lai cho 1 cụm local nào đó thay vì global, lựa chọn K phụ thuộc vào người dùng.</p></li>
-</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">LocalOutlierFactor</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sklearn</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">KBinsDiscretizer</span>
 
-<span class="c1"># identify outliers in the training dataset</span>
-<span class="n">lof</span> <span class="o">=</span> <span class="n">LocalOutlierFactor</span><span class="p">()</span>
-<span class="n">x_inliers_hat</span> <span class="o">=</span> <span class="n">lof</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">disc</span> <span class="o">=</span> <span class="n">KBinsDiscretizer</span><span class="p">(</span><span class="n">n_bins</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">encode</span><span class="o">=</span><span class="s1">&#39;ordinal&#39;</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set_output</span><span class="p">(</span><span class="n">transform</span><span class="o">=</span><span class="s2">&quot;pandas&quot;</span><span class="p">)</span>
+<span class="n">disc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
 
-<span class="c1"># select all rows that are not outliers</span>
-<span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_inliers_hat</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">X_train_inliers</span><span class="p">,</span> <span class="n">y_train_inliers</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="p">:],</span> <span class="n">y_train</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+<span class="n">train_t</span> <span class="o">=</span> <span class="n">disc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">test_t</span> <span class="o">=</span> <span class="n">disc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 
-<span class="c1"># summarize the shape of the updated training dataset</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">X_train_inliers</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_train_inliers</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">bin_hist</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="n">train_t</span><span class="p">,</span> <span class="n">test_t</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(731, 2) (731,)
-(701, 2) (701,)
-</pre></div>
-</div>
+<img alt="../../_images/4895478d77361dd97d57ff49a88b31c4c9282414f39f2734b00853742c3ee7f5.jpg" src="../../_images/4895478d77361dd97d57ff49a88b31c4c9282414f39f2734b00853742c3ee7f5.jpg" />
 </div>
 </div>
 </section>
-<section id="isolation-forest">
-<h3><span class="section-number">3.7.1.4. </span>Isolation Forest<a class="headerlink" href="#isolation-forest" title="Permalink to this heading">#</a></h3>
+<section id="equal-frequency">
+<h2><span class="section-number">3.7.2. </span>Equal-frequency<a class="headerlink" href="#equal-frequency" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Sử dụng phân tách cây quyết định nhị phân để tách thành tối đa các leaf, với feature selection và threshold ngẫu nhiên. mức độ score được do bởi độ sâu của lá so với root.</p></li>
+<li><p>Equal frequency discretisation divides the scope of possible values of the variable into N bins, where each bin carries the same amount of observations.</p></li>
+<li><p>This is particularly useful for skewed variables as it spreads the observations over the different bins equally. We find the interval boundaries by determining the quantiles.</p></li>
+<li><p>Does not improve value spread</p></li>
+<li><p>Handles outliers</p></li>
+<li><p>Creates discrete variable</p></li>
+<li><p>Good to combine with categorical encodings</p></li>
 </ul>
-<p><strong>Disadvantages:</strong></p>
-<ul class="simple">
-<li><p>Mô hình phụ thuộc vào hệ số <code class="docutils literal notranslate"><span class="pre">Contamination</span></code> là tỷ lệ outlier trong sample</p></li>
-<li><p>Mô hình có khả năng bị bias do phương pháp binary cut, ví dụ:
-( khắc phụ bằng model <code class="docutils literal notranslate"><span class="pre">Extended</span> <span class="pre">Isolation</span> <span class="pre">Forest</span></code> - thay đổi intercept và slope ngẫu nhiên đường brand cut)</p></li>
-</ul>
-<p><img alt="image.png" src="../../_images/out2.png" /></p>
-<p><strong>–&gt; <code class="docutils literal notranslate"><span class="pre">Isolation</span> <span class="pre">Forest</span></code> tạo ra các vùng có khả năng không là outlier nhưng thực tế nếu có point tại đó thì là outlier</strong></p>
-<p><img alt="image.png" src="../../_images/out3.png" /></p>
-<p><strong>So sánh <code class="docutils literal notranslate"><span class="pre">Isolation</span> <span class="pre">Forest</span></code> và biến thể</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Vanilla Isolation Forest</span>
-<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">IsolationForest</span>
-
-<span class="c1"># identify outliers in the training dataset</span>
-<span class="n">IF</span> <span class="o">=</span> <span class="n">IsolationForest</span><span class="p">(</span><span class="n">contamination</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">)</span> <span class="c1"># Contamination là tỷ lệ outlier</span>
-<span class="n">x_inliers_hat</span> <span class="o">=</span> <span class="n">IF</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-
-<span class="c1"># select all rows that are not outliers</span>
-<span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_inliers_hat</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">X_train_inliers</span><span class="p">,</span> <span class="n">y_train_inliers</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="p">:],</span> <span class="n">y_train</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
-
-<span class="c1"># summarize the shape of the updated training dataset</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;before remove outliers:&#39;</span><span class="p">,</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;after remove outliers: &#39;</span><span class="p">,</span><span class="n">X_train_inliers</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_train_inliers</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pandas qcut (cut by Quantile base)</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Q</span><span class="si">{:02.0f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+<span class="n">Age_disccretised</span><span class="p">,</span> <span class="n">intervals</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span> <span class="n">X_train</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">],</span> <span class="n">N</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">labels</span><span class="p">,</span>
+                                      <span class="n">retbins</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1"># return bin to use for pd.cut testset</span>
+                                      <span class="n">precision</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">duplicates</span><span class="o">=</span><span class="s1">&#39;raise&#39;</span><span class="p">)</span>
+<span class="n">X_train_copy</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">X_train_copy</span><span class="p">[</span><span class="s1">&#39;Age_disccretised_bin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Age_disccretised</span>
+<span class="n">bin_hist</span><span class="p">(</span><span class="s1">&#39;Age_disccretised_bin&#39;</span><span class="p">,</span> <span class="n">X_train_copy</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>before remove outliers: (731, 2) (731,)
-after remove outliers:  (658, 2) (658,)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/khongdat/miniforge3/lib/python3.10/site-packages/sklearn/base.py:409: UserWarning: X does not have valid feature names, but IsolationForest was fitted with feature names
-  warnings.warn(
-</pre></div>
-</div>
+<img alt="../../_images/b43c0c525bacad3763461829a109c197a87e80bb96f02aa95fb877de01ed611f.jpg" src="../../_images/b43c0c525bacad3763461829a109c197a87e80bb96f02aa95fb877de01ed611f.jpg" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extended Isolation Forest</span>
-<span class="kn">import</span> <span class="nn">eif</span> <span class="k">as</span> <span class="nn">iso</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sklearn </span>
+<span class="n">disc</span> <span class="o">=</span> <span class="n">KBinsDiscretizer</span><span class="p">(</span><span class="n">n_bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">encode</span><span class="o">=</span><span class="s1">&#39;ordinal&#39;</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;quantile&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set_output</span><span class="p">(</span><span class="n">transform</span><span class="o">=</span><span class="s2">&quot;pandas&quot;</span><span class="p">)</span>
+<span class="n">disc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
 
-<span class="c1"># change the ExtensionLevel (default = 0 at Vanilla IF), change to (n_dimensions - 1)</span>
-<span class="n">eif</span> <span class="o">=</span> <span class="n">iso</span><span class="o">.</span><span class="n">iForest</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> 
-                  <span class="n">ntrees</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> 
-                  <span class="n">sample_size</span> <span class="o">=</span> <span class="mi">256</span><span class="p">,</span> 
-                  <span class="n">ExtensionLevel</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">train_t</span> <span class="o">=</span> <span class="n">disc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">test_t</span> <span class="o">=</span> <span class="n">disc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 
-<span class="n">anomaly_scores</span> <span class="o">=</span> <span class="n">eif</span><span class="o">.</span><span class="n">compute_paths</span><span class="p">(</span><span class="n">X_in</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-<span class="n">anomaly_scores_sorted</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">anomaly_scores</span><span class="p">)</span>
-<span class="n">indices_with_preds</span> <span class="o">=</span> <span class="n">anomaly_scores_sorted</span><span class="p">[</span><span class="o">-</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">anomalies_ratio</span> <span class="o">*</span> <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])):]</span>
-<span class="n">y_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
-<span class="n">y_pred</span><span class="p">[</span><span class="n">indices_with_preds</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="elliptic-envelope">
-<h3><span class="section-number">3.7.1.5. </span>Elliptic Envelope<a class="headerlink" href="#elliptic-envelope" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Áp dụng cho dữ liệu phân bố ellip gaussian</p></li>
-</ul>
-<p><strong>Procedure</strong></p>
-<ul class="simple">
-<li><p>lấy các subset từ samples với size cố định và chọn ra subset có covariance nhỏ nhất.</p></li>
-<li><p>Tính parameter từ subsample được chọn và outlier là những point có khoảng cách lớn nhất với cụm sample.</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.covariance</span> <span class="kn">import</span> <span class="n">EllipticEnvelope</span>
-
-<span class="c1"># identify outliers in the training dataset</span>
-<span class="n">ee</span> <span class="o">=</span> <span class="n">EllipticEnvelope</span><span class="p">(</span><span class="n">contamination</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">)</span> <span class="c1"># Contamination là tỷ lệ outlier</span>
-<span class="n">x_inliers_hat</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-
-<span class="c1"># select all rows that are not outliers</span>
-<span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_inliers_hat</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">X_train_inliers</span><span class="p">,</span> <span class="n">y_train_inliers</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="p">:],</span> <span class="n">y_train</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
-
-<span class="c1"># summarize the shape of the updated training dataset</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;before remove outliers:&#39;</span><span class="p">,</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;after remove outliers: &#39;</span><span class="p">,</span><span class="n">X_train_inliers</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_train_inliers</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">bin_hist</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="n">train_t</span><span class="p">,</span> <span class="n">test_t</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>before remove outliers: (731, 2) (731,)
-after remove outliers:  (658, 2) (658,)
-</pre></div>
-</div>
+<img alt="../../_images/f2c63df26915fd189753a9a9da821c0aac9fda4b5a47d39ac72074ec9c007f53.jpg" src="../../_images/f2c63df26915fd189753a9a9da821c0aac9fda4b5a47d39ac72074ec9c007f53.jpg" />
 </div>
 </div>
 </section>
-<section id="one-class-svm">
-<h3><span class="section-number">3.7.1.6. </span>One-Class SVM<a class="headerlink" href="#one-class-svm" title="Permalink to this heading">#</a></h3>
+<section id="k-mean">
+<h2><span class="section-number">3.7.3. </span>K-mean<a class="headerlink" href="#k-mean" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">One-class</span> <span class="pre">SVM</span></code> là 1 biến thể của <code class="docutils literal notranslate"><span class="pre">Standard-SVM</span></code>.</p>
-<ul>
-<li><p>Với thuật toán <strong>Standard-SVM</strong>, sẽ tìm 1 <strong>hyperplane</strong> (siêu mặt phẳng) để phân tách 2 classes với margin lớn nhất có thể (cách đều 2 điểm <code class="docutils literal notranslate"><span class="pre">positive</span></code> và <code class="docutils literal notranslate"><span class="pre">negative</span></code> gần nhất)</p></li>
-<li><p>Với <strong>One-class SVM</strong> sẽ tương tự, nhưng thay vào đó sẽ tìm 1 <strong>hyperphere</strong> (siêu cầu) đều bao gọn các điểm <code class="docutils literal notranslate"><span class="pre">normal</span></code> bên trong, các điểm bên ngoài <strong>hypersphere</strong> sẽ là <code class="docutils literal notranslate"><span class="pre">outliers</span></code></p></li>
-</ul>
-</li>
-<li><p><strong>Challenge</strong>:</p>
-<ul>
-<li><p>Requires fine-tuning of its hyperparameter <code class="docutils literal notranslate"><span class="pre">nu</span></code> to handle outliers and prevent overfitting</p></li>
-</ul>
-</li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SGDOneClassSVM</span></code> : is An online linear version of the <strong>One-Class SVM</strong>. This implementation scales linearly with the number of samples and can be used with a kernel approximation to approximate the solution of a kernelized svm.OneClassSVM whose complexity is at best quadratic in the number of samples, uses a Gaussian kernel by default</p></li>
+<li><p>With K number of clusters was be defined, the method consists in applying k-mean clustering to the continuous variable.</p></li>
+<li><p><strong>Unless you have reasons to believe that the values of the variable are organised in clusters, then use equal width discretisation as an alternative to this method</strong></p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">OneClassSVM</span>
-
-<span class="n">oc</span> <span class="o">=</span> <span class="n">OneClassSVM</span><span class="p">(</span><span class="n">nu</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span> <span class="c1"># nu: % outliers in sample</span>
-<span class="n">x_inliers_hat</span> <span class="o">=</span> <span class="n">oc</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-
-<span class="c1"># select all rows that are not outliers</span>
-<span class="n">mask</span> <span class="o">=</span> <span class="n">x_inliers_hat</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span>
-<span class="n">X_train_inliers</span><span class="p">,</span> <span class="n">y_train_inliers</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="p">:],</span> <span class="n">y_train</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
-
-<span class="c1"># summarize the shape of the updated training dataset</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;before remove outliers:&#39;</span><span class="p">,</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;after remove outliers: &#39;</span><span class="p">,</span><span class="n">X_train_inliers</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_train_inliers</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>before remove outliers: (731, 2) (731,)
-after remove outliers:  (726, 2) (726,)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">disc</span> <span class="o">=</span> <span class="n">KBinsDiscretizer</span><span class="p">(</span><span class="n">n_bins</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">encode</span><span class="o">=</span><span class="s1">&#39;ordinal&#39;</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;kmeans&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-</section>
-<section id="outlier-handling">
-<h2><span class="section-number">3.7.2. </span>Outlier handling<a class="headerlink" href="#outlier-handling" title="Permalink to this heading">#</a></h2>
+<section id="decision-tree-discretesation">
+<h2><span class="section-number">3.7.4. </span>Decision Tree discretesation<a class="headerlink" href="#decision-tree-discretesation" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Trimming</span></code>: remove the outliers from our dataset</p>
-<ul>
-<li><p>Pros: Quick</p></li>
-<li><p>Cons: Outliers could be contained useful information in other variables, and may be remove a big chunk of dataset</p></li>
+<li><p>Discretisation with Decision Trees consists in using a decision tree to identify the <strong>optimal bins</strong>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">optimal</span> <span class="pre">bins</span></code> are the limitation outputs from tree model of limited <code class="docutils literal notranslate"><span class="pre">depth</span></code> (2, 3 or 4) using the <code class="docutils literal notranslate"><span class="pre">variable</span></code> and <code class="docutils literal notranslate"><span class="pre">target</span></code></p></li>
 </ul>
-</li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Treat</span></code>: outliers would be assign as missing data, and proceed with any <code class="docutils literal notranslate"><span class="pre">missing</span> <span class="pre">data</span> <span class="pre">imputation</span> <span class="pre">technique</span></code></p>
-<ul>
-<li><p>Pros: does not remove data</p></li>
-<li><p>Cons: distorts the distributions of the variables and relationship among variables</p></li>
+<p><strong>1. Advantages</strong></p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">output</span></code> returned by the decision tree is <em>monotonically related</em> to the <code class="docutils literal notranslate"><span class="pre">target</span></code>.</p></li>
+<li><p>The tree end nodes, or bins in the discretised variable show decreased entropy: that is, <strong>the observations within each bin are more similar among themselves than to those of other bins.</strong></p></li>
 </ul>
-</li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Discrestisation</span></code>: outliers are placed in border bins together with higher or lower values of the distribution</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Censoring</span></code> (winsorization/capping/top-bottom coding): capping the variable distribution at a max and / or minimum value, than any value out of cap range would be replace by cap value.</p>
-<ul>
-<li><p>Pros: does not remove data</p></li>
-<li><p>Cons: distorts the distributions of the variables and relationship among variables</p></li>
-</ul>
-</li>
+<p><strong>2. Limitations</strong></p>
+<ul class="simple">
+<li><p>Prone over-fitting</p></li>
+<li><p>More importantly, some tuning of the tree parameters needed to obtain the optimal number of splits (e.g., tree depth, minimum number of samples in one partition, maximum number of partitions, and a minimum information gain). This it can be time consuming.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">outlier_action</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">action_method</span> <span class="o">=</span> <span class="s1">&#39;trim&#39;</span><span class="p">,</span> <span class="n">assign_params</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;iqr&#39;</span><span class="p">,</span><span class="mf">1.5</span><span class="p">)):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    action_method is in (&#39;trim&#39;, &#39;cap&#39;, &#39;treat&#39;)</span>
-<span class="sd">        - trim: drop outliers obs</span>
-<span class="sd">        - treat: assign outliers value into missing (np.nan)</span>
-<span class="sd">        - cap: assign outliers by the nearest boundary of inliers range</span>
-<span class="sd">    assign_params are method&#39;s name and its parameter to assign inlier in `assign_inliers` function:</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">df_c</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-    <span class="n">mask</span><span class="p">,</span> <span class="n">interval</span> <span class="o">=</span> <span class="n">assign_inliers</span><span class="p">(</span><span class="n">df_c</span><span class="p">[</span><span class="n">var</span><span class="p">],</span> <span class="n">method</span> <span class="o">=</span> <span class="n">assign_params</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">params</span> <span class="o">=</span> <span class="n">assign_params</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">retbin_inlier</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">action_method</span> <span class="o">==</span> <span class="s1">&#39;trim&#39;</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">df_c</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
-    <span class="k">elif</span> <span class="n">action_method</span> <span class="o">==</span> <span class="s1">&#39;treat&#39;</span><span class="p">:</span>
-        <span class="n">df_c</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="n">mask</span><span class="p">,</span> <span class="n">var</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
-        <span class="k">return</span> <span class="n">df_c</span>
-    <span class="k">elif</span> <span class="n">action_method</span> <span class="o">==</span> <span class="s1">&#39;cap&#39;</span><span class="p">:</span>
-        <span class="n">df_c</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sr_c</span> <span class="o">&lt;</span> <span class="n">interval</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">var</span><span class="p">]</span> <span class="o">=</span> <span class="n">interval</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">df_c</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sr_c</span> <span class="o">&gt;</span> <span class="n">interval</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">var</span><span class="p">]</span> <span class="o">=</span> <span class="n">interval</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="k">return</span> <span class="n">df_c</span>
-</pre></div>
-</div>
-</div>
-</div>
-<section id="trimming">
-<h3><span class="section-number">3.7.2.1. </span>Trimming<a class="headerlink" href="#trimming" title="Permalink to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train_trim</span> <span class="o">=</span> <span class="n">outlier_action</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="s1">&#39;trim&#39;</span><span class="p">)</span>
-<span class="n">hist_boxsplot</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="n">X_train_trim</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span><span class="p">,</span> <span class="n">export_graphviz</span>
+
+<span class="n">X_train_copy</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[[</span><span class="s1">&#39;age&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">X_test_copy</span> <span class="o">=</span> <span class="n">X_test</span><span class="p">[[</span><span class="s1">&#39;age&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">tree_model</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">tree_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_copy</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="n">train_t</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">tree_model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_train_copy</span><span class="p">)[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="n">y_train</span><span class="o">.</span><span class="n">index</span><span class="p">)</span> <span class="c1"># probability for class 1</span>
+<span class="n">test_t</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">tree_model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test_copy</span><span class="p">)[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="n">y_test</span><span class="o">.</span><span class="n">index</span><span class="p">)</span> <span class="c1"># probability for class 1</span>
+
+<span class="n">bin_hist</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="n">train_t</span><span class="p">,</span> <span class="n">test_t</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0bb62b199bc1330b7a65cae53859cbbd5b465df17a2d13f66eeb4d61efcac622.jpg" src="../../_images/0bb62b199bc1330b7a65cae53859cbbd5b465df17a2d13f66eeb4d61efcac622.jpg" />
+<img alt="../../_images/4ce6d7ef570bdcc639d1481622daef05286004caa3061918b1eecd06b5965ec2.jpg" src="../../_images/4ce6d7ef570bdcc639d1481622daef05286004caa3061918b1eecd06b5965ec2.jpg" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">feature_engine.outliers</span> <span class="kn">import</span> <span class="n">OutlierTrimmer</span>
-
-<span class="c1"># set up the capper</span>
-<span class="n">capper</span> <span class="o">=</span> <span class="n">OutlierTrimmer</span><span class="p">(</span><span class="n">capping_method</span><span class="o">=</span><span class="s1">&#39;iqr&#39;</span><span class="p">,</span> <span class="n">tail</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">fold</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">variables</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;fare&#39;</span><span class="p">])</span>
-
-<span class="c1"># fit the capper</span>
-<span class="n">capper</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-
-<span class="c1"># transform the data</span>
-<span class="n">train_t</span><span class="o">=</span> <span class="n">capper</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-<span class="n">test_t</span><span class="o">=</span> <span class="n">capper</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="treat">
-<h3><span class="section-number">3.7.2.2. </span>Treat<a class="headerlink" href="#treat" title="Permalink to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train_treat</span> <span class="o">=</span> <span class="n">outlier_action</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="s1">&#39;treat&#39;</span><span class="p">)</span>
-<span class="n">hist_boxsplot</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="n">X_train_treat</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check monotonic in train and test</span>
+<span class="n">y_train</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">train_t</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Monotonic age - target (train)&#39;</span><span class="p">,</span> <span class="n">ylabel</span> <span class="o">=</span> <span class="s1">&#39;mean target&#39;</span><span class="p">)</span>
+<span class="n">y_test</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">test_t</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Monotonic age - target (test)&#39;</span><span class="p">,</span> <span class="n">ylabel</span> <span class="o">=</span> <span class="s1">&#39;mean target&#39;</span><span class="p">)</span>
+<span class="c1"># test is not monotonic ==&gt; overfiting</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0bb62b199bc1330b7a65cae53859cbbd5b465df17a2d13f66eeb4d61efcac622.jpg" src="../../_images/0bb62b199bc1330b7a65cae53859cbbd5b465df17a2d13f66eeb4d61efcac622.jpg" />
-</div>
-</div>
-</section>
-<section id="cap">
-<h3><span class="section-number">3.7.2.3. </span>Cap<a class="headerlink" href="#cap" title="Permalink to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># cap by iqr, gaussian, quantiles</span>
-
-<span class="kn">from</span> <span class="nn">feature_engine.outliers</span> <span class="kn">import</span> <span class="n">Winsorizer</span>
-
-<span class="n">cap</span> <span class="o">=</span> <span class="n">Winsorizer</span><span class="p">(</span>
-    <span class="n">capping_method</span> <span class="o">=</span> <span class="s1">&#39;iqr&#39;</span><span class="p">,</span> <span class="c1"># gaussian, quantiles</span>
-    <span class="n">tail</span> <span class="o">=</span> <span class="s1">&#39;both&#39;</span><span class="p">,</span>
-    <span class="n">fold</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">,</span>
-    <span class="n">add_indicators</span><span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-    <span class="n">variables</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">],</span>
-    <span class="n">missing_values</span><span class="o">=</span> <span class="s1">&#39;ignore&#39;</span><span class="p">,</span>
-<span class="p">)</span>
-
-<span class="n">cap</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-
-<span class="n">train_t</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-<span class="n">test_t</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: title={&#39;center&#39;: &#39;Monotonic age - target (test)&#39;}, xlabel=&#39;age&#39;, ylabel=&#39;mean target&#39;&gt;
 </pre></div>
 </div>
+<img alt="../../_images/b7751594f180f5efe31c914662a91276500abe9ee76a39bc4ab42f98ee58b848.png" src="../../_images/b7751594f180f5efe31c914662a91276500abe9ee76a39bc4ab42f98ee58b848.png" />
+<img alt="../../_images/d4af81448a1c7ddb64d763380971a786a1f5da8597198c669366082010620c74.png" src="../../_images/d4af81448a1c7ddb64d763380971a786a1f5da8597198c669366082010620c74.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># cap by arbitracy value</span>
-<span class="kn">from</span> <span class="nn">feature_engine.outliers</span> <span class="kn">import</span> <span class="n">ArbitraryOutlierCapper</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># optimize the tree model</span>
+<span class="c1"># choose the depth that generates the best roc-auc</span>
 
-<span class="n">cap</span>  <span class="o">=</span> <span class="n">ArbitraryOutlierCapper</span><span class="p">(</span>
-    <span class="n">max_capping_dict</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;fare&#39;</span><span class="p">:</span> <span class="mi">200</span><span class="p">},</span>
-    <span class="n">min_capping_dict</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;fare&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">}</span>
-        <span class="p">)</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
+<span class="n">score_ls</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># here we store the roc auc</span>
+<span class="n">score_std_ls</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># here we store the standard deviation of the roc_auc</span>
 
-<span class="n">cap</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">tree_depth</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]:</span>
 
-<span class="n">train_t</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-<span class="n">test_t</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    <span class="c1"># call the model</span>
+    <span class="n">tree_model</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="n">tree_depth</span><span class="p">)</span>
+
+    <span class="c1"># train the model using 3 fold cross validation</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">tree_model</span><span class="p">,</span> <span class="n">X_train_copy</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;roc_auc&#39;</span><span class="p">)</span>
+    
+    <span class="c1"># save the parameters</span>
+    <span class="n">score_ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">scores</span><span class="p">))</span>
+    <span class="n">score_std_ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">scores</span><span class="p">))</span>
+
+    
+<span class="c1"># capture the parameters in a dataframe</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]),</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span>
+    <span class="n">score_ls</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">score_std_ls</span><span class="p">)],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">temp</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;depth&#39;</span><span class="p">,</span> <span class="s1">&#39;roc_auc_mean&#39;</span><span class="p">,</span> <span class="s1">&#39;roc_auc_std&#39;</span><span class="p">]</span>
+<span class="n">temp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>depth</th>
+      <th>roc_auc_mean</th>
+      <th>roc_auc_std</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0.532756</td>
+      <td>0.009545</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>0.519149</td>
+      <td>0.015073</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>0.514044</td>
+      <td>0.007280</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>0.519165</td>
+      <td>0.012087</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="domain-knowledge-discretisation">
+<h2><span class="section-number">3.7.5. </span>Domain knowledge discretisation<a class="headerlink" href="#domain-knowledge-discretisation" title="Permalink to this heading">#</a></h2>
+<p>Frequently, when engineering variables in a business setting, the business experts determine the intervals in which they think the variable should be divided so that it makes sense for the business</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># feature_engine</span>
+<span class="kn">from</span> <span class="nn">feature_engine.discretisation</span> <span class="kn">import</span> <span class="n">ArbitraryDiscretiser</span>
+
+<span class="n">dis</span> <span class="o">=</span> <span class="n">ArbitraryDiscretiser</span><span class="p">({</span><span class="s1">&#39;age&#39;</span><span class="p">:[</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">200</span><span class="p">]})</span>
+<span class="n">dis</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">dis</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>fare</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>943</th>
+      <td>1</td>
+      <td>9.5875</td>
+    </tr>
+    <tr>
+      <th>195</th>
+      <td>0</td>
+      <td>86.5000</td>
+    </tr>
+    <tr>
+      <th>1257</th>
+      <td>0</td>
+      <td>15.2458</td>
+    </tr>
+    <tr>
+      <th>1266</th>
+      <td>1</td>
+      <td>24.1500</td>
+    </tr>
+    <tr>
+      <th>440</th>
+      <td>2</td>
+      <td>65.0000</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1290</th>
+      <td>2</td>
+      <td>7.0000</td>
+    </tr>
+    <tr>
+      <th>846</th>
+      <td>0</td>
+      <td>9.5000</td>
+    </tr>
+    <tr>
+      <th>952</th>
+      <td>1</td>
+      <td>7.7750</td>
+    </tr>
+    <tr>
+      <th>614</th>
+      <td>1</td>
+      <td>7.8875</td>
+    </tr>
+    <tr>
+      <th>745</th>
+      <td>1</td>
+      <td>6.9500</td>
+    </tr>
+  </tbody>
+</table>
+<p>731 rows × 2 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pandas</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">200</span><span class="p">],</span> <span class="n">include_lowest</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>943       (20.0, 40.0]
+195     (-0.001, 20.0]
+1257    (-0.001, 20.0]
+1266      (20.0, 40.0]
+440       (40.0, 60.0]
+             ...      
+1290      (40.0, 60.0]
+846     (-0.001, 20.0]
+952       (20.0, 40.0]
+614       (20.0, 40.0]
+745       (20.0, 40.0]
+Name: age, Length: 731, dtype: category
+Categories (4, interval[float64, right]): [(-0.001, 20.0] &lt; (20.0, 40.0] &lt; (40.0, 60.0] &lt; (60.0, 200.0]]
 </pre></div>
 </div>
 </div>
 </div>
-</section>
 </section>
 </section>
 
@@ -904,7 +981,7 @@ after remove outliers:  (726, 2) (726,)
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">3.6. </span>Discretisation</p>
+        <p class="prev-next-title"><span class="section-number">3.6. </span>Feature transformation</p>
       </div>
     </a>
     <a class="right-next"
@@ -912,7 +989,7 @@ after remove outliers:  (726, 2) (726,)
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3.8. </span>Feature scaling</p>
+        <p class="prev-next-title"><span class="section-number">3.8. </span>Outliers</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -931,21 +1008,11 @@ after remove outliers:  (726, 2) (726,)
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outlier-detection-methods">3.7.1. Outlier detection methods</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#z-score">3.7.1.1. Z-score</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interquartile-range">3.7.1.2. Interquartile Range</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-outlier-factor-lof">3.7.1.3. Local Outlier Factor (LOF)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isolation-forest">3.7.1.4. Isolation Forest</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elliptic-envelope">3.7.1.5. Elliptic Envelope</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#one-class-svm">3.7.1.6. One-Class SVM</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outlier-handling">3.7.2. Outlier handling</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trimming">3.7.2.1. Trimming</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treat">3.7.2.2. Treat</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cap">3.7.2.3. Cap</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equal-width">3.7.1. Equal-width</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equal-frequency">3.7.2. Equal-frequency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-mean">3.7.3. K-mean</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-tree-discretesation">3.7.4. Decision Tree discretesation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#domain-knowledge-discretisation">3.7.5. Domain knowledge discretisation</a></li>
 </ul>
   </nav></div>
 

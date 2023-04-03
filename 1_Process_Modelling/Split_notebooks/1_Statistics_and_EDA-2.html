@@ -172,18 +172,20 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-3.html">2.4. Description statistic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-4.html">2.5. Inferential statistic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-5.html">2.6. Kiểm định giả thuyết (Hypothesis testing)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-6.html">2.7. ANOVA</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="0_toc_fe.html">3. Feature Engineering</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-1.html">3.1. Feature extraction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-2.html">3.2. Variable Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-3.html">3.3. Missing Imputation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-4.html">3.4. Categorical Encoding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-5.html">3.5. Feature transformation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-6.html">3.6. Discretisation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-7.html">3.7. Outliers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-8.html">3.8. Feature scaling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-9.html">3.9. Feature selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-1.html">3.1. Custom Transforms Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-2.html">3.2. Feature extraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-3.html">3.3. Variable Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-4.html">3.4. Missing Imputation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-5.html">3.5. Categorical Encoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-6.html">3.6. Feature transformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-7.html">3.7. Discretisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-8.html">3.8. Outliers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-9.html">3.9. Feature scaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Feature_engineering-10.html">3.10. Feature selection</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="0_toc_fs.html">4. Feature Selection</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -410,7 +412,7 @@ document.write(`
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
-
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">roc_auc_score</span>
 <span class="kn">from</span> <span class="nn">itables</span> <span class="kn">import</span> <span class="n">init_notebook_mode</span><span class="p">,</span><span class="n">show</span>
 <span class="n">init_notebook_mode</span><span class="p">(</span><span class="n">all_interactive</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
@@ -451,8 +453,46 @@ document.write(`
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,):</span>
         <span class="k">pass</span>
-    
-    <span class="k">def</span> <span class="nf">exploring</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">nsample</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">targetY</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">get_pct_outliers_rarelabels</span><span class="p">(</span><span class="n">sr</span><span class="p">,</span> <span class="n">n_dist</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">params_outliers</span> <span class="o">=</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,),</span> <span class="n">params_rarelabels</span> <span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="p">)):</span>
+        <span class="n">nuni</span> <span class="o">=</span> <span class="n">n_dist</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sr</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="k">if</span> <span class="n">n_dist</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">sr</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+        <span class="n">is_discrete</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">is_numeric_dtype</span><span class="p">(</span><span class="n">sr</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">nuni</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+                <span class="n">iqr</span> <span class="o">=</span> <span class="n">sr</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span> <span class="o">-</span> <span class="n">sr</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
+                <span class="n">interval</span> <span class="o">=</span> <span class="p">(</span><span class="n">sr</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span> <span class="o">-</span> <span class="n">params_outliers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">iqr</span><span class="p">,</span> <span class="n">sr</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span> <span class="o">+</span> <span class="n">params_outliers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">iqr</span><span class="p">)</span>
+                <span class="n">mask_sr</span> <span class="o">=</span> <span class="o">~</span><span class="p">(</span><span class="n">sr</span> <span class="o">&gt;=</span> <span class="n">interval</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">sr</span> <span class="o">&lt;=</span> <span class="n">interval</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                <span class="k">return</span> <span class="n">mask_sr</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+            <span class="k">elif</span> <span class="n">nuni</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">is_discrete</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">is_string_dtype</span><span class="p">(</span><span class="n">sr</span><span class="p">)</span> <span class="ow">or</span> <span class="n">is_discrete</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">nuni</span> <span class="o">&gt;</span> <span class="n">params_rarelabels</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                <span class="k">return</span> <span class="mi">0</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">theshold</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">nuni</span><span class="o">*</span><span class="n">params_rarelabels</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">params_rarelabels</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+                <span class="n">val_dom</span> <span class="o">=</span> <span class="n">sr</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">/</span><span class="n">sr</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+                <span class="n">total_pct_rarelabel</span> <span class="o">=</span> <span class="n">val_dom</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">val_dom</span><span class="o">&lt;</span><span class="n">theshold</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+                <span class="k">return</span> <span class="n">total_pct_rarelabel</span>
+            
+    <span class="k">def</span> <span class="nf">get_auc</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">flexible_sign</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        AUC the hien kha nang predictive cua model voi bien Y,</span>
+<span class="sd">        do vay khi AUC(y, var) ~ 0.5 (random guess) the hien var </span>
+<span class="sd">        khong co kha nang giai thich bien Y</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">var</span><span class="p">)</span> <span class="c1"># filter NaN</span>
+        <span class="n">var_</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+        <span class="n">y_</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+        <span class="c1"># if label not only 1s/0s</span>
+        <span class="n">auc</span> <span class="o">=</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_score</span><span class="o">=</span><span class="n">var_</span><span class="p">,</span> <span class="n">y_true</span><span class="o">=</span><span class="n">y_</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="n">var_</span><span class="o">.</span><span class="n">std</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="k">else</span> <span class="mf">0.5</span>
+        <span class="c1"># for evaluation only</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">auc</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">flexible_sign</span><span class="p">):</span>
+            <span class="n">auc</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">auc</span>
+        <span class="k">return</span> <span class="n">auc</span>
+
+    <span class="k">def</span> <span class="nf">exploring</span><span class="p">(</span><span class="n">dataframe</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">nsample</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">targetY</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
         <span class="c1"># check rows, cols</span>
         <span class="n">total_records</span><span class="p">,</span> <span class="n">total_columns</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total </span><span class="si">{</span><span class="n">total_records</span><span class="si">}</span><span class="s2"> records, </span><span class="si">{</span><span class="n">total_columns</span><span class="si">}</span><span class="s2"> columns&quot;</span><span class="p">)</span>
@@ -480,37 +520,19 @@ document.write(`
         <span class="n">pct_zero</span> <span class="o">=</span> <span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">n_zero</span><span class="o">/</span><span class="n">total_records</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;pct_zero&quot;</span><span class="p">)</span>
 
         <span class="c1"># check outliers / rare labels</span>
-        <span class="c1">## for outliers in numeric data</span>
-        <span class="k">def</span> <span class="nf">pct_outliers_rarelabels</span><span class="p">(</span><span class="n">sr</span><span class="p">,</span> <span class="n">params_outliers</span> <span class="o">=</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,),</span> <span class="n">params_rarelabels</span> <span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="p">)):</span>
-            <span class="n">nuni</span> <span class="o">=</span> <span class="n">n_dist</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sr</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
-            <span class="n">is_discrete</span> <span class="o">=</span> <span class="kc">False</span>
-            <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">is_numeric_dtype</span><span class="p">(</span><span class="n">sr</span><span class="p">):</span>
-                <span class="k">if</span> <span class="n">nuni</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
-                    <span class="n">iqr</span> <span class="o">=</span> <span class="n">sr</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span> <span class="o">-</span> <span class="n">sr</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
-                    <span class="n">interval</span> <span class="o">=</span> <span class="p">(</span><span class="n">sr</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span> <span class="o">-</span> <span class="n">params_outliers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">iqr</span><span class="p">,</span> <span class="n">sr</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span> <span class="o">+</span> <span class="n">params_outliers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">iqr</span><span class="p">)</span>
-                    <span class="n">mask_sr</span> <span class="o">=</span> <span class="o">~</span><span class="p">(</span><span class="n">sr</span> <span class="o">&gt;=</span> <span class="n">interval</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">sr</span> <span class="o">&lt;=</span> <span class="n">interval</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-                    <span class="k">return</span> <span class="n">mask_sr</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-                <span class="k">elif</span> <span class="n">nuni</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
-                    <span class="n">is_discrete</span> <span class="o">=</span> <span class="kc">True</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="k">return</span> <span class="mi">0</span>
-            <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">is_string_dtype</span><span class="p">(</span><span class="n">sr</span><span class="p">)</span> <span class="ow">or</span> <span class="n">is_discrete</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">nuni</span> <span class="o">&gt;</span> <span class="n">params_rarelabels</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
-                    <span class="k">return</span> <span class="mi">0</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">theshold</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">nuni</span><span class="o">*</span><span class="n">params_rarelabels</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">params_rarelabels</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-                    <span class="n">val_dom</span> <span class="o">=</span> <span class="n">sr</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">/</span><span class="n">sr</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
-                    <span class="n">total_pct_rarelabel</span> <span class="o">=</span> <span class="n">val_dom</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">val_dom</span><span class="o">&lt;</span><span class="n">theshold</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-                    <span class="k">return</span> <span class="n">total_pct_rarelabel</span>
-        <span class="n">pct_out</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pct_outliers_rarelabels</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;pct_outliers_rarelabels&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span>
+        <span class="n">pct_out</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">ExplorerDF</span><span class="o">.</span><span class="n">get_pct_outliers_rarelabels</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n_dist</span><span class="p">,))</span>\
+            <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;pct_outliers_rarelabels&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span>
 
-
-        <span class="c1"># check correlation with targetY</span>
         <span class="k">if</span> <span class="n">targetY</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">assert</span> <span class="n">total_records</span> <span class="o">==</span> <span class="n">targetY</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="c1"># check correlation with targetY</span>
             <span class="n">corr_Y</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">corrwith</span><span class="p">(</span><span class="n">targetY</span><span class="p">,</span> <span class="n">numeric_only</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>\
                 <span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">dataframe</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;corr_Y&#39;</span><span class="p">)</span>
-            <span class="n">pct_out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pct_out</span><span class="p">,</span> <span class="n">corr_Y</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="c1"># check auc between targetY and variable</span>
+            <span class="n">auc</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">ExplorerDF</span><span class="o">.</span><span class="n">get_auc</span><span class="p">(</span><span class="n">targetY</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>\
+            <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;auc&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">corr_Y</span> <span class="o">=</span> <span class="n">auc</span> <span class="o">=</span> <span class="kc">None</span>
 
         <span class="c1"># check description</span>
         <span class="n">des_stat</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">dataframe</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -520,9 +542,9 @@ document.write(`
         <span class="n">pdf_sample</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;sample_</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nsample</span><span class="p">)]</span>
 
         <span class="c1"># output</span>
-        <span class="n">pdf_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">dty</span><span class="p">,</span> <span class="n">n_dist</span><span class="p">,</span> <span class="n">pct_dist</span><span class="p">,</span> <span class="n">n_miss</span><span class="p">,</span> 
-                            <span class="n">pct_miss</span><span class="p">,</span> <span class="n">pct_coverage</span><span class="p">,</span> <span class="n">n_neg</span><span class="p">,</span> <span class="n">pct_neg</span><span class="p">,</span> <span class="n">n_zero</span><span class="p">,</span> 
-                            <span class="n">pct_zero</span><span class="p">,</span> <span class="n">pct_out</span><span class="p">,</span> <span class="n">des_stat</span><span class="p">,</span> <span class="n">pdf_sample</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">pdf_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">dty</span><span class="p">,</span> <span class="n">n_dist</span><span class="p">,</span> <span class="n">pct_dist</span><span class="p">,</span> <span class="n">n_miss</span><span class="p">,</span> <span class="n">pct_miss</span><span class="p">,</span> <span class="n">pct_coverage</span><span class="p">,</span> 
+                            <span class="n">n_neg</span><span class="p">,</span> <span class="n">pct_neg</span><span class="p">,</span> <span class="n">n_zero</span><span class="p">,</span> <span class="n">pct_zero</span><span class="p">,</span> <span class="n">pct_out</span><span class="p">,</span> <span class="n">corr_Y</span><span class="p">,</span> 
+                            <span class="n">auc</span><span class="p">,</span> <span class="n">des_stat</span><span class="p">,</span> <span class="n">pdf_sample</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">pdf_data</span>
 
@@ -1191,6 +1213,17 @@ document.write(`
 <span class="n">eda</span><span class="o">.</span><span class="n">plot_missing</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">)</span>
 
 <span class="n">eda</span><span class="o">.</span><span class="n">plot_missing</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">,</span><span class="s1">&#39;Salary&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot missing matrix</span>
+
+<span class="kn">import</span> <span class="nn">missingno</span> <span class="k">as</span> <span class="nn">msno</span>
+<span class="c1"># check pattern of missingness</span>
+<span class="n">msno</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
