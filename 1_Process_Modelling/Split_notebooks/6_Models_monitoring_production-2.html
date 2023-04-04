@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>2.1. Data Analyst Process &#8212; Machine Learning book</title>
+    <title>6.8. Operational level monitoring &#8212; Machine Learning book</title>
   
   
   
@@ -61,11 +61,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '1_Process_Modelling/Split_notebooks/1_Statistics_and_EDA-0';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '1_Process_Modelling/Split_notebooks/6_Models_monitoring_production-2';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="2.2. Read datasets" href="1_Statistics_and_EDA-1.html" />
-    <link rel="prev" title="2. Data Analyst Process" href="0_toc_eda.html" />
+    <link rel="next" title="1. Data Cleaning" href="../../2_My_Modules/1_Data_Cleaning.html" />
+    <link rel="prev" title="6.7. Functional level monitoring" href="6_Models_monitoring_production-1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -165,8 +165,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="1_Imbalance_data_handling-4.html">1.4. Ensemble approaches</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="0_toc_eda.html">2. Statistic and EDA</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.1. Data Analyst Process</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="0_toc_eda.html">2. Statistic and EDA</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-0.html">2.1. Data Analyst Process</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-1.html">2.2. Read datasets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-2.html">2.3. Explore data analysis (EDA)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Statistics_and_EDA-3.html">2.4. Description statistic</a></li>
@@ -204,9 +204,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="5_Evaluation_metrics-4.html">5.5. Pairwise metrics</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="6_Models_monitoring_production-0.html">6. Model Monitoring</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="6_Models_monitoring_production-0.html">6. Model Monitoring</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="6_Models_monitoring_production-1.html">6.7. Functional level monitoring</a></li>
-<li class="toctree-l2"><a class="reference internal" href="6_Models_monitoring_production-2.html">6.8. Operational level monitoring</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.8. Operational level monitoring</a></li>
 </ul>
 </li>
 </ul>
@@ -283,7 +283,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/1_Process_Modelling/Split_notebooks/1_Statistics_and_EDA-0.ipynb" target="_blank"
+      <li><a href="../../_sources/1_Process_Modelling/Split_notebooks/6_Models_monitoring_production-2.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -352,7 +352,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -363,11 +365,25 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Data Analyst Process</h1>
+    <h1>Operational level monitoring</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-performance-and-reliability">6.8.1. System performance and reliability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipelines">6.8.2. Pipelines</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-pipelines">6.8.2.1. Data pipelines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-pipeline">6.8.2.2. Model pipeline</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cost">6.8.3. Cost</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -377,115 +393,50 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="data-analyst-process">
-<h1><span class="section-number">2.1. </span>Data Analyst Process<a class="headerlink" href="#data-analyst-process" title="Permalink to this heading">#</a></h1>
-<p><strong>1. Bussiness Analysis</strong></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="operational-level-monitoring">
+<h1><span class="section-number">6.8. </span>Operational level monitoring<a class="headerlink" href="#operational-level-monitoring" title="Permalink to this heading">#</a></h1>
+<p><img alt="image.jpg" src="../../_images/Operational-Monitoring.jpg" /></p>
+<section id="system-performance-and-reliability">
+<h2><span class="section-number">6.8.1. </span>System performance and reliability<a class="headerlink" href="#system-performance-and-reliability" title="Permalink to this heading">#</a></h2>
+<p>The system/application performance metrics to monitor that will give you an idea of model performance include:</p>
 <ul class="simple">
-<li><p>Determine problem</p></li>
-<li><p>Define Model</p>
-<ul>
-<li><p>Input model</p></li>
-<li><p>Output model</p></li>
-<li><p>Scope of application of the model</p></li>
+<li><p>CPU/GPU utilization when the model is computing predictions on incoming data from each API call; tells you how much your model is consuming per request.</p></li>
+<li><p>Memory utilization for when the model caches data or input data is cached in memory for faster I/O performance.</p></li>
+<li><p>Number of failed requests by an event/operation.</p></li>
+<li><p>Total number of API calls.</p></li>
+<li><p>Response time of the model server or prediction service.</p></li>
+<li><p>System reliability: infrastructure and network uptime,…</p></li>
 </ul>
-</li>
-<li><p>Labeling target variable (if any)</p>
-<ul>
-<li><p>Rule-base</p></li>
-<li><p>Tool</p></li>
-<li><p>Manual</p></li>
-</ul>
-</li>
-</ul>
-<p><strong>1. Explore Data Analysis</strong></p>
+</section>
+<section id="pipelines">
+<h2><span class="section-number">6.8.2. </span>Pipelines<a class="headerlink" href="#pipelines" title="Permalink to this heading">#</a></h2>
+<p>Monitor the health of your data and model pipeline. Unhealthy data pipelines can affect data quality, and your model pipeline leakages or unexpected changes can easily generate negative value.</p>
+<section id="data-pipelines">
+<h3><span class="section-number">6.8.2.1. </span>Data pipelines<a class="headerlink" href="#data-pipelines" title="Permalink to this heading">#</a></h3>
+<p>Monitoring the health of data pipelines is extremely crucial because data quality issues can arise from bad or unhealthy data pipelines. This especially is extremely tricky to monitor for your IT Ops/DevOps team and may require empowering your data engineering/DataOps team to monitor and troubleshoot issues.</p>
+<p>It also has to be a shared responsibility. Work with your DataOps team, communicate what your model expects, and the team will tell you what the output of their data pipeline is—this can help you tighten up your system and drive positive results.</p>
+<p>If you’re charged with the responsibility of monitoring your data pipeline, here are some metrics and factors you may want to track:</p>
 <ul class="simple">
-<li><p>2.1. Structured Data:</p>
-<ul>
-<li><p>Numerical</p>
-<ul>
-<li><p>Discrete</p></li>
-<li><p>Continuous</p></li>
+<li><p><strong>Input data</strong> – are the data and files in the pipeline with the appropriate structure, schema, and completeness? Are there data validation tests and checks in place so that the team can be alerted in case of an oddity in ingested data? Monitor what comes into the data pipeline to keep it healthy.</p></li>
+<li><p><strong>Intermediate workflow steps</strong> – are the inputs and outputs of every task and flow in the DAG as expected, in terms of the number of files and file types? How long does a task take to run in the pipeline? This could be the data preprocessing task, or the validation task, or even the data distribution monitoring task.</p></li>
+<li><p><strong>Output data</strong> – is the output data schema as expected by the machine learning model in terms of features and feature embeddings? What’s the typical file size expected from an output file?</p></li>
+<li><p><strong>Data quality metrics</strong> – tracking the statistical metrics according to the data that flows in. This could be basic statistical properties of the data such as mean, standard deviation, correlation, and so on, or distance metrics (such as KL divergence, Kolmogorov-Smirnov statistic). The statistical metric used will be mostly dependent on the dimension of data expected; a couple of features or several features.</p></li>
+<li><p><strong>Scheduled run time</strong> of a job, actual run time, how long it took to run, and the state of the job (successful, or failed job?).</p></li>
 </ul>
-</li>
-<li><p>Categorical</p>
-<ul>
-<li><p>Nominal</p></li>
-<li><p>Ordinal</p></li>
-</ul>
-</li>
-<li><p>Date/time</p></li>
-<li><p>Mixed</p></li>
-<li><p>Anything else</p>
-<ul>
-<li><p>Text</p></li>
-<li><p>Images</p></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>2.2. Description Statistic</p>
-<ul>
-<li><p>Estimation</p>
-<ul>
-<li><p>Location</p>
-<ul>
-<li><p>Mean/ Trimmed Mean/ Weighted Mean</p></li>
-<li><p>Median/ Weighted Median</p></li>
-<li><p>Mode</p></li>
-<li><p>Outliers</p></li>
-<li><p>Mean absulute deviation (MAD)</p></li>
-</ul>
-</li>
-<li><p>Variability</p>
-<ul>
-<li><p>Deviation/ Error</p></li>
-<li><p>Variance &amp; Standard deviation</p></li>
-<li><p>Range</p></li>
-<li><p>Rank</p></li>
-<li><p>Quantile/ IQR</p></li>
-<li><p>Quantile deviation</p></li>
-<li><p>Coefficient of variance/quantile</p></li>
-<li><p>Skewness/ Kurtosis</p></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Data Exploring</p>
-<ul>
-<li><p>Distribution and magnitude</p></li>
-<li><p>Multi-variate</p>
-<ul>
-<li><p>Correlation</p>
-<ul>
-<li><p>Pearson</p></li>
-<li><p>Spearman</p></li>
-<li><p>Kendall’s tau</p></li>
-<li><p>Mutual Information (non-linear relationship)</p></li>
-</ul>
-</li>
-<li><p>Covariance</p></li>
-</ul>
-</li>
-<li><p>Missing value</p></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>2.3. Inference statistic</p>
-<ul>
-<li><p>Hypothesis testing</p></li>
-</ul>
-</li>
-</ul>
-<p><strong>Goal:</strong></p>
+</section>
+<section id="model-pipeline">
+<h3><span class="section-number">6.8.2.2. </span>Model pipeline<a class="headerlink" href="#model-pipeline" title="Permalink to this heading">#</a></h3>
+<p>You want to track crucial factors that can cause your model to break in production after retraining and being redeployed. This includes:</p>
 <ul class="simple">
-<li><p>Classify feature datatypes</p></li>
-<li><p>Missing of feature information</p></li>
-<li><p>Linear model assumption in data distribution and error</p></li>
-<li><p>Distibution shape</p></li>
-<li><p>Outliers information</p></li>
-<li><p>Feature magnitude information</p></li>
+<li><p>Dependencies – you don’t want a situation where your model was built with Tensorflow 2.0 and a recent dependency update by someone else on your team that’s bundled with Tensorflow 2.4 causes part of your retraining script to fail. Validate the versions of each dependency your model runs on and log that as your pipeline metadata, so dependency updates that cause failure can be easier to debug.</p></li>
+<li><p>The actual time a retraining job was triggered, how long it took the retraining job to run, resources usage of the job, and the state of the job (successfully retrained and redeployed model, or failed?).</p></li>
 </ul>
+</section>
+</section>
+<section id="cost">
+<h2><span class="section-number">6.8.3. </span>Cost<a class="headerlink" href="#cost" title="Permalink to this heading">#</a></h2>
+<p>You need to keep an eye out for how much it’s costing you and your organization to host your entire machine learning application, including data storage and compute costs, retraining, or other types of orchestrated jobs. These costs can add up fast, especially if they’re not being tracked. Also, it takes computational power for your models to make predictions for every request, so you also need to track inference costs.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -517,20 +468,20 @@ document.write(`
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="0_toc_eda.html"
+       href="6_Models_monitoring_production-1.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>Data Analyst Process</p>
+        <p class="prev-next-title"><span class="section-number">6.7. </span>Functional level monitoring</p>
       </div>
     </a>
     <a class="right-next"
-       href="1_Statistics_and_EDA-1.html"
+       href="../../2_My_Modules/1_Data_Cleaning.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2.2. </span>Read datasets</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Data Cleaning</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -540,6 +491,26 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-performance-and-reliability">6.8.1. System performance and reliability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipelines">6.8.2. Pipelines</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-pipelines">6.8.2.1. Data pipelines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-pipeline">6.8.2.2. Model pipeline</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cost">6.8.3. Cost</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
