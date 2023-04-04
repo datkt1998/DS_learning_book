@@ -64,11 +64,11 @@ parts:
     - file: 1_Process_Modelling/Split_notebooks/5_Evaluation_metrics-3
     - file: 1_Process_Modelling/Split_notebooks/5_Evaluation_metrics-4
 
-  # - file: 1_Process_Modelling/Split_notebooks/6_Models_monitoring_production-0
-  #   title: 'Model Monitoring'
-  #   sections:
-  #     - file: 1_Process_Modelling/Split_notebooks/6_Models_monitoring_production-1
-  #     - file: 1_Process_Modelling/Split_notebooks/6_Models_monitoring_production-2
+  - file: 1_Process_Modelling/Split_notebooks/6_Models_monitoring_production-0
+    title: 'Model Monitoring'
+    sections:
+      - file: 1_Process_Modelling/Split_notebooks/6_Models_monitoring_production-1
+      - file: 1_Process_Modelling/Split_notebooks/6_Models_monitoring_production-2
 
 
 - caption: My Modules
