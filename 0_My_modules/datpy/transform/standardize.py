@@ -234,9 +234,12 @@ class text:
 
         def nan_clean(value):
             value = str(value)
-            list_nan_encrypt =["NqH2T0OqGhYeJKBEFFzNmg==","WT0GPRKcQxiTXjDpOncVhw==","8zeFSJ6JoUFhmf9cA1NRDg==",
-            "JTejTlFoNwzfCBJMcR0HiQ==","V+0CZRxDddEVQw2rxwmiwA==","lVKQ/5YMX3x+hOdbtW0F1w==","Yh9tPt/GcByge8grvB8R/w==",  ]
-            condi = (value.lower() in ["","null","nan","#n/a","#ref!",'none','.',',','n/a','<na>','(null)']) or (value in list_nan_encrypt)
+            nan_list = ['', '#n/a', '#n/a n/a', '#na',
+                        '#ref!', '(null)', ',', '-1.#ind',
+                        '-1.#qnan', '-nan', '.', '1.#ind',
+                        '1.#qnan', '<na>', 'n/a', 'na',
+                        'nan', 'none', 'null',]
+            condi = (value.lower() in nan_list)
             if condi :
                 return np.nan
             else:

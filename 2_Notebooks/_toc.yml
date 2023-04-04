@@ -7,6 +7,7 @@ options:
   numbered: true
 
 parts:
+
 - caption: Process Modelling
   maxdepth: 4
   numbered: true
@@ -64,14 +65,14 @@ parts:
     - file: 1_Process_Modelling/Split_notebooks/5_Evaluation_metrics-4
 
 
-  # - file: 1_Process_Modelling/1_EDA
-  # - file: 1_Process_Modelling/1_Statistics
-  # - file: 1_Process_Modelling/2_Feature_engineering
-  # - file: 1_Process_Modelling/3_Feature_selection_and_decomposition
-  # - file: 1_Process_Modelling/4_ML_Algorithms
-  # - file: 1_Process_Modelling/5_Evaluation_metrics
-  # - file: 1_Process_Modelling/6_Models_monitoring_production
+- caption: My Modules
+  maxdepth: 4
+  numbered: true
+  chapters:
+  - file: 2_My_Modules/1_Data_Cleaning
+    title: 'Data cleaning'
+  - file: 2_My_Modules/2_Connection
+    title: 'Data connection'
 
-# - caption: modules
 
 # - caption: frameworks
