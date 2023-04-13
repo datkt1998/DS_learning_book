@@ -8,18 +8,10 @@ options:
 
 parts:
 
-- caption: Process Modelling
+- caption: Process Modeling
   maxdepth: 4
   numbered: true
   chapters:
-
-  - file: 1_Process_Modelling/Split_notebooks/0_toc_imb
-    title: 'Imbalance Dataset Handling'
-    sections:
-    - file: 1_Process_Modelling/Split_notebooks/1_Imbalance_data_handling-1
-    - file: 1_Process_Modelling/Split_notebooks/1_Imbalance_data_handling-2
-    - file: 1_Process_Modelling/Split_notebooks/1_Imbalance_data_handling-3
-    - file: 1_Process_Modelling/Split_notebooks/1_Imbalance_data_handling-4
 
   - file: 1_Process_Modelling/Split_notebooks/0_toc_eda
     title: 'Statistic and EDA'
@@ -45,6 +37,14 @@ parts:
     - file: 1_Process_Modelling/Split_notebooks/2_Feature_engineering-8
     - file: 1_Process_Modelling/Split_notebooks/2_Feature_engineering-9
     - file: 1_Process_Modelling/Split_notebooks/2_Feature_engineering-10
+
+  - file: 1_Process_Modelling/Split_notebooks/0_toc_imb
+    title: 'Imbalance Dataset Handling'
+    sections:
+    - file: 1_Process_Modelling/Split_notebooks/3_Imbalance_data_handling-1
+    - file: 1_Process_Modelling/Split_notebooks/3_Imbalance_data_handling-2
+    - file: 1_Process_Modelling/Split_notebooks/3_Imbalance_data_handling-3
+    - file: 1_Process_Modelling/Split_notebooks/3_Imbalance_data_handling-4
     
   - file: 1_Process_Modelling/Split_notebooks/0_toc_fs
     title: 'Feature Selection'
@@ -70,13 +70,59 @@ parts:
       - file: 1_Process_Modelling/Split_notebooks/6_Models_monitoring_production-1
       - file: 1_Process_Modelling/Split_notebooks/6_Models_monitoring_production-2
 
+- caption: ML/DL Algorithms
+  maxdepth: 4
+  numbered: true
+  chapters:
+  - file: 1_Process_Modelling/Split_notebooks/0_toc_ml_su
+    title: 'ML Supervised Learning'
+    sections:
+      - file: 1_Process_Modelling/Split_notebooks/4_ML_Supervised_learning_Algorithms-0
+      - file: 1_Process_Modelling/Split_notebooks/4_ML_Supervised_learning_Algorithms-1
+      - file: 1_Process_Modelling/Split_notebooks/4_ML_Supervised_learning_Algorithms-2
+      - file: 1_Process_Modelling/Split_notebooks/4_ML_Supervised_learning_Algorithms-3
+      - file: 1_Process_Modelling/Split_notebooks/4_ML_Supervised_learning_Algorithms-4
+      - file: 1_Process_Modelling/Split_notebooks/4_ML_Supervised_learning_Algorithms-5
+      - file: 1_Process_Modelling/Split_notebooks/4_ML_Supervised_learning_Algorithms-6
+      - file: 1_Process_Modelling/Split_notebooks/4_ML_Supervised_learning_Algorithms-7
+      - file: 1_Process_Modelling/Split_notebooks/4_ML_Supervised_learning_Algorithms-8
+      - file: 1_Process_Modelling/Split_notebooks/4_ML_Supervised_learning_Algorithms-9
+  - file: 1_Process_Modelling/Split_notebooks/0_toc_ml_unsu
+    title: 'ML Unsupervised Learning'
+    sections:
+      - file: 1_Process_Modelling/Split_notebooks/4_ML_Unsupervised_learning_Algorithms-0
+      - file: 1_Process_Modelling/Split_notebooks/4_ML_Unsupervised_learning_Algorithms-1
+      - file: 1_Process_Modelling/Split_notebooks/4_ML_Unsupervised_learning_Algorithms-2
+      - file: 1_Process_Modelling/Split_notebooks/4_ML_Unsupervised_learning_Algorithms-3
+      - file: 1_Process_Modelling/Split_notebooks/4_ML_Unsupervised_learning_Algorithms-4
+  - file: 1_Process_Modelling/Split_notebooks/0_toc_dl
+    title: 'Deep Learning'
+    sections:
+      - file: 1_Process_Modelling/Split_notebooks/4_DL_Algorithms-0
 
 - caption: My Modules
   maxdepth: 4
   numbered: true
   chapters:
+
+  - file: 3_Mathematics/0_toc
+    title: 'Mathematics'
+    sections:
+      - file: '3_Mathematics/1_Linear_algebra'
+      - file: '3_Mathematics/2_Calculus_and_optimization'
+      - file: '3_Mathematics/3_Distribution_and_statistic'
+      - file: '3_Mathematics/4_Information_theory'
+      - file: '3_Mathematics/5_Graph_theory'
+
+  - file: 4_SQL_noSQL/0_toc
+    title: 'SQL/NoSQL'
+    sections:
+      - file: '4_SQL_noSQL/1_SQL'
+      - file: '4_SQL_noSQL/2_noSQL'
+
   - file: 2_My_Modules/1_Data_Cleaning
     title: 'Data cleaning'
+
   - file: 2_My_Modules/2_Connection
     title: 'Data connection'
 
