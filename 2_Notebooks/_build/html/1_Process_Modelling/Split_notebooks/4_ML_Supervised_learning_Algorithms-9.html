@@ -244,10 +244,20 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../3_Mathematics/0_toc.html">1. Mathematics</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../3_Mathematics/1_Linear_algebra.html">1.1. Linear algebra</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../3_Mathematics/2_Calculus_and_optimization.html">1.2. Calculus and optimization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../3_Mathematics/3_Distribution_and_statistic.html">1.3. Distribution and statistics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../3_Mathematics/4_Information_theory.html">1.4. Information theory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../3_Mathematics/5_Graph_theory.html">1.5. Graph theory</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../3_Mathematics/2_Calculus_and_optimization.html">1.5. Calculus and optimization</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../3_Mathematics/3_Distribution_and_statistic.html">1.12. Distribution and statistics</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../3_Mathematics/4_Information_theory.html">1.14. Information theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../3_Mathematics/5_Graph_theory.html">1.15. Graph theory</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../4_SQL_noSQL/0_toc.html">2. SQL/NoSQL</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -785,12 +795,13 @@ document.write(`
 </ul>
 <p><code class="docutils literal notranslate"><span class="pre">clf</span> <span class="pre">=</span> <span class="pre">MLPClassifier(hidden_layer_sizes=(9,</span> <span class="pre">9,9))</span></code></p>
 <p><strong>3. Algorithms</strong> (<code class="docutils literal notranslate"><span class="pre">solver</span></code>)</p>
+<p>Các phương pháp update weight:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">sgd</span></code> | <strong>SGD</strong>(supports online and mini-batch learning): weight được update theo hàm loss và learning rate
 $<span class="math notranslate nohighlight">\(w\leftarrow w-\eta(\alpha\frac{\partial R(w)}{\partial w}+\frac{\partial L o s s}{\partial w})\)</span>$
 <strong>SGD</strong> with momentum or nesterov’s momentum, on the other hand, can perform better than those two below algorithms if <code class="docutils literal notranslate"><span class="pre">learning</span> <span class="pre">rate</span></code> is correctly tuned.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">adam</span></code><strong>Adam</strong>(supports online and mini-batch learning)(default): tương tự như SGD , chỉ khác các parameter được thay đổi theo lower-order moments. <strong>Adam</strong> is very robust for relatively large datasets</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lbfgs</span></code> | <strong>L-BFGS</strong>(not supports online and mini-batch learning) is a solver that approximates the Hessian matrix which represents the second-order partial derivative of a function. <strong>L-BFGS</strong> converges faster and with better solutions on small datasets.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">adam</span></code><strong>Adam</strong>(supports online and mini-batch learning)(default): Adam kết hợp sự thay đổi momentum dựa theo gradient bậc 1 và bậc 2 . <strong>Adam</strong> is very robust for relatively large datasets</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lbfgs</span></code> | <strong>L-BFGS</strong>(not supports online and mini-batch learning) is a solver that approximates the Hessian matrix which represents the second-order partial derivative of a function. <strong>L-BFGS</strong> converges faster and with better solutions on small datasets. Thuật toán sử dụng phương pháp quasi-Newton methods để tìm nghiệm của điểm tối ưu</p></li>
 </ul>
 <p><strong>4. Activation functions</strong> (<code class="docutils literal notranslate"><span class="pre">activation</span></code>)</p>
 <ul class="simple">
