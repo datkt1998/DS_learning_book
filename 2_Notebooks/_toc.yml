@@ -114,11 +114,12 @@ parts:
       - file: '3_Mathematics/4_Information_theory'
       - file: '3_Mathematics/5_Graph_theory'
 
-  - file: 4_SQL_noSQL/0_toc
-    title: 'SQL/NoSQL'
+  - file: 4_SQL_noSQL_pySpark/0_toc
+    title: 'SQL/NoSQL/pySpark'
     sections:
-      - file: '4_SQL_noSQL/1_SQL'
-      - file: '4_SQL_noSQL/2_noSQL'
+      - file: '4_SQL_noSQL_pySpark/1_SQL'
+      - file: '4_SQL_noSQL_pySpark/2_noSQL'
+      - file: '4_SQL_noSQL_pySpark/3_pySpark'
 
   - file: 2_My_Modules/1_Data_Cleaning
     title: 'Data cleaning'
