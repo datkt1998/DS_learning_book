@@ -4,3 +4,5 @@ Datasets/**
 *.xlsx
 *.xls
 *.jpg
+.ipynb_checkpoints/**
+**/.ipynb_checkpoints
