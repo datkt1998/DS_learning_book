@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Welcome to Dat’s Notebook &#8212; Machine Learning book</title>
+    <title>2. SQL/noSQL &#8212; Machine Learning book</title>
   
   
   
@@ -61,10 +61,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '_jupyter_book_files/intro';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '4_SQL_noSQL_pySpark/0_toc';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1. Data Analyst Process" href="../1_Process_Modelling/Split_notebooks/0_toc_eda.html" />
+    <link rel="next" title="2.1. SQL" href="1_SQL.html" />
+    <link rel="prev" title="1.15. Graph theory" href="../3_Mathematics/5_Graph_theory.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -130,7 +131,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="../_jupyter_book_files/intro.html">
   
   
   
@@ -149,8 +150,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../_jupyter_book_files/intro.html">
                     Welcome to Dat’s Notebook
                 </a>
             </li>
@@ -238,7 +239,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">My Modules</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3_Mathematics/0_toc.html">1. Mathematics</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../3_Mathematics/1_Linear_algebra.html">1.1. Linear algebra</a></li>
 
@@ -257,8 +258,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../3_Mathematics/5_Graph_theory.html">1.15. Graph theory</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../4_SQL_noSQL_pySpark/0_toc.html">2. SQL/NoSQL/pySpark</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/1_SQL.html">2.1. SQL</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">2. SQL/NoSQL/pySpark</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_SQL.html">2.1. SQL</a></li>
 
 
 
@@ -279,12 +280,12 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/2_noSQL.html">2.22. noSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_noSQL.html">2.22. noSQL</a></li>
 
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/3_pySpark.html">2.27. pySpark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_pySpark.html">2.27. pySpark</a></li>
 
 
 
@@ -368,7 +369,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/_jupyter_book_files/intro.md" target="_blank"
+      <li><a href="../_sources/4_SQL_noSQL_pySpark/0_toc.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -448,7 +449,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Welcome to Dat’s Notebook</h1>
+    <h1>SQL/noSQL</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -462,156 +463,48 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="welcome-to-dat-s-notebook">
-<h1>Welcome to Dat’s Notebook<a class="headerlink" href="#welcome-to-dat-s-notebook" title="Permalink to this heading">#</a></h1>
-<p>This is a notebook about machine learning, deep learning.</p>
-<p><img alt="image.png" src="../_images/ml_process.png" /></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="sql-nosql">
+<h1><span class="section-number">2. </span>SQL/noSQL<a class="headerlink" href="#sql-nosql" title="Permalink to this heading">#</a></h1>
 <p>Check out the content pages.</p>
 <div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Process Modeling</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/0_toc_eda.html">1. Statistic and EDA</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/1_Statistics_and_EDA-0.html">1.1. Data Analyst Process</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/1_Statistics_and_EDA-1.html">1.2. Read datasets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/1_Statistics_and_EDA-2.html">1.3. Explore data analysis (EDA)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/1_Statistics_and_EDA-3.html">1.4. Description statistic</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/1_Statistics_and_EDA-4.html">1.5. Inferential statistic</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/1_Statistics_and_EDA-5.html">1.6. Kiểm định giả thuyết (Hypothesis testing)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/1_Statistics_and_EDA-6.html">1.7. ANOVA</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/0_toc_fe.html">2. Feature Engineering</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/2_Feature_engineering-1.html">2.1. Custom Transforms Function</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/2_Feature_engineering-2.html">2.2. Feature extraction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/2_Feature_engineering-3.html">2.3. Variable Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/2_Feature_engineering-4.html">2.4. Missing Imputation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/2_Feature_engineering-5.html">2.5. Categorical Encoding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/2_Feature_engineering-6.html">2.6. Feature transformation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/2_Feature_engineering-7.html">2.7. Discretisation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/2_Feature_engineering-8.html">2.8. Outliers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/2_Feature_engineering-9.html">2.9. Feature scaling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/2_Feature_engineering-10.html">2.10. Feature selection</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/0_toc_imb.html">3. Imbalance Dataset Handling</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/3_Imbalance_data_handling-1.html">3.1. Data-level approaches</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/3_Imbalance_data_handling-2.html">3.2. Cost sensitive approaches</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/3_Imbalance_data_handling-3.html">3.3. Ensemble approaches</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/3_Imbalance_data_handling-4.html">3.4. Ensemble approaches</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/0_toc_fs.html">4. Feature Selection</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/3_Feature_selection_and_decomposition-1.html">4.1. Filter methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/3_Feature_selection_and_decomposition-2.html">4.2. Wrapped methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/3_Feature_selection_and_decomposition-3.html">4.3. Embedded methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/3_Feature_selection_and_decomposition-4.html">4.4. Hybrid methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/3_Feature_selection_and_decomposition-5.html">4.5. Feature decomposition</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/0_toc_eva.html">5. Evaluation Metrics</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/5_Evaluation_metrics-0.html">5.1. Define scorer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/5_Evaluation_metrics-1.html">5.2. Classification metrics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/5_Evaluation_metrics-2.html">5.3. Regression metrics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/5_Evaluation_metrics-3.html">5.4. Clustering metrics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/5_Evaluation_metrics-4.html">5.5. Pairwise metrics</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/6_Models_monitoring_production-0.html">6. Model Monitoring</a></li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">ML/DL Algorithms</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/0_toc_ml_su.html">1. ML Supervised Learning</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/4_ML_Supervised_learning_Algorithms-0.html">1.1. Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/4_ML_Supervised_learning_Algorithms-1.html">1.2. Naive Bayes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/4_ML_Supervised_learning_Algorithms-2.html">1.3. Discriminant Analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/4_ML_Supervised_learning_Algorithms-3.html">1.4. Stochastic Gradient Descent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/4_ML_Supervised_learning_Algorithms-4.html">1.5. Support Vector Machines (SVM)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/4_ML_Supervised_learning_Algorithms-5.html">1.6. Nearest neighbors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/4_ML_Supervised_learning_Algorithms-6.html">1.7. Tree-base model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/4_ML_Supervised_learning_Algorithms-7.html">1.8. Ensemble learning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/4_ML_Supervised_learning_Algorithms-8.html">1.9. Multi-class and multi-output</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/4_ML_Supervised_learning_Algorithms-9.html">1.10. Neural network models</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/0_toc_ml_unsu.html">2. ML Unsupervised Learning</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/4_ML_Unsupervised_learning_Algorithms-0.html">2.1. Clustering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/4_ML_Unsupervised_learning_Algorithms-1.html">2.2. Decomposing components</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/4_ML_Unsupervised_learning_Algorithms-2.html">2.3. Manifold learning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/4_ML_Unsupervised_learning_Algorithms-3.html">2.4. Novelty and Outlier Detection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/4_ML_Unsupervised_learning_Algorithms-4.html">2.5. Neural network</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/0_toc_dl.html">3. Deep Learning</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../1_Process_Modelling/Split_notebooks/4_DL_Algorithms-0.html">3.1. Neural Network</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">My Modules</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../3_Mathematics/0_toc.html">1. Mathematics</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../3_Mathematics/1_Linear_algebra.html">1.1. Linear algebra</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3_Mathematics/1_Linear_algebra.html#matrix-and-vector">1.2. Matrix and vector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3_Mathematics/1_Linear_algebra.html#cac-loai-khoang-cach">1.3. Các loại khoảng cách</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3_Mathematics/1_Linear_algebra.html#correlation">1.4. Correlation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3_Mathematics/2_Calculus_and_optimization.html">1.5. Calculus and optimization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3_Mathematics/2_Calculus_and_optimization.html#derivative">1.6. Derivative</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3_Mathematics/2_Calculus_and_optimization.html#activate-function">1.7. Activate function</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3_Mathematics/2_Calculus_and_optimization.html#loss-function">1.8. Loss Function</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3_Mathematics/2_Calculus_and_optimization.html#points">1.9. Points</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3_Mathematics/2_Calculus_and_optimization.html#gradient-descent-optimization">1.10. Gradient descent optimization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3_Mathematics/2_Calculus_and_optimization.html#regularization-in-nn">1.11. Regularization in NN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3_Mathematics/3_Distribution_and_statistic.html">1.12. Distribution and statistics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3_Mathematics/3_Distribution_and_statistic.html#description-statistics">1.13. Description statistics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3_Mathematics/4_Information_theory.html">1.14. Information theory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3_Mathematics/5_Graph_theory.html">1.15. Graph theory</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../4_SQL_noSQL_pySpark/0_toc.html">2. SQL/NoSQL/pySpark</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/1_SQL.html">2.1. SQL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/1_SQL.html#cau-lenh-dcl">2.2. Câu lệnh DCL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/1_SQL.html#cau-lenh-ddl">2.3. Câu lệnh DDL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/1_SQL.html#insert-them-du-lieu-vao-trong-table">2.4. <code class="docutils literal notranslate"><span class="pre">INSERT</span></code> : THÊM DỮ LIỆU VÀO TRONG TABLE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/1_SQL.html#update-sua-row-trong-table">2.5. <code class="docutils literal notranslate"><span class="pre">UPDATE</span></code> : SỬA ROW TRONG TABLE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/1_SQL.html#delete-xoa-row-trong-table">2.6. <code class="docutils literal notranslate"><span class="pre">DELETE</span></code> : XÓA ROW TRONG TABLE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/1_SQL.html#truncate-xoa-toan-bo-data-trong-table">2.7. <code class="docutils literal notranslate"><span class="pre">TRUNCATE</span></code>: XÓA TOÀN BỘ DATA TRONG TABLE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/1_SQL.html#type-of-join">2.8. 1. Type of Join</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/1_SQL.html#natural-join">2.9. 2. Natural Join</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/1_SQL.html#self-join-join-cac-du-lieu-trong-cung-1-bang">2.10. 3. Self-Join : Join các dữ liệu trong cùng 1 bảng</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/1_SQL.html#nonequijoins">2.11. 4. Nonequijoins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/1_SQL.html#outer-join">2.12. 5. Outer Join :</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/1_SQL.html#cartesian-product-cross-join">2.13. 6. Cartesian Product : <code class="docutils literal notranslate"><span class="pre">Cross</span> <span class="pre">Join</span> </code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/1_SQL.html#creat-table">2.14. 1. Creat table</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/1_SQL.html#select-table">2.15. 2. Select table</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/1_SQL.html#subquery">2.16. 3. SUBQUERY</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/1_SQL.html#set-operator-ghep-bang-them-row-theo-cot">2.17. 4. SET OPERATOR (ghép bảng = thêm row theo cột)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/1_SQL.html#id2">2.18. 1. Creat table</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/1_SQL.html#id3">2.19. 2. Select table</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/1_SQL.html#single-row-function">2.20. 1. Single-row Function</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/1_SQL.html#multiple-rows-aggregate-function">2.21. 2. Multiple-rows/Aggregate Function</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/2_noSQL.html">2.22. noSQL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/2_noSQL.html#basic">2.23. Basic</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/2_noSQL.html#mongodb-server-with-docker">2.24. MongoDB Server (with docker)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/2_noSQL.html#making-a-connection">2.25. Making a Connection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/2_noSQL.html#action-collection">2.26. Action collection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/3_pySpark.html">2.27. pySpark</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/3_pySpark.html#dataframe-creation">2.28. DataFrame Creation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/3_pySpark.html#viewing">2.29. Viewing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/3_pySpark.html#reading-file">2.30. Reading file</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/3_pySpark.html#validation">2.31. Validation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/3_pySpark.html#write-data">2.32. Write data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/3_pySpark.html#selecting-and-accessing-data">2.33. Selecting and accessing data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/3_pySpark.html#filter">2.34. Filter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/3_pySpark.html#apply-function">2.35. Apply function</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/3_pySpark.html#grouping-data">2.36. Grouping Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_SQL_noSQL_pySpark/3_pySpark.html#spark-sql">2.37. Spark SQL</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../2_My_Modules/1_Data_Cleaning.html">3. Data cleaning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2_My_Modules/2_Connection.html">4. Data connection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_SQL.html">2.1. SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_SQL.html#cau-lenh-dcl">2.2. Câu lệnh DCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_SQL.html#cau-lenh-ddl">2.3. Câu lệnh DDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_SQL.html#insert-them-du-lieu-vao-trong-table">2.4. <code class="docutils literal notranslate"><span class="pre">INSERT</span></code> : THÊM DỮ LIỆU VÀO TRONG TABLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_SQL.html#update-sua-row-trong-table">2.5. <code class="docutils literal notranslate"><span class="pre">UPDATE</span></code> : SỬA ROW TRONG TABLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_SQL.html#delete-xoa-row-trong-table">2.6. <code class="docutils literal notranslate"><span class="pre">DELETE</span></code> : XÓA ROW TRONG TABLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_SQL.html#truncate-xoa-toan-bo-data-trong-table">2.7. <code class="docutils literal notranslate"><span class="pre">TRUNCATE</span></code>: XÓA TOÀN BỘ DATA TRONG TABLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_SQL.html#type-of-join">2.8. 1. Type of Join</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_SQL.html#natural-join">2.9. 2. Natural Join</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_SQL.html#self-join-join-cac-du-lieu-trong-cung-1-bang">2.10. 3. Self-Join : Join các dữ liệu trong cùng 1 bảng</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_SQL.html#nonequijoins">2.11. 4. Nonequijoins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_SQL.html#outer-join">2.12. 5. Outer Join :</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_SQL.html#cartesian-product-cross-join">2.13. 6. Cartesian Product : <code class="docutils literal notranslate"><span class="pre">Cross</span> <span class="pre">Join</span> </code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_SQL.html#creat-table">2.14. 1. Creat table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_SQL.html#select-table">2.15. 2. Select table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_SQL.html#subquery">2.16. 3. SUBQUERY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_SQL.html#set-operator-ghep-bang-them-row-theo-cot">2.17. 4. SET OPERATOR (ghép bảng = thêm row theo cột)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_SQL.html#id2">2.18. 1. Creat table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_SQL.html#id3">2.19. 2. Select table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_SQL.html#single-row-function">2.20. 1. Single-row Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_SQL.html#multiple-rows-aggregate-function">2.21. 2. Multiple-rows/Aggregate Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_noSQL.html">2.22. noSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_noSQL.html#basic">2.23. Basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_noSQL.html#mongodb-server-with-docker">2.24. MongoDB Server (with docker)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_noSQL.html#making-a-connection">2.25. Making a Connection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_noSQL.html#action-collection">2.26. Action collection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_pySpark.html">2.27. pySpark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_pySpark.html#dataframe-creation">2.28. DataFrame Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_pySpark.html#viewing">2.29. Viewing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_pySpark.html#reading-file">2.30. Reading file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_pySpark.html#validation">2.31. Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_pySpark.html#write-data">2.32. Write data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_pySpark.html#selecting-and-accessing-data">2.33. Selecting and accessing data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_pySpark.html#filter">2.34. Filter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_pySpark.html#apply-function">2.35. Apply function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_pySpark.html#grouping-data">2.36. Grouping Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_pySpark.html#spark-sql">2.37. Spark SQL</a></li>
 </ul>
 </div>
 </section>
@@ -629,7 +522,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./_jupyter_book_files"
+            path: "./4_SQL_noSQL_pySpark"
         },
         predefinedOutput: true
     }
@@ -644,12 +537,21 @@ document.write(`
                 <footer class="bd-footer-article">
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../3_Mathematics/5_Graph_theory.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">1.15. </span>Graph theory</p>
+      </div>
+    </a>
     <a class="right-next"
-       href="../1_Process_Modelling/Split_notebooks/0_toc_eda.html"
+       href="1_SQL.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Data Analyst Process</p>
+        <p class="prev-next-title"><span class="section-number">2.1. </span>SQL</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
