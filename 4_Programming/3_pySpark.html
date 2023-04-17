@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>2.27. pySpark &#8212; Machine Learning book</title>
+    <title>2.3. pySpark &#8212; Machine Learning book</title>
   
   
   
@@ -61,11 +61,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '4_SQL_noSQL_pySpark/3_pySpark';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '4_Programming/3_pySpark';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3. Data Cleaning" href="../2_My_Modules/1_Data_Cleaning.html" />
-    <link rel="prev" title="2.22. noSQL" href="2_noSQL.html" />
+    <link rel="next" title="2.4. Python" href="4_Python.html" />
+    <link rel="prev" title="2.2. noSQL" href="2_noSQL.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -258,44 +258,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../3_Mathematics/5_Graph_theory.html">1.15. Graph theory</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="0_toc.html">2. SQL/NoSQL/pySpark</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="0_toc.html">2. Programming</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="1_SQL.html">2.1. SQL</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="2_noSQL.html">2.22. noSQL</a></li>
-
-
-
-
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.27. pySpark</a></li>
-
-
-
-
-
-
-
-
-
-
+<li class="toctree-l2"><a class="reference internal" href="2_noSQL.html">2.2. noSQL</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.3. pySpark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Python.html">2.4. Python</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../2_My_Modules/1_Data_Cleaning.html">3. Data cleaning</a></li>
@@ -369,7 +336,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/4_SQL_noSQL_pySpark/3_pySpark.ipynb" target="_blank"
+      <li><a href="../_sources/4_Programming/3_pySpark.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -461,19 +428,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2.27. pySpark</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe-creation">2.28. DataFrame Creation</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing">2.29. Viewing</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-file">2.30. Reading file</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#validation">2.31. Validation</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#write-data">2.32. Write data</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-and-accessing-data">2.33. Selecting and accessing data</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#filter">2.34. Filter</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-function">2.35. Apply function</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#grouping-data">2.36. Grouping Data</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#spark-sql">2.37. Spark SQL</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe-creation">2.3.1. DataFrame Creation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing">2.3.2. Viewing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-file">2.3.3. Reading file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validation">2.3.4. Validation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#write-data">2.3.5. Write data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-and-accessing-data">2.3.6. Selecting and accessing data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filter">2.3.7. Filter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-function">2.3.8. Apply function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grouping-data">2.3.9. Grouping Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spark-sql">2.3.10. Spark SQL</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -485,7 +450,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="pyspark">
-<h1><span class="section-number">2.27. </span>pySpark<a class="headerlink" href="#pyspark" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">2.3. </span>pySpark<a class="headerlink" href="#pyspark" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># find the env spark</span>
@@ -537,9 +502,8 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="dataframe-creation">
-<h1><span class="section-number">2.28. </span>DataFrame Creation<a class="headerlink" href="#dataframe-creation" title="Permalink to this heading">#</a></h1>
+<section id="dataframe-creation">
+<h2><span class="section-number">2.3.1. </span>DataFrame Creation<a class="headerlink" href="#dataframe-creation" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create from row</span>
@@ -627,8 +591,8 @@ document.write(`
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="viewing">
-<h1><span class="section-number">2.29. </span>Viewing<a class="headerlink" href="#viewing" title="Permalink to this heading">#</a></h1>
+<section id="viewing">
+<h2><span class="section-number">2.3.2. </span>Viewing<a class="headerlink" href="#viewing" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -807,8 +771,8 @@ only showing top 1 row
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="reading-file">
-<h1><span class="section-number">2.30. </span>Reading file<a class="headerlink" href="#reading-file" title="Permalink to this heading">#</a></h1>
+<section id="reading-file">
+<h2><span class="section-number">2.3.3. </span>Reading file<a class="headerlink" href="#reading-file" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -952,8 +916,8 @@ only showing top 1 row
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="validation">
-<h1><span class="section-number">2.31. </span>Validation<a class="headerlink" href="#validation" title="Permalink to this heading">#</a></h1>
+<section id="validation">
+<h2><span class="section-number">2.3.4. </span>Validation<a class="headerlink" href="#validation" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>set schema to datatype</p></li>
 </ul>
@@ -1087,8 +1051,8 @@ root
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="write-data">
-<h1><span class="section-number">2.32. </span>Write data<a class="headerlink" href="#write-data" title="Permalink to this heading">#</a></h1>
+<section id="write-data">
+<h2><span class="section-number">2.3.5. </span>Write data<a class="headerlink" href="#write-data" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;J:\My Drive\GitCode\My_learning\11. BigData\0. Data\datatest.csv&quot;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1133,8 +1097,8 @@ root
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="selecting-and-accessing-data">
-<h1><span class="section-number">2.33. </span>Selecting and accessing data<a class="headerlink" href="#selecting-and-accessing-data" title="Permalink to this heading">#</a></h1>
+<section id="selecting-and-accessing-data">
+<h2><span class="section-number">2.3.6. </span>Selecting and accessing data<a class="headerlink" href="#selecting-and-accessing-data" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="kn">import</span> <span class="n">Column</span>
@@ -1331,8 +1295,8 @@ only showing top 5 rows
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="filter">
-<h1><span class="section-number">2.34. </span>Filter<a class="headerlink" href="#filter" title="Permalink to this heading">#</a></h1>
+<section id="filter">
+<h2><span class="section-number">2.3.7. </span>Filter<a class="headerlink" href="#filter" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -1508,8 +1472,8 @@ virginica
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="apply-function">
-<h1><span class="section-number">2.35. </span>Apply function<a class="headerlink" href="#apply-function" title="Permalink to this heading">#</a></h1>
+<section id="apply-function">
+<h2><span class="section-number">2.3.8. </span>Apply function<a class="headerlink" href="#apply-function" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use the APIs in a pandas Series within Python native function</span>
@@ -1567,8 +1531,8 @@ virginica
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="grouping-data">
-<h1><span class="section-number">2.36. </span>Grouping Data<a class="headerlink" href="#grouping-data" title="Permalink to this heading">#</a></h1>
+<section id="grouping-data">
+<h2><span class="section-number">2.3.9. </span>Grouping Data<a class="headerlink" href="#grouping-data" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyspark.sql.functions</span> <span class="kn">import</span> <span class="n">col</span> <span class="k">as</span> <span class="n">scol</span><span class="p">,</span> <span class="nb">sum</span> <span class="k">as</span> <span class="n">ssum</span><span class="p">,</span> <span class="n">avg</span> <span class="k">as</span> <span class="n">savg</span><span class="p">,</span> <span class="nb">max</span> <span class="k">as</span> <span class="n">smax</span><span class="p">,</span> <span class="n">count</span> <span class="k">as</span> <span class="n">scount</span>
@@ -1802,8 +1766,8 @@ virginica
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="spark-sql">
-<h1><span class="section-number">2.37. </span>Spark SQL<a class="headerlink" href="#spark-sql" title="Permalink to this heading">#</a></h1>
+<section id="spark-sql">
+<h2><span class="section-number">2.3.10. </span>Spark SQL<a class="headerlink" href="#spark-sql" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set df table name</span>
@@ -2008,6 +1972,7 @@ Py4JJavaError: An error occurred while calling o134.load.
 </div>
 </div>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -2022,7 +1987,7 @@ Py4JJavaError: An error occurred while calling o134.load.
         },
         kernelOptions: {
             name: "python3",
-            path: "./4_SQL_noSQL_pySpark"
+            path: "./4_Programming"
         },
         predefinedOutput: true
     }
@@ -2043,15 +2008,15 @@ Py4JJavaError: An error occurred while calling o134.load.
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2.22. </span>noSQL</p>
+        <p class="prev-next-title"><span class="section-number">2.2. </span>noSQL</p>
       </div>
     </a>
     <a class="right-next"
-       href="../2_My_Modules/1_Data_Cleaning.html"
+       href="4_Python.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>Data Cleaning</p>
+        <p class="prev-next-title"><span class="section-number">2.4. </span>Python</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -2070,19 +2035,17 @@ Py4JJavaError: An error occurred while calling o134.load.
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2.27. pySpark</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe-creation">2.28. DataFrame Creation</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing">2.29. Viewing</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-file">2.30. Reading file</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#validation">2.31. Validation</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#write-data">2.32. Write data</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-and-accessing-data">2.33. Selecting and accessing data</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#filter">2.34. Filter</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-function">2.35. Apply function</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#grouping-data">2.36. Grouping Data</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#spark-sql">2.37. Spark SQL</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe-creation">2.3.1. DataFrame Creation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing">2.3.2. Viewing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-file">2.3.3. Reading file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validation">2.3.4. Validation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#write-data">2.3.5. Write data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-and-accessing-data">2.3.6. Selecting and accessing data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filter">2.3.7. Filter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-function">2.3.8. Apply function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grouping-data">2.3.9. Grouping Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spark-sql">2.3.10. Spark SQL</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
