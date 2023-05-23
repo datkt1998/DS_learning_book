@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -675,26 +675,26 @@ document.write(`
 </ul>
 <section id="create-table">
 <h3><span class="section-number">2.1.3.1. </span>Create table<a class="headerlink" href="#create-table" title="Permalink to this heading">#</a></h3>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<span class="w">    </span><span class="n">column1</span><span class="w"> </span><span class="n">datatype</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="n">column2</span><span class="w"> </span><span class="n">datatype</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="n">column3</span><span class="w"> </span><span class="n">datatype</span><span class="p">,</span><span class="w"></span>
-<span class="w">   </span><span class="p">....</span><span class="w"></span>
-<span class="p">);</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">column1</span><span class="w"> </span><span class="n">datatype</span><span class="p">,</span>
+<span class="w">    </span><span class="n">column2</span><span class="w"> </span><span class="n">datatype</span><span class="p">,</span>
+<span class="w">    </span><span class="n">column3</span><span class="w"> </span><span class="n">datatype</span><span class="p">,</span>
+<span class="w">   </span><span class="p">....</span>
+<span class="p">);</span>
 </pre></div>
 </div>
 </section>
 <section id="alter-table">
 <h3><span class="section-number">2.1.3.2. </span>Alter table<a class="headerlink" href="#alter-table" title="Permalink to this heading">#</a></h3>
 <p>The ALTER TABLE statement is used to add, delete, or modify columns in an existing table.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">table_name</span><span class="w"></span>
-<span class="k">ADD</span><span class="w"> </span><span class="k">column_name</span><span class="w"> </span><span class="n">datatype</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">table_name</span>
+<span class="k">ADD</span><span class="w"> </span><span class="k">column_name</span><span class="w"> </span><span class="n">datatype</span><span class="p">;</span>
 
-<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">table_name</span><span class="w"></span>
-<span class="k">DROP</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="k">column_name</span><span class="p">;</span><span class="w"></span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">table_name</span>
+<span class="k">DROP</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="k">column_name</span><span class="p">;</span>
 
-<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">table_name</span><span class="w"></span>
-<span class="k">ALTER</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="k">column_name</span><span class="w"> </span><span class="n">datatype</span><span class="p">;</span><span class="w"></span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">table_name</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="k">column_name</span><span class="w"> </span><span class="n">datatype</span><span class="p">;</span>
 </pre></div>
 </div>
 </section>
@@ -702,23 +702,23 @@ document.write(`
 <h3><span class="section-number">2.1.3.3. </span>Insert<a class="headerlink" href="#insert" title="Permalink to this heading">#</a></h3>
 <p>THÊM DỮ LIỆU VÀO TRONG TABLE</p>
 <p><strong>1.cú pháp insert từng row</strong></p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="k">table</span><span class="p">(</span><span class="n">col1</span><span class="p">,</span><span class="n">col2</span><span class="p">,...)</span><span class="w"></span>
-<span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="n">val1</span><span class="p">,</span><span class="n">val2</span><span class="p">,...)</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="k">table</span><span class="p">(</span><span class="n">col1</span><span class="p">,</span><span class="n">col2</span><span class="p">,...)</span>
+<span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="n">val1</span><span class="p">,</span><span class="n">val2</span><span class="p">,...)</span>
 </pre></div>
 </div>
 <p><strong>2.cú pháp insert nhiều row theo bảng có sẵn</strong></p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="k">table</span><span class="p">(</span><span class="n">col1</span><span class="p">,</span><span class="n">col2</span><span class="p">)</span><span class="w"></span>
-<span class="k">SELECT</span><span class="w"> </span><span class="n">to_col1</span><span class="p">,</span><span class="w"> </span><span class="n">to_col2</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">TABLE1</span><span class="w"></span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">conditions</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="k">table</span><span class="p">(</span><span class="n">col1</span><span class="p">,</span><span class="n">col2</span><span class="p">)</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">to_col1</span><span class="p">,</span><span class="w"> </span><span class="n">to_col2</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">TABLE1</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">conditions</span>
 </pre></div>
 </div>
 </section>
 <section id="update">
 <h3><span class="section-number">2.1.3.4. </span>Update<a class="headerlink" href="#update" title="Permalink to this heading">#</a></h3>
 <p>SỬA ROW TRONG TABLE</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">UPDATE</span><span class="w"> </span><span class="k">table</span><span class="w"></span>
-<span class="k">SET</span><span class="w"> </span><span class="n">col1</span><span class="o">=</span><span class="n">value2</span><span class="p">,</span><span class="n">col2</span><span class="o">=</span><span class="n">value2</span><span class="p">,...</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">UPDATE</span><span class="w"> </span><span class="k">table</span>
+<span class="k">SET</span><span class="w"> </span><span class="n">col1</span><span class="o">=</span><span class="n">value2</span><span class="p">,</span><span class="n">col2</span><span class="o">=</span><span class="n">value2</span><span class="p">,...</span>
 <span class="k">WHERE</span><span class="w"> </span><span class="n">conditions</span><span class="w"> </span>
 </pre></div>
 </div>
@@ -727,8 +727,8 @@ document.write(`
 <section id="delete">
 <h3><span class="section-number">2.1.3.5. </span>Delete<a class="headerlink" href="#delete" title="Permalink to this heading">#</a></h3>
 <p>XÓA ROW TRONG TABLE</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DELETE</span><span class="w"> </span><span class="p">[</span><span class="k">FROM</span><span class="p">]</span><span class="w"> </span><span class="k">table</span><span class="w"></span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">conditions</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DELETE</span><span class="w"> </span><span class="p">[</span><span class="k">FROM</span><span class="p">]</span><span class="w"> </span><span class="k">table</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">conditions</span>
 </pre></div>
 </div>
 </section>
@@ -736,19 +736,19 @@ document.write(`
 <h3><span class="section-number">2.1.3.6. </span>Truncate<a class="headerlink" href="#truncate" title="Permalink to this heading">#</a></h3>
 <p>XÓA TOÀN BỘ DATA TRONG TABLE
 TƯƠNG ĐƯƠNG với <code class="docutils literal notranslate"><span class="pre">DELETE</span></code> mà không có <code class="docutils literal notranslate"><span class="pre">WHERE</span></code></p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">TRUNCATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">table</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">TRUNCATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">table</span>
 </pre></div>
 </div>
 </section>
 <section id="indexing">
 <h3><span class="section-number">2.1.3.7. </span>Indexing<a class="headerlink" href="#indexing" title="Permalink to this heading">#</a></h3>
 <p><strong>1. Create index</strong></p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">index_name</span><span class="w"></span>
-<span class="k">ON</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="p">(</span><span class="n">column1</span><span class="p">,</span><span class="w"> </span><span class="n">column2</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">index_name</span>
+<span class="k">ON</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="p">(</span><span class="n">column1</span><span class="p">,</span><span class="w"> </span><span class="n">column2</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span>
 </pre></div>
 </div>
 <p><strong>2. Remove index</strong></p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DROP</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">index_name</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">table_name</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DROP</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">index_name</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">table_name</span><span class="p">;</span>
 </pre></div>
 </div>
 </section>
@@ -760,19 +760,19 @@ TƯƠNG ĐƯƠNG với <code class="docutils literal notranslate"><span class="p
 <li><p><strong>Hủy bỏ thao tác transaction này, mở ra 1 transaction mới</strong> <code class="docutils literal notranslate"><span class="pre">ROLLBACK</span></code> [TO savepoint_name]</p></li>
 <li><p><strong>Tạo bookmark điểm <code class="docutils literal notranslate"><span class="pre">COMMIT</span></code> or <code class="docutils literal notranslate"><span class="pre">ROLLBACK</span></code></strong> <code class="docutils literal notranslate"><span class="pre">SAVEPOINT</span> <span class="pre">savepoint_name</span></code></p></li>
 </ul>
-<div class="highlight-SQL notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="k">table</span><span class="p">(</span><span class="n">col1</span><span class="p">,</span><span class="n">col2</span><span class="p">)</span><span class="w"></span>
-<span class="k">SELECT</span><span class="w"> </span><span class="n">to_col1</span><span class="p">,</span><span class="w"> </span><span class="n">to_col2</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">TABLE1</span><span class="w"></span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">conditions</span><span class="w"></span>
-<span class="n">SAVEPOINT</span><span class="w"> </span><span class="n">insert_done</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-SQL notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="k">table</span><span class="p">(</span><span class="n">col1</span><span class="p">,</span><span class="n">col2</span><span class="p">)</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">to_col1</span><span class="p">,</span><span class="w"> </span><span class="n">to_col2</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">TABLE1</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">conditions</span>
+<span class="n">SAVEPOINT</span><span class="w"> </span><span class="n">insert_done</span><span class="p">;</span>
 
-<span class="k">DELETE</span><span class="w"> </span><span class="p">[</span><span class="k">FROM</span><span class="p">]</span><span class="w"> </span><span class="k">table</span><span class="w"></span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">conditions</span><span class="w"></span>
-<span class="n">SAVEPOINT</span><span class="w"> </span><span class="n">delete_done</span><span class="p">;</span><span class="w"></span>
+<span class="k">DELETE</span><span class="w"> </span><span class="p">[</span><span class="k">FROM</span><span class="p">]</span><span class="w"> </span><span class="k">table</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">conditions</span>
+<span class="n">SAVEPOINT</span><span class="w"> </span><span class="n">delete_done</span><span class="p">;</span>
 
-<span class="k">ROLLBACK</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">insert_done</span><span class="w"></span>
-<span class="k">ROLLBACK</span><span class="w"></span>
-<span class="k">COMMIT</span><span class="w"></span>
+<span class="k">ROLLBACK</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">insert_done</span>
+<span class="k">ROLLBACK</span>
+<span class="k">COMMIT</span>
 </pre></div>
 </div>
 </section>
@@ -788,19 +788,19 @@ TƯƠNG ĐƯƠNG với <code class="docutils literal notranslate"><span class="p
 <li><p>Nếu 2 bảng có 2 tên giống nhau nhưng type data khác nhau thì báo <code class="docutils literal notranslate"><span class="pre">ERROR</span></code></p></li>
 <li><p>Chọn ROW cùng giá trị giữa các Key-column và ghép lại với nhau</p></li>
 </ul>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">STOCK</span><span class="p">,</span><span class="w"> </span><span class="n">CLOSE_P</span><span class="p">,</span><span class="w"> </span><span class="n">VOLUME_S</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span><span class="w"></span>
-<span class="k">NATURAL</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">TABLE2</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">STOCK</span><span class="p">,</span><span class="w"> </span><span class="n">CLOSE_P</span><span class="p">,</span><span class="w"> </span><span class="n">VOLUME_S</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span>
+<span class="k">NATURAL</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">TABLE2</span>
 </pre></div>
 </div>
 </section>
 <section id="using">
 <h4><span class="section-number">2.1.5.1.2. </span>USING<a class="headerlink" href="#using" title="Permalink to this heading">#</a></h4>
 <p>Chỉ định 1 or 1 vài columns cùng tên để match</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">STOCK</span><span class="p">,</span><span class="n">a</span><span class="p">.</span><span class="n">STOCK_ID</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">CLOSE_P</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">VOLUME_S</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">TABLE2</span><span class="w"> </span><span class="n">b</span><span class="w"></span>
-<span class="k">USING</span><span class="w"> </span><span class="p">(</span><span class="n">STOCK_ID</span><span class="p">)</span><span class="w"></span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">STOCK_ID</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;AC%&#39;</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">STOCK</span><span class="p">,</span><span class="n">a</span><span class="p">.</span><span class="n">STOCK_ID</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">CLOSE_P</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">VOLUME_S</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">TABLE2</span><span class="w"> </span><span class="n">b</span>
+<span class="k">USING</span><span class="w"> </span><span class="p">(</span><span class="n">STOCK_ID</span><span class="p">)</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">STOCK_ID</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;AC%&#39;</span>
 </pre></div>
 </div>
 <p><strong>Chú ý:</strong></p>
@@ -811,16 +811,16 @@ TƯƠNG ĐƯƠNG với <code class="docutils literal notranslate"><span class="p
 <section id="on">
 <h4><span class="section-number">2.1.5.1.3. </span>ON<a class="headerlink" href="#on" title="Permalink to this heading">#</a></h4>
 <p>JOIN TRÊN 1 CONDITIONS NÀO ĐÓ</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">STOCK</span><span class="p">,</span><span class="n">a</span><span class="p">.</span><span class="n">STOCK_ID</span><span class="p">,</span><span class="n">b</span><span class="p">.</span><span class="n">STOCK_ID</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">VOLUME_S</span><span class="p">,</span><span class="k">c</span><span class="p">.</span><span class="n">volume_sp</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">STOCK</span><span class="p">,</span><span class="n">a</span><span class="p">.</span><span class="n">STOCK_ID</span><span class="p">,</span><span class="n">b</span><span class="p">.</span><span class="n">STOCK_ID</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">VOLUME_S</span><span class="p">,</span><span class="k">c</span><span class="p">.</span><span class="n">volume_sp</span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span><span class="w"> </span><span class="n">a</span><span class="w"> </span>
-<span class="k">JOIN</span><span class="w"> </span><span class="n">TABLE2</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">STOCK_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">STOCK_ID</span><span class="p">)</span><span class="w"></span>
+<span class="k">JOIN</span><span class="w"> </span><span class="n">TABLE2</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">STOCK_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">STOCK_ID</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><strong>Join nhiều hơn 2 bảng</strong></p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">STOCK</span><span class="p">,</span><span class="n">a</span><span class="p">.</span><span class="n">STOCK_ID</span><span class="p">,</span><span class="n">b</span><span class="p">.</span><span class="n">STOCK_ID</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">VOLUME_S</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">STOCK</span><span class="p">,</span><span class="n">a</span><span class="p">.</span><span class="n">STOCK_ID</span><span class="p">,</span><span class="n">b</span><span class="p">.</span><span class="n">STOCK_ID</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">VOLUME_S</span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span><span class="w"> </span><span class="n">a</span><span class="w"> </span>
-<span class="k">JOIN</span><span class="w"> </span><span class="n">TABLE2</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">STOCK_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">STOCK_ID</span><span class="p">)</span><span class="w"></span>
-<span class="k">JOIN</span><span class="w"> </span><span class="n">TABLE3</span><span class="w"> </span><span class="k">c</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">volumn_s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">volume_sp</span><span class="p">)</span><span class="w"></span>
+<span class="k">JOIN</span><span class="w"> </span><span class="n">TABLE2</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">STOCK_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">STOCK_ID</span><span class="p">)</span>
+<span class="k">JOIN</span><span class="w"> </span><span class="n">TABLE3</span><span class="w"> </span><span class="k">c</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">volumn_s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">volume_sp</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -886,9 +886,9 @@ TƯƠNG ĐƯƠNG với <code class="docutils literal notranslate"><span class="p
 <ul class="simple">
 <li><p>Muốn tìm tên của manager : join manager_id với employee_id</p></li>
 </ul>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">employee_id</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">Name_employee</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">manager_id</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">Name_employee</span><span class="w"> </span><span class="n">Name_manager</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">employee_id</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">Name_employee</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">manager_id</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">Name_employee</span><span class="w"> </span><span class="n">Name_manager</span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">EMPLOYEES</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">EMPLOYEES</span><span class="w"> </span><span class="n">m</span><span class="w"> </span>
-<span class="k">ON</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">manager_id</span><span class="o">=</span><span class="n">m</span><span class="p">.</span><span class="n">employee_id</span><span class="p">)</span><span class="w"></span>
+<span class="k">ON</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">manager_id</span><span class="o">=</span><span class="n">m</span><span class="p">.</span><span class="n">employee_id</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -927,9 +927,9 @@ TƯƠNG ĐƯƠNG với <code class="docutils literal notranslate"><span class="p
 <ul class="simple">
 <li><p>Dựa vào bản <code class="docutils literal notranslate"><span class="pre">RAKING_RETURN</span></code> để xếp hạng <code class="docutils literal notranslate"><span class="pre">STOCK</span></code> trong bảng <code class="docutils literal notranslate"><span class="pre">ALLSTOCKTEST</span></code></p></li>
 </ul>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">STOCK</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">DAY_TRADING</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">RETURN_S</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">Rating</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">RAKING_RETURN</span><span class="w"> </span><span class="n">b</span><span class="w"></span>
-<span class="k">ON</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">RETURN_S</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">lowest_return</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">Highest_return</span><span class="p">)</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">STOCK</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">DAY_TRADING</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">RETURN_S</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">Rating</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">RAKING_RETURN</span><span class="w"> </span><span class="n">b</span>
+<span class="k">ON</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">RETURN_S</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">lowest_return</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">Highest_return</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -937,9 +937,9 @@ TƯƠNG ĐƯƠNG với <code class="docutils literal notranslate"><span class="p
 <h3><span class="section-number">2.1.5.4. </span>Outer Join<a class="headerlink" href="#outer-join" title="Permalink to this heading">#</a></h3>
 <p>Lấy Full 1 bên table, kể cả những row ko có data để ghép bên bảng kia</p>
 <p><code class="docutils literal notranslate"><span class="pre">LEFT</span> <span class="pre">OUTER</span> <span class="pre">JOIN</span></code> / <code class="docutils literal notranslate"><span class="pre">RIGHT</span> <span class="pre">OUTER</span> <span class="pre">JOIN</span></code> / <code class="docutils literal notranslate"><span class="pre">FULL</span> <span class="pre">OUTER</span> <span class="pre">JOIN</span></code></p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">STOCK</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">DAY_TRADING</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">RETURN_S</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">Rating</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">LEFT</span><span class="w"> </span><span class="k">OUTER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">RAKING_RETURN</span><span class="w"> </span><span class="n">b</span><span class="w"></span>
-<span class="k">ON</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">RETURN_S</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">lowest_return</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">Highest_return</span><span class="p">)</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">STOCK</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">DAY_TRADING</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">RETURN_S</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">Rating</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">LEFT</span><span class="w"> </span><span class="k">OUTER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">RAKING_RETURN</span><span class="w"> </span><span class="n">b</span>
+<span class="k">ON</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">RETURN_S</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">lowest_return</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">Highest_return</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -947,8 +947,8 @@ TƯƠNG ĐƯƠNG với <code class="docutils literal notranslate"><span class="p
 <h3><span class="section-number">2.1.5.5. </span>Cross Join<a class="headerlink" href="#cross-join" title="Permalink to this heading">#</a></h3>
 <p>Join không cần điều kiện gì, mục đích để tạo table có nhiều dòng:
 <code class="docutils literal notranslate"><span class="pre">Table1(10rows)</span> <span class="pre">x</span> <span class="pre">Table2(15rows)</span> <span class="pre">=</span> <span class="pre">Table3(150rows)</span></code></p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="n">STOCK</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="n">CLOSE_P</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">SECTOR_S</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="k">CROSS</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">TABLE2</span><span class="w"> </span><span class="n">B</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="n">STOCK</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="n">CLOSE_P</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">SECTOR_S</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="k">CROSS</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">TABLE2</span><span class="w"> </span><span class="n">B</span>
 </pre></div>
 </div>
 </section>
@@ -958,7 +958,7 @@ TƯƠNG ĐƯƠNG với <code class="docutils literal notranslate"><span class="p
 <section id="describe">
 <h3><span class="section-number">2.1.6.1. </span>Describe<a class="headerlink" href="#describe" title="Permalink to this heading">#</a></h3>
 <p><strong>DESCRISE</strong> table:</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DESC</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DESC</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span><span class="p">;</span>
 </pre></div>
 </div>
 </section>
@@ -966,12 +966,12 @@ TƯƠNG ĐƯƠNG với <code class="docutils literal notranslate"><span class="p
 <h3><span class="section-number">2.1.6.2. </span>Select table<a class="headerlink" href="#select-table" title="Permalink to this heading">#</a></h3>
 <p><strong>chọn toàn bộ table</strong></p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">TABLETEST</span><span class="p">;</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">TABLETEST</span><span class="p">;</span>
 </pre></div>
 </div>
 <p><strong>chọn 1 số columns table</strong></p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">col1</span><span class="p">,</span><span class="n">col2</span><span class="w"> </span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">TABLETEST</span><span class="p">;</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">TABLETEST</span><span class="p">;</span>
 </pre></div>
 </div>
 <div class="cell docutils container">
@@ -1114,7 +1114,7 @@ TƯƠNG ĐƯƠNG với <code class="docutils literal notranslate"><span class="p
 </div>
 <p><strong>Column Alias</strong> : ký hiệu tên column</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">col1</span><span class="w"> </span><span class="n">col1_alias</span><span class="p">,</span><span class="n">col2</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">col2_alias</span><span class="p">,</span><span class="w"> </span><span class="n">col3</span><span class="w"> </span><span class="ss">&quot;col3 alias&quot;</span><span class="p">,</span><span class="n">col4</span><span class="w"> </span><span class="ss">&quot;Col4!#AliAS&quot;</span><span class="w"> </span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">TABLETEST</span><span class="p">;</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">TABLETEST</span><span class="p">;</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -1236,7 +1236,7 @@ TƯƠNG ĐƯƠNG với <code class="docutils literal notranslate"><span class="p
 </div></div></div>
 </div>
 <p>nối giá trị với ‘literal string’</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="s1">&#39;giá của &#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">STOCK</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39; vào ngày&#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">DAY_TRADING</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39; là &#39;</span><span class="o">||</span><span class="n">close_p</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">StatusStock</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="s1">&#39;giá của &#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">STOCK</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39; vào ngày&#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">DAY_TRADING</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39; là &#39;</span><span class="o">||</span><span class="n">close_p</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">StatusStock</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span>
 </pre></div>
 </div>
 <p>or use q’[string has ‘ comma]’</p>
@@ -1244,7 +1244,7 @@ TƯƠNG ĐƯƠNG với <code class="docutils literal notranslate"><span class="p
 </pre></div>
 </div>
 <p>or use 2 single quote <code class="docutils literal notranslate"><span class="pre">''</span></code></p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="s1">&#39;The &#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">STOCK</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;&#39;&#39;s close price on &#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">DAY_TRADING</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39; is &#39;</span><span class="o">||</span><span class="n">close_p</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">StatusStock</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="s1">&#39;The &#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">STOCK</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;&#39;&#39;s close price on &#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">DAY_TRADING</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39; is &#39;</span><span class="o">||</span><span class="n">close_p</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">StatusStock</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span>
 </pre></div>
 </div>
 </section>
@@ -1252,7 +1252,7 @@ TƯƠNG ĐƯƠNG với <code class="docutils literal notranslate"><span class="p
 <h3><span class="section-number">2.1.6.3. </span>Distinct<a class="headerlink" href="#distinct" title="Permalink to this heading">#</a></h3>
 <p>select loại bỏ trùng lặp</p>
 <p><strong>Select + loại bỏ giá trị trùng lặp</strong></p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="n">STOCK</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="n">STOCK</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span>
 </pre></div>
 </div>
 <div class="cell docutils container">
@@ -1305,9 +1305,9 @@ TƯƠNG ĐƯƠNG với <code class="docutils literal notranslate"><span class="p
 </section>
 <section id="filter">
 <h3><span class="section-number">2.1.6.4. </span>Filter<a class="headerlink" href="#filter" title="Permalink to this heading">#</a></h3>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">col1</span><span class="p">,</span><span class="n">col2</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">tabletest</span><span class="w"></span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">conditions</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">col1</span><span class="p">,</span><span class="n">col2</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">tabletest</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">conditions</span>
 </pre></div>
 </div>
 <table class="table">
@@ -1569,9 +1569,9 @@ TƯƠNG ĐƯƠNG với <code class="docutils literal notranslate"><span class="p
 </div></div></div>
 </div>
 <p>Sử dụng <code class="docutils literal notranslate"><span class="pre">escape</span></code> nếu muốn where-like pattern chứa ký tự thường là ‘%’ hoặc ‘_’</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">col1</span><span class="p">,</span><span class="n">col2</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">tabletest</span><span class="w"></span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">last_name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;Khong\_Tien%&#39;</span><span class="w"> </span><span class="k">ESCAPE</span><span class="w"> </span><span class="s1">&#39;\&#39;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">col1</span><span class="p">,</span><span class="n">col2</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">tabletest</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">last_name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;Khong\_Tien%&#39;</span><span class="w"> </span><span class="k">ESCAPE</span><span class="w"> </span><span class="s1">&#39;\&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>khi đó filter last_name = ‘Khong_Tien…’</p>
@@ -1783,10 +1783,10 @@ TƯƠNG ĐƯƠNG với <code class="docutils literal notranslate"><span class="p
 </section>
 <section id="sorted">
 <h3><span class="section-number">2.1.6.5. </span>Sorted<a class="headerlink" href="#sorted" title="Permalink to this heading">#</a></h3>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">col1</span><span class="p">,</span><span class="n">col2</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">tabletest</span><span class="w"></span>
-<span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="n">conditions</span><span class="p">]</span><span class="w"></span>
-<span class="p">[</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">Col1</span><span class="w"> </span><span class="p">[</span><span class="k">DESC</span><span class="p">],</span><span class="n">col2</span><span class="w"> </span><span class="p">[</span><span class="k">DESC</span><span class="p">],..]</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">col1</span><span class="p">,</span><span class="n">col2</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">tabletest</span>
+<span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="n">conditions</span><span class="p">]</span>
+<span class="p">[</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">Col1</span><span class="w"> </span><span class="p">[</span><span class="k">DESC</span><span class="p">],</span><span class="n">col2</span><span class="w"> </span><span class="p">[</span><span class="k">DESC</span><span class="p">],..]</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -2058,11 +2058,11 @@ TƯƠNG ĐƯƠNG với <code class="docutils literal notranslate"><span class="p
 </section>
 <section id="group-by">
 <h3><span class="section-number">2.1.6.6. </span>Group by<a class="headerlink" href="#group-by" title="Permalink to this heading">#</a></h3>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">col1</span><span class="p">,</span><span class="n">col2</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">tabletest</span><span class="w"></span>
-<span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="n">conditions</span><span class="p">]</span><span class="w"></span>
-<span class="p">[</span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">expression</span><span class="p">]</span><span class="w"></span>
-<span class="p">[</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">Col1</span><span class="w"> </span><span class="p">[</span><span class="k">DESC</span><span class="p">],</span><span class="n">col2</span><span class="w"> </span><span class="p">[</span><span class="k">DESC</span><span class="p">],..]</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">col1</span><span class="p">,</span><span class="n">col2</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">tabletest</span>
+<span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="n">conditions</span><span class="p">]</span>
+<span class="p">[</span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">expression</span><span class="p">]</span>
+<span class="p">[</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">Col1</span><span class="w"> </span><span class="p">[</span><span class="k">DESC</span><span class="p">],</span><span class="n">col2</span><span class="w"> </span><span class="p">[</span><span class="k">DESC</span><span class="p">],..]</span>
 </pre></div>
 </div>
 <div class="cell docutils container">
@@ -2247,12 +2247,12 @@ TƯƠNG ĐƯƠNG với <code class="docutils literal notranslate"><span class="p
 <section id="group-by-having">
 <h3><span class="section-number">2.1.6.7. </span>Group by + having<a class="headerlink" href="#group-by-having" title="Permalink to this heading">#</a></h3>
 <p>tạo bộ lọc sau khi đã chạy GROUP BY</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">col1</span><span class="p">,</span><span class="n">col2</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">tabletest</span><span class="w"></span>
-<span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="n">conditions</span><span class="p">]</span><span class="w"></span>
-<span class="p">[</span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">expression</span><span class="p">]</span><span class="w"></span>
-<span class="p">[</span><span class="k">HAVING</span><span class="w"> </span><span class="n">conditions</span><span class="p">]</span><span class="w"></span>
-<span class="p">[</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">Col1</span><span class="w"> </span><span class="p">[</span><span class="k">DESC</span><span class="p">],</span><span class="n">col2</span><span class="w"> </span><span class="p">[</span><span class="k">DESC</span><span class="p">],..]</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">col1</span><span class="p">,</span><span class="n">col2</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">tabletest</span>
+<span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="n">conditions</span><span class="p">]</span>
+<span class="p">[</span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">expression</span><span class="p">]</span>
+<span class="p">[</span><span class="k">HAVING</span><span class="w"> </span><span class="n">conditions</span><span class="p">]</span>
+<span class="p">[</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">Col1</span><span class="w"> </span><span class="p">[</span><span class="k">DESC</span><span class="p">],</span><span class="n">col2</span><span class="w"> </span><span class="p">[</span><span class="k">DESC</span><span class="p">],..]</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -2372,19 +2372,19 @@ TƯƠNG ĐƯƠNG với <code class="docutils literal notranslate"><span class="p
 <li><p>Số lượng column ở 2 câu query phải như nhau, data-type từng column tương ứng phải giống nhau</p></li>
 <li><p>Tên column sẽ lấy tên column ở câu query thứ 1</p></li>
 </ul>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">STOCK</span><span class="p">,</span><span class="n">CLOSE_P</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span><span class="w"></span>
-<span class="k">UNION</span><span class="w"></span>
-<span class="k">SELECT</span><span class="w"> </span><span class="n">STOCK</span><span class="p">,</span><span class="n">CLOSE_P</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKS</span><span class="w"></span>
-<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">STOCK</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">STOCK</span><span class="p">,</span><span class="n">CLOSE_P</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span>
+<span class="k">UNION</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">STOCK</span><span class="p">,</span><span class="n">CLOSE_P</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKS</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">STOCK</span>
 </pre></div>
 </div>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">STOCK</span><span class="p">,</span><span class="n">RETURN_P</span><span class="p">,</span><span class="w"> </span><span class="n">TO_CHAR</span><span class="p">(</span><span class="k">NULL</span><span class="p">)</span><span class="w"> </span><span class="n">NOTE</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span><span class="w"></span>
-<span class="k">UNION</span><span class="w"> </span><span class="k">ALL</span><span class="w"></span>
-<span class="k">SELECT</span><span class="w"> </span><span class="n">STOCK</span><span class="p">,</span><span class="n">TO_Number</span><span class="p">(</span><span class="k">NULL</span><span class="p">),</span><span class="w"> </span><span class="n">NOTE_STOCK</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKS</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">STOCK</span><span class="p">,</span><span class="n">RETURN_P</span><span class="p">,</span><span class="w"> </span><span class="n">TO_CHAR</span><span class="p">(</span><span class="k">NULL</span><span class="p">)</span><span class="w"> </span><span class="n">NOTE</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span>
+<span class="k">UNION</span><span class="w"> </span><span class="k">ALL</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">STOCK</span><span class="p">,</span><span class="n">TO_Number</span><span class="p">(</span><span class="k">NULL</span><span class="p">),</span><span class="w"> </span><span class="n">NOTE_STOCK</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKS</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -2393,9 +2393,9 @@ TƯƠNG ĐƯƠNG với <code class="docutils literal notranslate"><span class="p
 </section>
 <section id="subqueries">
 <h3><span class="section-number">2.1.6.9. </span>Subqueries<a class="headerlink" href="#subqueries" title="Permalink to this heading">#</a></h3>
-<div class="highlight-SQL notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">STOCK</span><span class="p">,</span><span class="n">CLOSE_P</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span><span class="w"></span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">CLOSE_P</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="k">MAX</span><span class="p">(</span><span class="n">CLOSE_P</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">STOCK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;ACB&#39;</span><span class="p">)</span><span class="w"></span>
+<div class="highlight-SQL notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">STOCK</span><span class="p">,</span><span class="n">CLOSE_P</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">CLOSE_P</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="k">MAX</span><span class="p">(</span><span class="n">CLOSE_P</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">STOCK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;ACB&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><strong>Single-row Subquery</strong> : câu subquery return ra 1 row
@@ -2405,10 +2405,10 @@ khi đó ta sử dụng các toán tử so sánh 1 row</p>
 <li><p>các multi-row function để trả về 1 row</p></li>
 <li><p>hoặc sử dụng <code class="docutils literal notranslate"><span class="pre">IN</span></code>, <code class="docutils literal notranslate"><span class="pre">ANY</span></code>, <code class="docutils literal notranslate"><span class="pre">ALL</span></code></p></li>
 </ul>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">STOCK</span><span class="p">,</span><span class="n">CLOSE_P</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span><span class="w"></span>
-<span class="k">WHERE</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">CLOSE_P</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">ALL</span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">CLOSE_P</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">STOCK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;ACB&#39;</span><span class="p">)</span><span class="w"></span>
-<span class="k">AND</span><span class="w"> </span><span class="n">STOCK</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">STOCK</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">CLOSE_P</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">STOCK</span><span class="p">,</span><span class="n">CLOSE_P</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">CLOSE_P</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">ALL</span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">CLOSE_P</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">STOCK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;ACB&#39;</span><span class="p">)</span>
+<span class="k">AND</span><span class="w"> </span><span class="n">STOCK</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">STOCK</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">CLOSE_P</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -2914,11 +2914,11 @@ khi đó ta sử dụng các toán tử so sánh 1 row</p>
 <section id="to-char">
 <h4><span class="section-number">2.1.7.4.1. </span>to_char<a class="headerlink" href="#to-char" title="Permalink to this heading">#</a></h4>
 <p>thường dùng cho out-put data</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">SYSDATE</span><span class="p">,</span><span class="s1">&#39;hh24:mi:ss DD/Month/YYYY&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">DAYY</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">SYSDATE</span><span class="p">,</span><span class="s1">&#39;hh24:mi:ss DD/Month/YYYY&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">DAYY</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">dual</span>
 
 <span class="k">SELECT</span><span class="w"> </span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">CLOSE_P</span><span class="p">,</span><span class="s1">&#39;$99,999.00&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">GIA</span><span class="w"> </span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">dual</span>
 </pre></div>
 </div>
 <p>#đưa giá về dạng format, <code class="docutils literal notranslate"><span class="pre">9</span></code> đại diện cho số, <code class="docutils literal notranslate"><span class="pre">0</span></code> đại diện cho không phải số nhưng ép số, <code class="docutils literal notranslate"><span class="pre">$</span></code>/<code class="docutils literal notranslate"><span class="pre">L</span></code> đại diện cho tiền tệ</p>
@@ -2926,9 +2926,9 @@ khi đó ta sử dụng các toán tử so sánh 1 row</p>
 <section id="to-num-to-date">
 <h4><span class="section-number">2.1.7.4.2. </span>to_num / to_date<a class="headerlink" href="#to-num-to-date" title="Permalink to this heading">#</a></h4>
 <p>thường dùng cho in-put data</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">STOCK</span><span class="p">,</span><span class="n">CLOSE_P</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">GIA</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span><span class="w"></span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">DAY_TRADING</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">TO_DATE</span><span class="p">(</span><span class="s1">&#39;21/06/18&#39;</span><span class="p">,</span><span class="s1">&#39;DD/MM/RR&#39;</span><span class="p">)</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">STOCK</span><span class="p">,</span><span class="n">CLOSE_P</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">GIA</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">DAY_TRADING</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">TO_DATE</span><span class="p">(</span><span class="s1">&#39;21/06/18&#39;</span><span class="p">,</span><span class="s1">&#39;DD/MM/RR&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">'DD/MM/RR'</span></code> giúp format <code class="docutils literal notranslate"><span class="pre">'21/06/18'</span></code> cho oracle hiểu được</p>
@@ -2959,11 +2959,11 @@ input parameter có thể là char, num , date, tuy nhiên các kiểu giữ li�
 </tr>
 </tbody>
 </table>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">COALESCE</span><span class="p">(</span><span class="n">TO_char</span><span class="p">(</span><span class="n">close_p</span><span class="p">),</span><span class="n">to_char</span><span class="p">(</span><span class="n">stock</span><span class="p">),</span><span class="s1">&#39;stock ko có data&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">checkdata</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">COALESCE</span><span class="p">(</span><span class="n">TO_char</span><span class="p">(</span><span class="n">close_p</span><span class="p">),</span><span class="n">to_char</span><span class="p">(</span><span class="n">stock</span><span class="p">),</span><span class="s1">&#39;stock ko có data&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">checkdata</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span>
 
-<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">COALESCE</span><span class="p">(</span><span class="n">TO_char</span><span class="p">(</span><span class="n">close_p</span><span class="p">),</span><span class="n">to_char</span><span class="p">(</span><span class="n">stock</span><span class="p">),</span><span class="s1">&#39;stock ko có data&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">checkdata</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span><span class="w"></span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">COALESCE</span><span class="p">(</span><span class="n">TO_char</span><span class="p">(</span><span class="n">close_p</span><span class="p">),</span><span class="n">to_char</span><span class="p">(</span><span class="n">stock</span><span class="p">),</span><span class="s1">&#39;stock ko có data&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">checkdata</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span>
 </pre></div>
 </div>
 </section>
@@ -2984,21 +2984,21 @@ input parameter có thể là char, num , date, tuy nhiên các kiểu giữ li�
 </tr>
 </tbody>
 </table>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">STOCK</span><span class="p">,</span><span class="w"> </span><span class="n">CLOSE_P</span><span class="p">,</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">STOCK</span><span class="p">,</span><span class="w"> </span><span class="n">CLOSE_P</span><span class="p">,</span>
 <span class="k">CASE</span><span class="w"> </span><span class="n">STOCK</span><span class="w"> </span>
-<span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="n">tb</span><span class="p">.</span><span class="n">stock</span><span class="o">=</span><span class="s1">&#39;ACB&#39;</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">CLOSE_P</span><span class="o">*</span><span class="mi">1</span><span class="p">.</span><span class="mi">1</span><span class="w"></span>
-<span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="n">tb</span><span class="p">.</span><span class="n">stock</span><span class="o">&gt;</span><span class="s1">&#39;ACC&#39;</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">CLOSE_P</span><span class="o">*</span><span class="mi">1</span><span class="p">.</span><span class="mi">2</span><span class="w"></span>
-<span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="s1">&#39;AVM&#39;</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">CLOSE_P</span><span class="o">*</span><span class="mi">1</span><span class="p">.</span><span class="mi">3</span><span class="w"></span>
-<span class="w">    </span><span class="k">ELSE</span><span class="w"> </span><span class="n">CLOSE_P</span><span class="w"> </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">NEW_P</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span><span class="w"> </span><span class="n">tb</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="n">tb</span><span class="p">.</span><span class="n">stock</span><span class="o">=</span><span class="s1">&#39;ACB&#39;</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">CLOSE_P</span><span class="o">*</span><span class="mi">1</span><span class="p">.</span><span class="mi">1</span>
+<span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="n">tb</span><span class="p">.</span><span class="n">stock</span><span class="o">&gt;</span><span class="s1">&#39;ACC&#39;</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">CLOSE_P</span><span class="o">*</span><span class="mi">1</span><span class="p">.</span><span class="mi">2</span>
+<span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="s1">&#39;AVM&#39;</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">CLOSE_P</span><span class="o">*</span><span class="mi">1</span><span class="p">.</span><span class="mi">3</span>
+<span class="w">    </span><span class="k">ELSE</span><span class="w"> </span><span class="n">CLOSE_P</span><span class="w"> </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">NEW_P</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span><span class="w"> </span><span class="n">tb</span><span class="p">;</span>
 </pre></div>
 </div>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">STOCK</span><span class="p">,</span><span class="w"> </span><span class="n">CLOSE_P</span><span class="p">,</span><span class="w"></span>
-<span class="n">DECODE</span><span class="p">(</span><span class="n">STOCK</span><span class="p">,</span><span class="s1">&#39;ACB&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">CLOSE_P</span><span class="o">*</span><span class="mi">1</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">             </span><span class="s1">&#39;ACC&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">CLOSE_P</span><span class="o">*</span><span class="mi">1</span><span class="p">.</span><span class="mi">2</span><span class="p">,</span><span class="w"></span>
-<span class="w">             </span><span class="s1">&#39;AVM&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">CLOSE_P</span><span class="o">*</span><span class="mi">1</span><span class="p">.</span><span class="mi">3</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="n">CLOSE_P</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">NEW_P</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span><span class="w"></span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">STOCK</span><span class="p">,</span><span class="w"> </span><span class="n">CLOSE_P</span><span class="p">,</span>
+<span class="n">DECODE</span><span class="p">(</span><span class="n">STOCK</span><span class="p">,</span><span class="s1">&#39;ACB&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">CLOSE_P</span><span class="o">*</span><span class="mi">1</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span>
+<span class="w">             </span><span class="s1">&#39;ACC&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">CLOSE_P</span><span class="o">*</span><span class="mi">1</span><span class="p">.</span><span class="mi">2</span><span class="p">,</span>
+<span class="w">             </span><span class="s1">&#39;AVM&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">CLOSE_P</span><span class="o">*</span><span class="mi">1</span><span class="p">.</span><span class="mi">3</span><span class="p">,</span>
+<span class="w">        </span><span class="n">CLOSE_P</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">NEW_P</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">ALLSTOCKTEST</span>
 </pre></div>
 </div>
 </section>
@@ -3085,7 +3085,10 @@ input parameter có thể là char, num , date, tuy nhiên các kiểu giữ li�
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="0_toc.html"
@@ -3105,7 +3108,10 @@ input parameter có thể là char, num , date, tuy nhiên các kiểu giữ li�
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -3205,7 +3211,7 @@ input parameter có thể là char, num , date, tuy nhiên các kiểu giữ li�
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -3235,7 +3241,7 @@ By Khổng Tiến Đạt
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -3244,8 +3250,8 @@ By Khổng Tiến Đạt
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>

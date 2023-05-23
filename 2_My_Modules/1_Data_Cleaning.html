@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -474,13 +474,13 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">text</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Chuẩn hóa dữ liệu text</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Chuẩn hóa dữ liệu text</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">():</span>
         <span class="k">pass</span>
 
     <span class="k">def</span> <span class="nf">remove_punctuation</span><span class="p">(</span><span class="n">str_data</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Xóa bỏ ký tự đặc biệt và đuôi float .0</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">str_data</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39; +&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">str_data</span><span class="p">))</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
@@ -492,7 +492,7 @@ document.write(`
         <span class="k">return</span> <span class="n">str_data</span>
 
     <span class="k">def</span> <span class="nf">clean</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">space</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">end_dotzero</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">punc</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">nan</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">use_unidecode</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Convert nan/none value ở dạng string thành NaN</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert nan/none value ở dạng string thành NaN</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            _type_: _description_</span>
@@ -871,7 +871,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">address</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;function với thông tin địa chỉ</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;function với thông tin địa chỉ</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        _type_: _description_</span>
@@ -904,7 +904,7 @@ document.write(`
         <span class="k">pass</span>
 
     <span class="k">def</span> <span class="nf">get_province</span><span class="p">(</span><span class="n">address_data</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Xác định tỉnh thành từ địa chỉ</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Xác định tỉnh thành từ địa chỉ</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            address_data (str): _description_</span>
@@ -1403,13 +1403,13 @@ Result contains 34 (89.47%) values in the correct format and 4 null values (10.5
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Chuẩn hóa thông tin của người</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Chuẩn hóa thông tin của người</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">pass</span>
 
     <span class="k">def</span> <span class="nf">gender_standardize</span><span class="p">(</span><span class="n">gender</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Chuẩn hóa giới tính&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Chuẩn hóa giới tính&quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">gender</span> <span class="o">!=</span> <span class="n">gender</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
         <span class="n">gender</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">clean</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">gender</span><span class="p">),</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
@@ -1421,7 +1421,7 @@ Result contains 34 (89.47%) values in the correct format and 4 null values (10.5
             <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
     
     <span class="k">def</span> <span class="nf">birthyear_standardize</span><span class="p">(</span><span class="n">birthyear</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Chuẩn hóa năm sinh</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Chuẩn hóa năm sinh</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            birthyear (_type_): _description_</span>
@@ -1449,7 +1449,7 @@ Result contains 34 (89.47%) values in the correct format and 4 null values (10.5
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">IDcard</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
 
-    <span class="sd">&quot;&quot;&quot; </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Đánh giá một chuỗi có phải là căn cước công dân hợp lệ hay không</span>
 <span class="sd">    Các giá trị trả về:</span>
 <span class="sd">    Type        Ý nghĩa                             Mô tả cách phân loại</span>
@@ -1599,7 +1599,7 @@ Result contains 34 (89.47%) values in the correct format and 4 null values (10.5
         <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">cleankey</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">error</span> <span class="o">=</span> <span class="s1">&#39;ignore&#39;</span><span class="p">)</span> <span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;Làm sạch input</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Làm sạch input</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            error (str, optional): _description_. Defaults to &#39;ignore&#39;.</span>
@@ -1633,7 +1633,7 @@ Result contains 34 (89.47%) values in the correct format and 4 null values (10.5
 
 
     <span class="k">def</span> <span class="nf">typeIDcode</span><span class="p">(</span><span class="bp">self</span><span class="p">,):</span>
-        <span class="sd">&quot;&quot;&quot;Trả ra mã code của ID theo nhóm</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Trả ra mã code của ID theo nhóm</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">def</span> <span class="nf">isAllNumber</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
             <span class="n">text</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
@@ -1733,7 +1733,7 @@ Result contains 34 (89.47%) values in the correct format and 4 null values (10.5
         <span class="k">return</span> <span class="n">get_codetypeID</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cleankey</span><span class="p">())</span>
     
     <span class="k">def</span> <span class="nf">typeIDraw</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Trả ra type of ID raw</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Trả ra type of ID raw</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            _type_: _description_</span>
@@ -1741,7 +1741,7 @@ Result contains 34 (89.47%) values in the correct format and 4 null values (10.5
         <span class="k">return</span> <span class="n">IDcard</span><span class="o">.</span><span class="n">typeError</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">typeIDcode</span><span class="p">()]</span>
 
     <span class="k">def</span> <span class="nf">typeIDstandard</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">error</span> <span class="o">=</span> <span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Trả ra type of ID sau khi chuẩn hóa</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Trả ra type of ID sau khi chuẩn hóa</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            error (str, optional): _description_. Defaults to &#39;ignore&#39;.</span>
@@ -1780,7 +1780,7 @@ Result contains 34 (89.47%) values in the correct format and 4 null values (10.5
                 <span class="k">return</span> <span class="n">IDcard</span><span class="o">.</span><span class="n">typeStandard</span><span class="p">[</span><span class="s1">&#39;5&#39;</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">standardize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">error</span> <span class="o">=</span> <span class="s1">&#39;ignore&#39;</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Hàm chuẩn hóa ID</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Hàm chuẩn hóa ID</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            error (str, optional): _description_. Defaults to &#39;ignore&#39;.</span>
@@ -1814,7 +1814,7 @@ Result contains 34 (89.47%) values in the correct format and 4 null values (10.5
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Phone</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Lấy thông tin từ 1 số điện thoại</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Lấy thông tin từ 1 số điện thoại</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        text (_type_): _description_</span>
@@ -1847,7 +1847,7 @@ Result contains 34 (89.47%) values in the correct format and 4 null values (10.5
         <span class="bp">self</span><span class="o">.</span><span class="n">cleaned</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">standardize</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">cleankey</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Hàm làm sạch input</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Hàm làm sạch input</span>
 
 <span class="sd">        Raises:</span>
 <span class="sd">            ValueError: _description_</span>
@@ -1909,7 +1909,7 @@ Result contains 34 (89.47%) values in the correct format and 4 null values (10.5
             <span class="k">return</span> <span class="n">cleaned</span>
 
     <span class="k">def</span> <span class="nf">standardize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Hàm chuẩn hóa SĐT</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Hàm chuẩn hóa SĐT</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            _type_: _description_</span>
@@ -1925,7 +1925,7 @@ Result contains 34 (89.47%) values in the correct format and 4 null values (10.5
         <span class="k">return</span> <span class="n">res</span>
 
     <span class="k">def</span> <span class="nf">pay_type</span><span class="p">(</span><span class="n">paytype</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Hàm chuẩn hóa thông tin paytype</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Hàm chuẩn hóa thông tin paytype</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            paytype (_type_): _description_</span>
@@ -1952,7 +1952,7 @@ Result contains 34 (89.47%) values in the correct format and 4 null values (10.5
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SI</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Chuẩn hóa mã số BHXH</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Chuẩn hóa mã số BHXH</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        text (_type_): _description_</span>
@@ -2650,7 +2650,10 @@ Result contains 34 (89.47%) values in the correct format and 4 null values (10.5
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="../4_Programming/4_Python.html"
@@ -2670,7 +2673,10 @@ Result contains 34 (89.47%) values in the correct format and 4 null values (10.5
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -2706,7 +2712,7 @@ Result contains 34 (89.47%) values in the correct format and 4 null values (10.5
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -2736,7 +2742,7 @@ By Khổng Tiến Đạt
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -2745,8 +2751,8 @@ By Khổng Tiến Đạt
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>
